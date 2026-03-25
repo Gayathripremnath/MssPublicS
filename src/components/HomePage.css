@@ -1,0 +1,248 @@
+.welcome-section {
+  padding: 60px 0;
+  background-color: var(--white);
+}
+
+.admission-banners {
+  display: flex;
+  gap: 30px;
+  margin-top: -120px; /* Overlap the hero section */
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 10;
+}
+
+.admission-card {
+  flex: 1;
+  background-color: var(--white);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: visible;
+  transition: all 0.3s ease;
+  padding-bottom: 25px;
+}
+
+/* Background lined pattern watermark in bottom left corner */
+.admission-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(158,17,36,0.05) 5px, rgba(158,17,36,0.05) 10px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.admission-card-content {
+  display: flex;
+  align-items: center;
+  padding: 40px 30px;
+  border-radius: 4px;
+}
+
+.admission-icon-wrapper {
+  flex-shrink: 0;
+  margin-right: 25px;
+}
+
+.admission-icon-img {
+  width: 55px;
+  height: auto;
+  filter: grayscale(100%) brightness(0.2); 
+}
+
+.admission-text-wrapper {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.admission-text-wrapper h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--heading-color);
+  margin-bottom: 8px;
+  text-transform: none;
+}
+
+.admission-text-wrapper p {
+  font-family: var(--font-text);
+  font-size: 14px;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.admission-card-bottom {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.admission-circle-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 5px 15px rgba(158, 17, 36, 0.3);
+}
+
+.admission-circle-btn:hover {
+  background-color: var(--heading-color);
+  transform: scale(1.1);
+}
+
+.arrow-down {
+  font-style: normal;
+  font-weight: bold;
+  display: inline;
+}
+
+/* Welcome Area */
+.welcome-area {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.welcome-img-box {
+  flex: 1;
+}
+
+.img-wrapper {
+  position: relative;
+  border: 5px solid #f5f5f5;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.experience-badge .years {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.experience-badge .text {
+  font-size: 14px;
+}
+
+.welcome-text-box {
+  flex: 1;
+}
+
+.section-subtitle {
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 36px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  font-family: var(--font-heading);
+}
+
+.section-title span {
+  color: var(--primary-color);
+}
+
+.title-separator {
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin-bottom: 25px;
+}
+
+.welcome-desc {
+  font-size: 15px;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.read-more-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: 600;
+  transition: background 0.3s;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.read-more-btn:hover {
+  background-color: var(--heading-color);
+}
+
+/* Register Banners Row */
+.register-banners-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.register-banner-item {
+  border: 1px solid #ddd;
+}
+
+.register-banner-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .welcome-area {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .horizontal-admission-banners {
+    margin-top: -20px;
+  }
+  .admission-horizontal-item {
+    flex-direction: column;
+  }
+  .h-banner-left, .h-banner-right {
+    width: 100%;
+    clip-path: none;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+  .register-banners-row {
+    grid-template-columns: 1fr;
+  }
+}

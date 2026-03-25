@@ -1,0 +1,63 @@
+.scroll-progress-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px; /* same corner as floating contact but maybe we adjust spacing in App.jsx or here */
+  z-index: 998; /* just below the floating message box if they overlap, or offset it */
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.scroll-progress-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.progress-circle-wrap {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(var(--primary-color) 0%, transparent 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* The inner circle that creates the 'donut' effect for the progress border */
+.inner-circle {
+  width: 44px; /* inner width */
+  height: 44px;
+  background-color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.inner-circle::after {
+  content: '';
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.inner-circle:hover::after {
+  background-color: var(--heading-color);
+}
+
+.up-icon {
+  color: var(--white);
+  font-size: 14px;
+  z-index: 2;
+  position: relative;
+}

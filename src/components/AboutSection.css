@@ -1,0 +1,289 @@
+.about-school-section {
+  padding: 120px 0;
+  background-color: #fafafa;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* Left Side: Creative Image */
+.about-image-column {
+  flex: 0 0 500px;
+  position: relative;
+}
+
+.about-image-container {
+  position: relative;
+  z-index: 1;
+}
+
+.main-about-img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  display: block;
+}
+
+.about-stats-badge {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 15px 30px rgba(158, 17, 36, 0.3);
+  z-index: 2;
+}
+
+.badge-icon {
+  font-size: 30px;
+  opacity: 0.8;
+}
+
+.badge-text h4 {
+  font-size: 24px;
+  margin: 0;
+  color: var(--white);
+}
+
+.badge-text p {
+  margin: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-shape {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 200px;
+  height: 200px;
+  background-color: var(--primary-color);
+  opacity: 0.05;
+  border-radius: 30% 70% 73% 27% / 47% 41% 59% 53%;
+  z-index: -1;
+  animation: blobMorph 10s linear infinite;
+}
+
+/* Right Side: Text Content */
+.about-text-column {
+  flex: 1;
+}
+
+.section-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tag-line {
+  width: 30px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.tag-text {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.about-main-title {
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.about-main-title span {
+  color: var(--primary-color);
+}
+
+/* Tabs Styling */
+.about-tabs {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 0;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.tab-btn.active {
+  color: var(--primary-color);
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.tab-desc {
+  font-size: 16px;
+  color: var(--text-color);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+/* Features Checks */
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 30px;
+  margin-bottom: 40px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-icon {
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.feature-item span {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--heading-color);
+}
+
+/* Footer Row */
+.about-footer-row {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.btn-modern {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+}
+
+.btn-modern:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+.years-experience {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.wreath-svg {
+  width: 50px;
+  height: 50px;
+  color: var(--primary-color);
+}
+
+.exp-text h3 {
+  font-size: 28px;
+  margin: 0;
+  line-height: 1;
+}
+
+.exp-text p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  .info-item-separator, .welcome-msg {
+    display: none;
+  }
+  .top-bar-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .about-content-wrapper {
+    gap: 40px;
+  }
+  .about-image-column {
+    flex: 0 0 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-content-wrapper {
+    flex-direction: column;
+  }
+  .about-image-column {
+    flex: auto;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .about-stats-badge {
+    right: 0;
+    bottom: -20px;
+  }
+  .about-text-column {
+    text-align: center;
+  }
+  .section-tag {
+    justify-content: center;
+  }
+  .about-tabs {
+    justify-content: center;
+  }
+  .about-footer-row {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+  .about-main-title {
+    font-size: 32px;
+  }
+}

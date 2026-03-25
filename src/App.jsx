@@ -9,6 +9,8 @@ import StudyResources from './components/StudyResources';
 import FloatingContact from './components/FloatingContact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import AboutSection from './components/AboutSection';
+import BlogSection from './components/BlogSection';
 
 
 function App() {
@@ -37,9 +39,10 @@ function App() {
             <>
               <Hero />
               <HomePage />
-
+              <AboutSection />
               <PrincipalMessage />
               <StudyResources />
+              <BlogSection />
             </>
           } />
           {/* Add more routes here as the website grows */}

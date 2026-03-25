@@ -71,7 +71,7 @@ const Navbar = ({ isScrolled, isMobileMenuOpen, setIsMobileMenuOpen }) => {
         </div>
 
         <div className="nav-actions">
-          <button className="action-btn-icon"><FaSearch /></button>
+          <button className="action-btn-icon search-trigger"><FaSearch /></button>
           <span className="action-separator">|</span>
           <button className="action-btn-icon menu-trigger" onClick={toggleMobileMenu}><FaThLarge size={18}/></button>
           <a href="#" className="btn action-btn-apply">Apply Now <FaSignInAlt style={{marginLeft: '8px'}} /></a>

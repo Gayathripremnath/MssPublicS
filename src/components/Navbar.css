@@ -389,6 +389,7 @@
 @media (max-width: 992px) {
   .main-nav { display: none; }
   .action-btn-apply { display: none; }
+  .search-trigger, .action-separator { display: none; } /* Hidden on mobile */
   .nav-content-fluid { padding: 0 15px; height: 70px; } /* Slimmer Navbar */
   .navbar { 
     top: 70px; /* Aligned with TopBar height */

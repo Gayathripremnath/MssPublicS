@@ -82,52 +82,6 @@ const HomePage = () => {
 
         {/* News Marquee under admission section */}
         <NewsMarquee />
-
-        {/* Welcome Area */}
-        <div id="about" className="welcome-area">
-          <motion.div 
-            className="welcome-img-box"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="img-wrapper">
-              <img src="https://msspublicschool.org/images/mss.jpg" alt="Welcome to MSS Public School" />
-              <div className="experience-badge">
-                <span className="years">25+</span>
-                <span className="text">Years of<br/>Excellence</span>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            className="welcome-text-box"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="wel-text">
-              <h4 className="section-subtitle">About Us</h4>
-              <h1 className="section-title">Welcome to <span>M.S.S. Public School</span></h1>
-              <div className="title-separator"></div>
-              
-              <p className="welcome-desc">
-                M.S.S. Public School is a leading mixed school, situated in the suburbs of Kozhikode city. 
-                It caters to the needs of students of the society on masse, irrespective of their caste and creed.
-              </p>
-              <p className="welcome-desc">
-                It prepares students according to the set standards, curricular and co-curricular as well, 
-                prevailing in national and international level.
-              </p>
-              
-              <a href="#" className="read-more-btn">Learn More</a>
-            </div>
-          </motion.div>
-        </div>
-
-       
       </div>
     </section>
   );

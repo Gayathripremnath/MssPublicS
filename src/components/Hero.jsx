@@ -44,23 +44,14 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="hero-text-content"
         >
-          <motion.p 
-            className="hero-subtitle"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
           
-          Welcom to
-          </motion.p>
-
           <motion.div
             className="hero-title-wrapper"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h1 className="hero-title"> MSS Public</h1>
+            <h1 className="hero-title"> International  </h1>
             <div className="hero-title-row">
               <span className="hero-title-icon"><img src={logo} alt="" /></span>
               <h1 className="hero-title">School</h1>

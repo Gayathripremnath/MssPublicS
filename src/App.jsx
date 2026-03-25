@@ -9,7 +9,7 @@ import StudyResources from './components/StudyResources';
 import FloatingContact from './components/FloatingContact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import StatsSection from './components/StatsSection';
+
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,7 +32,7 @@ function App() {
             <>
               <Hero />
               <HomePage />
-              <StatsSection />
+
               <PrincipalMessage />
               <StudyResources />
             </>

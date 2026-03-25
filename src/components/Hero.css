@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  height: 100vh !important;
-  min-height: 100vh !important;
+  height: 110vh !important;
+  min-height: 110vh !important;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -13,7 +13,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh !important;
+  height: 110vh !important;
   z-index: 1;
 }
 
@@ -22,11 +22,18 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh !important;
+  height: 110vh !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed; /* Parallax effect */
+}
+
+@media (max-width: 992px) {
+  .hero, .hero-bg-wrapper, .hero-bg {
+    height: 100vh !important;
+    min-height: 100vh !important;
+  }
 }
 
 @keyframes bgZoom {
@@ -137,7 +144,23 @@
   }
 }
 
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .hero {
+    height: 110vh !important;
+    min-height: 110vh !important;
+  }
+  .hero-bg-wrapper, .hero-bg {
+    height: 110vh !important;
+  }
+}
+
 @media (max-width: 768px) {
+  .hero-bg {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    height: 100vh !important;
+  }
   .hero-title {
     font-size: 45px;
   }

@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +26,12 @@ function App() {
   return (
     <Router>
       <div className="app-wrapper">
-        <TopBar />
-        <Navbar isScrolled={isScrolled} />
+        {!isMobileMenuOpen && <TopBar />}
+        <Navbar 
+          isScrolled={isScrolled} 
+          isMobileMenuOpen={isMobileMenuOpen}
+          setIsMobileMenuOpen={setIsMobileMenuOpen}
+        />
         <Routes>
           <Route path="/" element={
             <>

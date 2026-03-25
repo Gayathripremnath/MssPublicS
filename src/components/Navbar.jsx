@@ -3,9 +3,7 @@ import './Navbar.css';
 import logo from '../assets/mss_logo.png';
 import { FaSearch, FaBars, FaSignOutAlt, FaTimes, FaChevronDown, FaThLarge, FaSignInAlt } from 'react-icons/fa';
 
-const Navbar = ({ isScrolled }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+const Navbar = ({ isScrolled, isMobileMenuOpen, setIsMobileMenuOpen }) => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };

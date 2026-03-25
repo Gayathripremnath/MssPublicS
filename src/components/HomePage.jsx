@@ -127,27 +127,7 @@ const HomePage = () => {
           </motion.div>
         </div>
 
-        {/* Register Section (New) */}
-        <div className="register-banners-row">
-          <motion.div 
-            className="register-banner-item"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <img src="mss_admission_img.jpg" alt="Admission Open" />
-          </motion.div>
-          <motion.div 
-            className="register-banner-item"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <img src="plustwo.jpg" alt="Plus Two Admission" />
-          </motion.div>
-        </div>
+       
       </div>
     </section>
   );

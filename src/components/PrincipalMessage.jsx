@@ -43,7 +43,7 @@ const PrincipalMessage = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="principal-img-wrapper">
-              <img src="https://univet.rstheme.com/red-school/wp-content/uploads/2023/12/team-1.jpg" alt="Principal" />
+              <img src="https://msspublicschool.org/images/sindhu_incharge.jpg" alt="Principal" />
               <div className="principal-info">
                 <h4>Sindhu</h4>
                 <p>Principal In-charge</p>

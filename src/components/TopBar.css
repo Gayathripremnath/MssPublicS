@@ -4,7 +4,10 @@
   padding: 12px 0;
   font-family: var(--font-text);
   font-size: 13px;
-  position: relative;
+  position: absolute; /* Changed from relative */
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -55,6 +58,24 @@
 
 @media (max-width: 992px) {
   .top-bar {
-    display: none; /* Hide top bar on mobile as per standard practice or if space is tight */
+    display: block;
+    padding: 10px 0;
+    position: static;
+  }
+  .top-bar-fluid {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-item-separator, .welcome-msg {
+    display: none;
+  }
+  .top-bar-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
 }

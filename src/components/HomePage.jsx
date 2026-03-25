@@ -93,7 +93,7 @@ const HomePage = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="img-wrapper">
-              <img src="img2.jpg" alt="Welcome to MSS Public School" />
+              <img src="https://msspublicschool.org/images/mss.jpg" alt="Welcome to MSS Public School" />
               <div className="experience-badge">
                 <span className="years">25+</span>
                 <span className="text">Years of<br/>Excellence</span>

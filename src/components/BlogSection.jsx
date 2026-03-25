@@ -6,7 +6,7 @@ import './BlogSection.css';
 const BlogSection = () => {
   const newsItems = [
     {
-      img: "https://msspublicschool.org/images/sliders/004.jpg",
+      img: "https://msspublicschool.org/images/sliders/00.jpg",
       date: "December 9, 2025",
       category: "Educations",
       title: "Advancing Knowledge Through Student Research",
@@ -14,7 +14,7 @@ const BlogSection = () => {
       authorImg: "https://msspublicschool.org/images/mss_logo.png"
     },
     {
-      img: "https://msspublicschool.org/images/sliders/003.jpg",
+      img: "https://msspublicschool.org/images/sliders/002.jpg",
       date: "December 9, 2025",
       category: "Educations",
       title: "Future-Ready Learning University Innovations",

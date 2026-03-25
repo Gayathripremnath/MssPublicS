@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaMicroscope, FaLaptopCode, FaChalkboardTeacher, FaBasketballBall, FaArrowRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './StudyResources.css';
 
 const StudyResources = () => {
   const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const [offsetWidth, setOffsetWidth] = useState(0);
+  const trackRef = useRef(null);
+  const cardRef = useRef(null);
 
   const facilities = [
     {
@@ -38,36 +40,33 @@ const StudyResources = () => {
     }
   ];
 
-  const variants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1
-    },
-    exit: (direction) => ({
-      zIndex: 0,
-      x: direction < 0 ? 300 : -300,
-      opacity: 0
-    })
-  };
-
   const nextStep = () => {
-    setDirection(1);
-    setIndex((prevIndex) => (prevIndex + 1) % facilities.length);
+    setIndex((prev) => (prev + 1) % facilities.length);
   };
 
   const prevStep = () => {
-    setDirection(-1);
-    setIndex((prevIndex) => (prevIndex - 1 + facilities.length) % facilities.length);
+    setIndex((prev) => (prev - 1 + facilities.length) % facilities.length);
   };
 
   useEffect(() => {
+    const calculateWidth = () => {
+      if (cardRef.current) {
+        // Measure the first card + its gap (from track flex gap)
+        const styles = window.getComputedStyle(trackRef.current);
+        const gap = parseInt(styles.gap) || 30;
+        const rect = cardRef.current.getBoundingClientRect();
+        setOffsetWidth(rect.width + gap);
+      }
+    };
+
+    calculateWidth();
+    window.addEventListener('resize', calculateWidth);
+    
     const timer = setInterval(nextStep, 5000);
-    return () => clearInterval(timer);
+    return () => {
+      window.removeEventListener('resize', calculateWidth);
+      clearInterval(timer);
+    };
   }, []);
 
   return (
@@ -91,55 +90,65 @@ const StudyResources = () => {
           </motion.div>
           
           <div className="header-right carousel-controls">
-            <button className="carousel-control-btn" onClick={prevStep}><FaChevronLeft /></button>
-            <button className="carousel-control-btn" onClick={nextStep}><FaChevronRight /></button>
+            <button className="carousel-control-btn" onClick={prevStep} aria-label="Previous"><FaChevronLeft /></button>
+            <button className="carousel-control-btn" onClick={nextStep} aria-label="Next"><FaChevronRight /></button>
           </div>
         </div>
 
-        {/* Carousel Viewport */}
-        <div className="carousel-viewport">
-          <div className="carousel-cards-container">
-               {/* Show 3 cards at a time on desktop, scrolling through them */}
-               {facilities.map((fac, i) => {
-                 // Logic to determine if card should be visible (modelling a window)
-                 const isVisible = (i >= index && i < index + 3) || (index + 3 > facilities.length && i < (index + 3) % facilities.length);
-                 
-                 // However, for simpler animation, we'll use a sliding row
-                 return null;
-               })}
-
-               {/* REFINED SLIDER: CSS-driven with state-controlled transform */}
-               <motion.div 
-                  className="facilities-slider-track"
-                  animate={{ x: `-${index * 430}px` }} // 400px width + 30px gap
-                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
-               >
-                  {/* Triple the items to create a pseudo-infinite feel */}
-                  {[...facilities, ...facilities].map((fac, i) => (
-                    <motion.div 
-                      key={i} 
-                      className="fac-card-new"
-                      whileHover={{ y: -10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="fac-card-img-box">
-                        <img src={fac.img} alt={fac.title} />
+        {/* Carousel Root */}
+        <div className="carousel-root">
+          <div className="carousel-track-wrapper">
+             <motion.div 
+                ref={trackRef}
+                className="facilities-slider-track"
+                animate={{ x: `-${index * offsetWidth}px` }}
+                transition={{ type: "spring", stiffness: 100, damping: 22 }}
+             >
+                {facilities.map((fac, i) => (
+                  <motion.div 
+                    key={i} 
+                    ref={i === 0 ? cardRef : null}
+                    className="fac-card-new"
+                    whileHover={{ y: -10 }}
+                  >
+                    <div className="fac-card-img-box">
+                      <img src={fac.img} alt={fac.title} loading="lazy" />
+                    </div>
+                    <div className="fac-card-content">
+                      <div className="fac-card-title-row">
+                        <span className="fac-card-icon" style={{ color: fac.color }}>{fac.icon}</span>
+                        <h3>{fac.title}</h3>
                       </div>
-                      <div className="fac-card-content">
-                        <div className="fac-card-title-row">
-                          <span className="fac-card-icon" style={{ color: fac.color }}>{fac.icon}</span>
-                          <h3>{fac.title}</h3>
-                        </div>
-                        <p>{fac.desc}</p>
-                        <div className="fac-card-footer">
-                          <a href="#" className="apply-now-btn">
-                            Apply Now <FaArrowRight className="arrow-icon" />
-                          </a>
-                        </div>
+                      <p>{fac.desc}</p>
+                      <div className="fac-card-footer">
+                        <a href="#admission" className="apply-now-btn">
+                          Apply Now <FaArrowRight className="arrow-icon" />
+                        </a>
                       </div>
-                    </motion.div>
-                  ))}
-               </motion.div>
+                    </div>
+                  </motion.div>
+                ))}
+                {/* Visual Clone for smoother wrapping feel on Desktop when cycling */}
+                {facilities.map((fac, i) => (
+                  <div key={`clone-${i}`} className="fac-card-new clone">
+                    <div className="fac-card-img-box">
+                      <img src={fac.img} alt={fac.title} />
+                    </div>
+                    <div className="fac-card-content">
+                      <div className="fac-card-title-row">
+                        <span className="fac-card-icon" style={{ color: fac.color }}>{fac.icon}</span>
+                        <h3>{fac.title}</h3>
+                      </div>
+                      <p>{fac.desc}</p>
+                      <div className="fac-card-footer">
+                        <a href="#admission" className="apply-now-btn">
+                          Apply Now <FaArrowRight className="arrow-icon" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+             </motion.div>
           </div>
         </div>
 

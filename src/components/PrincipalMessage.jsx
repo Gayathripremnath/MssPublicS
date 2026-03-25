@@ -4,7 +4,7 @@ import './PrincipalMessage.css';
 
 const PrincipalMessage = () => {
   return (
-    <section className="principal-section">
+    <section id="principal" className="principal-section">
       <div className="container">
         <div className="principal-content-area">
           <motion.div 

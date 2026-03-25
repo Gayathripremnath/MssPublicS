@@ -25,13 +25,13 @@ const Navbar = ({ isScrolled }) => {
         
         <div className="nav-links-wrapper">
           <ul className="main-nav">
-            <li><a href="#" className="active-link">Home</a></li>
+            <li><a href="#home" className="active-link">Home</a></li>
             <li className="dropdown">
-              <a href="#">About Us <FaChevronDown className="drop-icon" /></a>
+              <a href="#about">About Us <FaChevronDown className="drop-icon" /></a>
               <ul className="dropdown-menu">
                 <li><a href="#">Management</a></li>
                 <li><a href="#">Mandatory Disclosure</a></li>
-                <li><a href="#">Principal's Message</a></li>
+                <li><a href="#principal">Principal's Message</a></li>
                 <li><a href="#">Faculty</a></li>
                 <li><a href="#">News & Events</a></li>
                 <li><a href="#">Activities</a></li>
@@ -60,7 +60,7 @@ const Navbar = ({ isScrolled }) => {
             <li><a href="#">Results</a></li>
             <li><a href="#">Co-Curricular</a></li>
             <li><a href="#">Students</a></li>
-            <li><a href="#">Online Admission</a></li>
+            <li><a href="#admission">Online Admission</a></li>
             <li className="dropdown">
               <a href="#">Gallery <FaChevronDown className="drop-icon" /></a>
               <ul className="dropdown-menu">
@@ -68,7 +68,7 @@ const Navbar = ({ isScrolled }) => {
                 <li><a href="#">Video Gallery</a></li>
               </ul>
             </li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
           </ul>
         </div>
 
@@ -92,13 +92,10 @@ const Navbar = ({ isScrolled }) => {
           <div className="drawer-content">
             <p className="drawer-desc">Empowering students through quality education and excellence since 1998.</p>
             <ul className="drawer-menu-list">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">For CBSE</a></li>
-              <li><a href="#">Results</a></li>
-              <li><a href="#">Co-Curricular</a></li>
-              <li><a href="#">Online Admission</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#admission">Online Admission</a></li>
+              <li><a href="#contact">Contact Us</a></li>
             </ul>
             <div className="drawer-footer">
               <h4>Contact Info</h4>

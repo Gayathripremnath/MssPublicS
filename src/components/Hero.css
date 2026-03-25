@@ -97,7 +97,6 @@
   justify-content: center;
   width: 70px;
   height: 70px;
-  background-color: var(--primary-color);
   color: var(--white);
   border-radius: 12px;
   font-size: 40px;
@@ -155,21 +154,28 @@
 }
 
 @media (max-width: 768px) {
-  .hero-bg {
-    background-size: cover !important;
-    background-position: center center !important;
-    background-attachment: fixed !important;
-    height: 100vh !important;
+  .hero {
+    height: 90vh !important; /* Slightly reduced height for mobile better scaling */
+    min-height: 500px !important;
+  }
+  .hero-bg-wrapper, .hero-bg {
+    height: 90vh !important;
+  }
+  .hero-text-content {
+    text-align: center !important; /* Center text */
+    margin: 0 auto;
+    padding-left: 0 !important; /* Remove desktop indent */
+  }
+  .hero-title-row {
+    justify-content: center !important; /* Center the school title row */
+  }
+  .hero-buttons {
+    justify-content: center !important; /* Center the buttons */
   }
   .hero-title {
-    font-size: 45px;
+    font-size: 38px !important; /* Slightly smaller for mobile fitting */
   }
   .hero-subtitle {
-    font-size: 20px;
-  }
-  .hero-title-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
+     font-size: 18px !important;
   }
 }

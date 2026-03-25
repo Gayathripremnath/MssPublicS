@@ -9,7 +9,7 @@ const HomePage = () => {
       <div className="container">
      
         {/* Admission Banners */}
-        <div className="admission-banners">
+        <div id="admission" className="admission-banners">
           <motion.div 
             className="admission-card"
             initial={{ opacity: 0, y: 30 }}
@@ -84,7 +84,7 @@ const HomePage = () => {
         <NewsMarquee />
 
         {/* Welcome Area */}
-        <div className="welcome-area">
+        <div id="about" className="welcome-area">
           <motion.div 
             className="welcome-img-box"
             initial={{ opacity: 0, x: -50 }}

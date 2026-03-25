@@ -38,7 +38,7 @@ const StudyResources = () => {
   ];
 
   return (
-    <section className="resources-section">
+    <section id="resources" className="resources-section">
       <div className="container">
         <motion.div 
           className="section-header"

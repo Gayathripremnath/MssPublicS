@@ -229,18 +229,9 @@
   color: #777;
 }
 
-@media (max-width: 768px) {
-  .info-item-separator, .welcome-msg {
-    display: none;
-  }
-  .top-bar-right {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
-  }
-}
-
+/* ========================
+   MEDIA QUERIES
+======================== */
 @media (max-width: 1200px) {
   .about-content-wrapper {
     gap: 40px;
@@ -248,11 +239,18 @@
   .about-image-column {
     flex: 0 0 400px;
   }
+  .about-main-title {
+    font-size: 36px;
+  }
 }
 
 @media (max-width: 992px) {
+  .about-school-section {
+    padding: 80px 0;
+  }
   .about-content-wrapper {
     flex-direction: column;
+    gap: 60px;
   }
   .about-image-column {
     flex: auto;
@@ -276,6 +274,22 @@
   .about-footer-row {
     flex-direction: column;
     gap: 30px;
+    align-items: center;
+  }
+  .about-features {
+    justify-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-school-section {
+    padding: 60px 0;
+  }
+  .about-main-title {
+    font-size: 30px;
+  }
+  .tab-btn {
+    font-size: 15px;
   }
 }
 
@@ -284,6 +298,29 @@
     grid-template-columns: 1fr;
   }
   .about-main-title {
-    font-size: 32px;
+    font-size: 26px;
+  }
+  .about-tabs {
+    gap: 15px;
+  }
+  .btn-modern {
+    padding: 12px 25px;
+    font-size: 12px;
   }
 }
+
+@media (max-width: 480px) {
+  .about-school-section {
+    padding: 50px 0;
+  }
+  .about-stats-badge {
+    right: 0;
+    bottom: -15px;
+    padding: 15px;
+    gap: 10px;
+  }
+  .badge-text h4 {
+    font-size: 18px;
+  }
+}
+

@@ -207,7 +207,12 @@ const TeachersSection = () => {
     { name: 'Arlene McCoy', role: 'Principal Assistant', img: teacher1 }, // Mock 4th for carousel feel
   ];
 
-  const dots = Array.from({ length: teachers.length - 2 }, (_, i) => i); // Show 3 at once, so subtract visible
+  const nextStep = () => setIndex((prev) => (prev + 1) % (teachers.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0)));
+  
+  useEffect(() => {
+    const timer = setInterval(nextStep, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id="teachers" className="teachers-section">
@@ -232,7 +237,7 @@ const TeachersSection = () => {
           <div className="teachers-track-wrapper">
             <motion.div 
               className="teachers-track"
-              animate={{ x: `-${index * (100 / (window.innerWidth > 992 ? 3 : window.innerWidth > 600 ? 2 : 1))}%` }}
+              animate={{ x: `-${index * (100 / (window.innerWidth > 800 ? 3 : window.innerWidth > 480 ? 2 : 1))}%` }}
               transition={{ tension: 300, friction: 30, type: "spring" }}
             >
               {teachers.map((t, i) => (
@@ -258,7 +263,7 @@ const TeachersSection = () => {
           </div>
 
           <div className="teachers-dots">
-            {[0, 1].map((dot) => (
+            {[0, 1, 2].map((dot) => (
               <button 
                 key={dot} 
                 className={`dot ${index === dot ? 'active' : ''}`}
@@ -331,8 +336,8 @@ const FacilitiesSection = () => {
     { img: "https://msspublicschool.org/images/sliders/004.jpg", icon: <FaBasketballBall />, title: "Sports & Games", desc: "State-of-the-art sports facilities promoting physical health and a collaborative spirit.", color: "#222" }
   ];
 
-  const nextStep = () => setIndex((prev) => (prev + 1) % (facilities.length - (window.innerWidth > 992 ? 2 : 0)));
-  const prevStep = () => setIndex((prev) => (prev - 1 + (facilities.length - (window.innerWidth > 992 ? 2 : 0))) % (facilities.length - (window.innerWidth > 992 ? 2 : 0)));
+  const nextStep = () => setIndex((prev) => (prev + 1) % (facilities.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0)));
+  const prevStep = () => setIndex((prev) => (prev - 1 + (facilities.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0))) % (facilities.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0)));
 
   useEffect(() => {
     const timer = setInterval(nextStep, 5000);
@@ -347,17 +352,14 @@ const FacilitiesSection = () => {
             <div className="section-tag"><span className="tag-line"></span><span className="tag-text">ACADEMIC FACILITIES</span></div>
             <h2 className="facilities-main-title">We Excel in New Ways</h2>
           </motion.div>
-          <div className="header-right carousel-controls">
-            <button className="carousel-control-btn" onClick={prevStep}><FaChevronLeft /></button>
-            <button className="carousel-control-btn" onClick={nextStep}><FaChevronRight /></button>
-          </div>
+
         </div>
         <div className="carousel-root">
           <div className="carousel-track-wrapper">
             <motion.div 
               ref={trackRef} 
               className="facilities-slider-track" 
-              animate={{ x: `-${index * (100 / (window.innerWidth > 1200 ? 3 : window.innerWidth > 768 ? 2 : 1))}%` }} 
+              animate={{ x: `-${index * (100 / (window.innerWidth > 800 ? 3 : window.innerWidth > 480 ? 2 : 1))}%` }} 
               transition={{ type: "spring", stiffness: 100, damping: 22 }}
             >
               {facilities.map((fac, i) => (
@@ -371,6 +373,15 @@ const FacilitiesSection = () => {
                 </div>
               ))}
             </motion.div>
+          </div>
+          <div className="teachers-dots">
+            {Array.from({ length: facilities.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0) }).map((_, dot) => (
+              <button 
+                key={dot} 
+                className={`dot ${index === dot ? 'active' : ''}`}
+                onClick={() => setIndex(dot)}
+              />
+            ))}
           </div>
         </div>
       </div>

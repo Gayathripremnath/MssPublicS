@@ -4,25 +4,20 @@ import {
   FaCheckCircle, FaUserGraduate, FaCalendarAlt, FaTag,
   FaMicroscope, FaLaptopCode, FaChalkboardTeacher,
   FaBasketballBall, FaArrowRight, FaChevronLeft,
-  FaChevronRight, FaFacebookF, FaInstagram,
-  FaLinkedinIn, FaUserFriends, FaShareAlt,
-  FaBook, FaGraduationCap, FaCertificate, FaGlobe, FaLightbulb, FaSchool
+  FaChevronRight,
+  FaBook, FaGraduationCap, FaCertificate, FaGlobe, FaLightbulb, FaSchool,
+  FaQuoteLeft, FaUsers, FaChevronDown, FaIdBadge, FaLeanpub, FaAddressCard
 } from 'react-icons/fa';
-
-// Assets
-import teacher1 from '../assets/teacher1.png';
-import teacher2 from '../assets/teacher2.png';
-import teacher3 from '../assets/teacher3.png';
-import grad_cap from '../assets/grad_cap.png';
 
 // CSS Imports
 import './NewsMarquee.css';
 import './AboutSection.css';
-import './TeachersSection.css';
 import './PrincipalMessage.css';
 import './StudyResources.css';
 import './BlogSection.css';
 import './BackgroundDecor.css';
+import './AdmissionSection.css';
+import './AcademicDepartments.css';
 
 // ---------------------------------------------------------
 // 0. BackgroundDecorations Component
@@ -196,79 +191,138 @@ const SchoolAbout = () => {
 };
 
 // ---------------------------------------------------------
-// 3. TeachersSection 
+// 2.5 Admission Banners Section (Academic Levels)
 // ---------------------------------------------------------
-const TeachersSection = () => {
-  const [index, setIndex] = useState(0);
-  const teachers = [
-    { name: 'Savannah Nguyen', role: 'Academic Advisor', img: teacher1 },
-    { name: 'Kathryn Murphy', role: 'Support Teacher', img: teacher2 },
-    { name: 'Cameron Williamson', role: 'Assistant Teacher', img: teacher3 },
-    { name: 'Arlene McCoy', role: 'Principal Assistant', img: teacher1 }, // Mock 4th for carousel feel
+const AdmissionSection = () => {
+  return (
+    <section id="admission" className="admission-section">
+      <div className="container">
+        <div className="admission-grid">
+          {/* Card 1 */}
+          <motion.div 
+            className="admission-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="card-icon-box">
+              <FaIdBadge />
+            </div>
+            <div className="card-content">
+              <h3>Junior School</h3>
+              <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
+            </div>
+            <button className="card-arrow-btn">
+              <FaChevronDown />
+            </button>
+          </motion.div>
+
+          {/* Card 2 */}
+          <motion.div 
+            className="admission-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <div className="card-icon-box">
+              <FaLeanpub />
+            </div>
+            <div className="card-content">
+              <h3>Boarding School</h3>
+              <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
+            </div>
+            <button className="card-arrow-btn">
+              <FaChevronDown />
+            </button>
+          </motion.div>
+
+          {/* Card 3 */}
+          <motion.div 
+            className="admission-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <div className="card-icon-box">
+              <FaUserGraduate />
+            </div>
+            <div className="card-content">
+              <h3>Senior School</h3>
+              <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
+            </div>
+            <button className="card-arrow-btn">
+              <FaChevronDown />
+            </button>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ---------------------------------------------------------
+// 2.7 Academic Departments Section
+// ---------------------------------------------------------
+const DepartmentsSection = () => {
+  const departments = [
+    {
+      title: 'Academics',
+      img: 'https://univet.rstheme.com/red-school/wp-content/uploads/2023/12/d1.jpg',
+      desc: 'Our programs are designed to develop skilled academic experts and critical thinkers and our faculty members will guide you.'
+    },
+    {
+      title: 'Art & Culture',
+      img: 'https://univet.rstheme.com/red-school/wp-content/uploads/2023/12/d2.jpg',
+      desc: 'Exploring creative expression and traditional values through comprehensive art programs.'
+    }
   ];
 
-  const nextStep = () => setIndex((prev) => (prev + 1) % (teachers.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0)));
-
-  useEffect(() => {
-    const timer = setInterval(nextStep, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section id="teachers" className="teachers-section">
+    <section id="departments" className="departments-section">
       <div className="container">
-        <header className="teachers-header">
-          <div className="teachers-title-box">
-            <div className="teachers-tag">
-              <FaUserFriends className="tag-icon" />
-              <span>OUR TEACHERS</span>
+        <div className="departments-container">
+          <motion.div
+            className="departments-left-col"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="dept-tag">
+              <FaUsers className="tag-icon-small" />
+              <span>OUR DEPARTMENTS</span>
             </div>
-            <h2 className="teachers-main-title">Honorable Teacher</h2>
-          </div>
-          <div className="teachers-header-right">
-            <a href="/" className="view-teachers-btn">
-              View All Teachers <span className="btn-icon"></span>
+            <h2 className="dept-main-title">Academic Department</h2>
+            <p className="dept-desc">
+              Enroll now to begin your transformative academic journey with us.
+            </p>
+            <a href="#" className="dept-explore-btn">
+              Explore All Section <span className="btn-dots-white">...</span>
             </a>
-            <img src={grad_cap} alt="Decor" className="decor-cap" />
-          </div>
-        </header>
+          </motion.div>
 
-        <div className="teachers-carousel-wrapper">
-          <div className="teachers-track-wrapper">
-            <motion.div
-              className="teachers-track"
-              animate={{ x: `-${index * (100 / (window.innerWidth > 800 ? 3 : window.innerWidth > 480 ? 2 : 1))}%` }}
-              transition={{ tension: 300, friction: 30, type: "spring" }}
-            >
-              {teachers.map((t, i) => (
-                <div key={i} className="teacher-card">
-                  <div className="teacher-img-wrapper">
-                    <img src={t.img} alt={t.name} className="teacher-img" />
-                    <div className="teacher-social-overlay">
-                      <a href="#" className="social-link"><FaLinkedinIn /></a>
-                      <a href="#" className="social-link"><FaInstagram /></a>
-                      <a href="#" className="social-link"><FaFacebookF /></a>
-                    </div>
-                  </div>
-                  <div className="share-btn-wrapper">
-                    <button className="share-btn"><FaShareAlt /></button>
-                  </div>
-                  <div className="teacher-info">
-                    <h3>{t.name}</h3>
-                    <p>{t.role}</p>
-                  </div>
+          <div className="departments-right-col">
+            {departments.map((dept, i) => (
+              <motion.div
+                key={i}
+                className="dept-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.2 }}
+              >
+                <div className="dept-card-img-wrapper">
+                  <img src={dept.img} alt={dept.title} className="dept-card-img" />
+                  <div className="dept-card-overlay"></div>
                 </div>
-              ))}
-            </motion.div>
-          </div>
-
-          <div className="teachers-dots">
-            {[0, 1, 2].map((dot) => (
-              <button
-                key={dot}
-                className={`dot ${index === dot ? 'active' : ''}`}
-                onClick={() => setIndex(dot)}
-              />
+                <div className="dept-card-content">
+                  <h3>{dept.title}</h3>
+                  <p className="dept-card-hover-text">{dept.desc}</p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -276,6 +330,8 @@ const TeachersSection = () => {
     </section>
   );
 };
+
+
 
 // ---------------------------------------------------------
 // 4. PrincipalMessage
@@ -435,9 +491,10 @@ const Home = () => {
     <div className="main-home-wrapper" style={{ position: 'relative' }}>
       <BackgroundDecorations />
       <NewsMarquee />
+      <AdmissionSection />
       <SchoolAbout />
-      <TeachersSection />
       <PrincipalMessage />
+      <DepartmentsSection />
       <FacilitiesSection />
       <SchoolBlog />
     </div>

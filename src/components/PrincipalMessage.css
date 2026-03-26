@@ -121,16 +121,19 @@
   .principal-section {
     padding: 80px 0;
   }
+
   .principal-content-area {
     flex-direction: column-reverse;
     gap: 40px;
   }
+
   .principal-img-box {
     flex: auto;
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
   }
+
   .principal-info {
     transform: translateY(0);
   }
@@ -140,6 +143,7 @@
   .principal-section {
     padding: 60px 0;
   }
+
   .principal-text-box {
     padding: 30px 20px;
   }
@@ -149,6 +153,7 @@
   .section-title {
     font-size: 28px;
   }
+
   .principal-desc p {
     font-size: 14px;
   }
@@ -158,13 +163,14 @@
   .principal-section {
     padding: 50px 0;
   }
+
   .principal-text-box {
     padding: 25px 15px;
   }
+
   .principal-text-box::after {
     font-size: 100px;
     top: 15px;
     right: 20px;
   }
 }
-

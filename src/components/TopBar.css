@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 .top-bar {
   background-color: var(--primary-color);
   color: var(--white);
@@ -17,7 +18,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0 40px 0 200px; /* matched padding and logo offset */
+  padding: 0 40px 0 215px; /* offset for the 200px fixed logo banner */
 }
 
 .top-bar-left, .top-bar-right {
@@ -26,15 +27,18 @@
 }
 
 .info-item {
+  margin-left: 29px;
   display: inline-flex;
   align-items: center;
-  font-weight: 600; /* embolden links */
+  font-family: 'Inter', sans-serif;
+  font-weight: 400; 
   cursor: pointer;
   letter-spacing: 0.3px;
 }
 
 .welcome-msg {
-  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
   letter-spacing: 0.3px;
 }
 

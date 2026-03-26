@@ -11,7 +11,7 @@ const Navbar = ({ isScrolled, isMobileMenuOpen, setIsMobileMenuOpen }) => {
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-content-fluid">
-        
+
         {/* The Banner Logo */}
         <div className="logo-banner">
           <div className="logo-inner">
@@ -20,7 +20,7 @@ const Navbar = ({ isScrolled, isMobileMenuOpen, setIsMobileMenuOpen }) => {
             <div className="logo-text-large">M.S.S.</div>
           </div>
         </div>
-        
+
         <div className="nav-links-wrapper">
           <ul className="main-nav">
             <li><a href="#home" className="active-link">Home</a></li>
@@ -73,34 +73,34 @@ const Navbar = ({ isScrolled, isMobileMenuOpen, setIsMobileMenuOpen }) => {
         <div className="nav-actions">
           <button className="action-btn-icon search-trigger"><FaSearch /></button>
           <span className="action-separator">|</span>
-          <button className="action-btn-icon menu-trigger" onClick={toggleMobileMenu}><FaThLarge size={18}/></button>
-          <a href="#" className="btn action-btn-apply">Apply Now <FaSignInAlt style={{marginLeft: '8px'}} /></a>
+          <button className="action-btn-icon menu-trigger" onClick={toggleMobileMenu}><FaThLarge size={18} /></button>
+          <a href="#" className="btn action-btn-apply">Apply Now <FaSignInAlt style={{ marginLeft: '8px' }} /></a>
         </div>
       </div>
       {/* Side Menu Drawer */}
       <div className={`side-drawer-overlay ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}></div>
       <div className={`side-drawer ${isMobileMenuOpen ? 'active' : ''}`}>
-          <div className="drawer-header">
-            <div className="drawer-logo">
-              <img src={logo} alt="MSS Logo" />
-              <h3>MSS School</h3>
-            </div>
-            <button className="drawer-close-btn" onClick={toggleMobileMenu}><FaTimes size={20} /></button>
+        <div className="drawer-header">
+          <div className="drawer-logo">
+            <img src={logo} alt="MSS Logo" />
+            <h3>MSS School</h3>
           </div>
-          <div className="drawer-content">
-            <p className="drawer-desc">Empowering students through quality education and excellence since 1998.</p>
-            <ul className="drawer-menu-list">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#admission">Online Admission</a></li>
-              <li><a href="#contact">Contact Us</a></li>
-            </ul>
-            <div className="drawer-footer">
-              <h4>Contact Info</h4>
-              <p>Kozhikode, Kerala</p>
-              <p>+91 495 - 2374584</p>
-            </div>
+          <button className="drawer-close-btn" onClick={toggleMobileMenu}><FaTimes size={20} /></button>
+        </div>
+        <div className="drawer-content">
+          <p className="drawer-desc">Empowering students through quality education and excellence since 1998.</p>
+          <ul className="drawer-menu-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#admission">Online Admission</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+          <div className="drawer-footer">
+            <h4>Contact Info</h4>
+            <p>Kozhikode, Kerala</p>
+            <p>+91 495 - 2374584</p>
           </div>
+        </div>
       </div>
     </nav>
   );

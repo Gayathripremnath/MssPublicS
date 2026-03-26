@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&display=swap');
+
 .hero {
   position: relative;
   height: 110vh !important;
@@ -26,19 +28,28 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Parallax effect */
+  background-attachment: fixed;
+  /* Parallax effect */
 }
 
 @media (max-width: 992px) {
-  .hero, .hero-bg-wrapper, .hero-bg {
+
+  .hero,
+  .hero-bg-wrapper,
+  .hero-bg {
     height: 100vh !important;
     min-height: 100vh !important;
   }
 }
 
 @keyframes bgZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.15); }
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.15);
+  }
 }
 
 .hero-overlay {
@@ -47,19 +58,21 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(8, 14, 27, 0.8) 0%, rgba(8, 14, 27, 0.4) 40%, rgba(8, 14, 27, 0.1) 100%);
+  background: linear-gradient(90deg, rgb(3, 46, 70) 0%, rgba(9, 69, 122, 0.7) 40%, rgba(8, 14, 27, 0.1) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 10;
   width: 100%;
-  padding-left: 100px; /* Indent slightly as in reference */
+  margin-left: -0px;
+  left: 10px;
+  top: 130px;
 }
 
 .hero-text-content {
   max-width: 650px;
-  text-align: left; /* Left align like reference */
+  text-align: left;
 }
 
 .hero-subtitle {
@@ -77,10 +90,10 @@
 
 .hero-title {
   color: var(--white);
-  font-size: 85px;
-  font-weight: 700;
+  font-size: 95px;
+  font-weight: 600;
   line-height: 1.1;
-  font-family: var(--font-heading); /* using Playfair Display to match serif style in image */
+  font-family: "Bitter";
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
   margin: 0;
 }
@@ -100,7 +113,7 @@
   color: var(--white);
   border-radius: 12px;
   font-size: 40px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .hero-buttons {
@@ -111,10 +124,10 @@
 .hero-btn {
   background-color: var(--primary-color);
   color: var(--white);
-  padding: 15px 35px;
+  padding: 10px 35px;
   font-size: 16px;
   font-weight: 600;
-  border-radius: 30px; /* Oval button like reference */
+  border-radius: 30px;
   display: inline-flex;
   align-items: center;
   transition: all 0.3s ease;
@@ -131,13 +144,14 @@
   background-color: var(--white);
   color: var(--primary-color);
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 992px) {
   .hero-content {
     padding-left: 15px;
   }
+
   .hero-title {
     font-size: 60px;
   }
@@ -148,34 +162,49 @@
     height: 110vh !important;
     min-height: 110vh !important;
   }
-  .hero-bg-wrapper, .hero-bg {
+
+  .hero-bg-wrapper,
+  .hero-bg {
     height: 110vh !important;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    height: 90vh !important; /* Slightly reduced height for mobile better scaling */
+    height: 90vh !important;
+    /* Slightly reduced height for mobile better scaling */
     min-height: 500px !important;
   }
-  .hero-bg-wrapper, .hero-bg {
+
+  .hero-bg-wrapper,
+  .hero-bg {
     height: 90vh !important;
   }
+
   .hero-text-content {
-    text-align: center !important; /* Center text */
+    text-align: center !important;
+    /* Center text */
     margin: 0 auto;
-    padding-left: 0 !important; /* Remove desktop indent */
+    padding-left: 0 !important;
+    /* Remove desktop indent */
   }
+
   .hero-title-row {
-    justify-content: center !important; /* Center the school title row */
+    justify-content: center !important;
+    /* Center the school title row */
   }
+
   .hero-buttons {
-    justify-content: center !important; /* Center the buttons */
+    justify-content: center !important;
+    /* Center the buttons */
   }
+
   .hero-title {
-    font-size: 38px !important; /* Slightly smaller for mobile fitting */
+    font-size: 38px !important;
+    /* Slightly smaller for mobile fitting */
   }
+
   .hero-subtitle {
-     font-size: 18px !important;
+    font-size: 18px !important;
   }
 }

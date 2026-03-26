@@ -10,7 +10,7 @@ const Hero = () => {
     'https://msspublicschool.org/images/sliders/004.jpg',
     'https://msspublicschool.org/images/sliders/003.jpg'
   ];
-  
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -24,9 +24,9 @@ const Hero = () => {
     <section id="home" className="hero">
       <div className="hero-bg-wrapper">
         <AnimatePresence>
-          <motion.div 
+          <motion.div
             key={currentIndex}
-            className="hero-bg" 
+            className="hero-bg"
             style={{ backgroundImage: `url(${images[currentIndex]})` }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -36,7 +36,7 @@ const Hero = () => {
         </AnimatePresence>
         <div className="hero-overlay"></div>
       </div>
-      
+
       <div className="container hero-content">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -44,7 +44,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="hero-text-content"
         >
-          
+
           <motion.div
             className="hero-title-wrapper"
             initial={{ opacity: 0, x: -30 }}
@@ -54,11 +54,11 @@ const Hero = () => {
             <h1 className="hero-title"> International  </h1>
             <div className="hero-title-row">
               <span className="hero-title-icon"><img src={logo} alt="" /></span>
-              <h1 className="hero-title">School</h1>
+              <h1 className="hero-title" style={{ fontSize: "120px", fontWeight: "600" }}>School</h1>
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="hero-buttons"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

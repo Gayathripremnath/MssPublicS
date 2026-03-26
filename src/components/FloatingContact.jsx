@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FloatingContact.css';
 import { FaComments, FaTimes } from 'react-icons/fa';
 
 const FloatingContact = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const checkScroll = () => {
+      if (window.scrollY > 400) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScroll);
+    return () => window.removeEventListener('scroll', checkScroll);
+  }, []);
 
   const toggleForm = () => {
     setIsOpen(!isOpen);
   };
+
+  if (!isVisible) return null;
 
   return (
     <div className="floating-contact">

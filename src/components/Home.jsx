@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import {
   FaCheckCircle, FaUserGraduate, FaCalendarAlt, FaTag,
-  FaMicroscope, FaLaptopCode, FaChalkboardTeacher, 
-  FaBasketballBall, FaArrowRight, FaChevronLeft, 
-  FaChevronRight, FaFacebookF, FaInstagram, 
+  FaMicroscope, FaLaptopCode, FaChalkboardTeacher,
+  FaBasketballBall, FaArrowRight, FaChevronLeft,
+  FaChevronRight, FaFacebookF, FaInstagram,
   FaLinkedinIn, FaUserFriends, FaShareAlt,
   FaBook, FaGraduationCap, FaCertificate, FaGlobe, FaLightbulb, FaSchool
 } from 'react-icons/fa';
@@ -81,7 +81,7 @@ const SchoolAbout = () => {
       <div className="container">
         <div className="about-content-wrapper">
           <div className="about-image-column">
-            <motion.div 
+            <motion.div
               className="about-image-container"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -103,7 +103,7 @@ const SchoolAbout = () => {
           </div>
 
           <div className="about-text-column">
-            <motion.div 
+            <motion.div
               className="about-text-content"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -115,23 +115,23 @@ const SchoolAbout = () => {
                 <span className="tag-text">ABOUT OUR SCHOOL</span>
               </div>
               <h2 className="about-main-title">
-                An International Standard <br/> of <span>Excellence School</span>
+                An International Standard <br /> of <span>Excellence School</span>
               </h2>
 
               <div className="about-tabs">
-                <button 
+                <button
                   className={`tab-btn ${activeTab === 'mission' ? 'active' : ''}`}
                   onClick={() => setActiveTab('mission')}
                 >
                   Mission
                 </button>
-                <button 
+                <button
                   className={`tab-btn ${activeTab === 'vision' ? 'active' : ''}`}
                   onClick={() => setActiveTab('vision')}
                 >
                   Vision
                 </button>
-                <button 
+                <button
                   className={`tab-btn ${activeTab === 'values' ? 'active' : ''}`}
                   onClick={() => setActiveTab('values')}
                 >
@@ -141,7 +141,7 @@ const SchoolAbout = () => {
 
               <div className="tab-panel">
                 <AnimatePresence mode="wait">
-                  <motion.p 
+                  <motion.p
                     key={activeTab}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -178,7 +178,7 @@ const SchoolAbout = () => {
                 <div className="years-experience">
                   <div className="exp-icon">
                     <svg viewBox="0 0 100 100" className="wreath-svg">
-                       <path d="M50,10 C25,10 10,25 10,50 C10,75 25,90 50,90 C75,90 90,75 90,50" fill="none" stroke="currentColor" strokeWidth="2" />
+                      <path d="M50,10 C25,10 10,25 10,50 C10,75 25,90 50,90 C75,90 90,75 90,50" fill="none" stroke="currentColor" strokeWidth="2" />
                     </svg>
                   </div>
                   <div className="exp-text">
@@ -208,7 +208,7 @@ const TeachersSection = () => {
   ];
 
   const nextStep = () => setIndex((prev) => (prev + 1) % (teachers.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0)));
-  
+
   useEffect(() => {
     const timer = setInterval(nextStep, 5000);
     return () => clearInterval(timer);
@@ -235,7 +235,7 @@ const TeachersSection = () => {
 
         <div className="teachers-carousel-wrapper">
           <div className="teachers-track-wrapper">
-            <motion.div 
+            <motion.div
               className="teachers-track"
               animate={{ x: `-${index * (100 / (window.innerWidth > 800 ? 3 : window.innerWidth > 480 ? 2 : 1))}%` }}
               transition={{ tension: 300, friction: 30, type: "spring" }}
@@ -264,8 +264,8 @@ const TeachersSection = () => {
 
           <div className="teachers-dots">
             {[0, 1, 2].map((dot) => (
-              <button 
-                key={dot} 
+              <button
+                key={dot}
                 className={`dot ${index === dot ? 'active' : ''}`}
                 onClick={() => setIndex(dot)}
               />
@@ -285,7 +285,7 @@ const PrincipalMessage = () => {
     <section id="principal" className="principal-section">
       <div className="container">
         <div className="principal-content-area">
-          <motion.div 
+          <motion.div
             className="principal-text-box"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -301,7 +301,7 @@ const PrincipalMessage = () => {
             </div>
             <a href="#" className="btn principal-btn">Read Full Message</a>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="principal-img-box"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -356,10 +356,10 @@ const FacilitiesSection = () => {
         </div>
         <div className="carousel-root">
           <div className="carousel-track-wrapper">
-            <motion.div 
-              ref={trackRef} 
-              className="facilities-slider-track" 
-              animate={{ x: `-${index * (100 / (window.innerWidth > 800 ? 3 : window.innerWidth > 480 ? 2 : 1))}%` }} 
+            <motion.div
+              ref={trackRef}
+              className="facilities-slider-track"
+              animate={{ x: `-${index * (100 / (window.innerWidth > 800 ? 3 : window.innerWidth > 480 ? 2 : 1))}%` }}
               transition={{ type: "spring", stiffness: 100, damping: 22 }}
             >
               {facilities.map((fac, i) => (
@@ -376,8 +376,8 @@ const FacilitiesSection = () => {
           </div>
           <div className="teachers-dots">
             {Array.from({ length: facilities.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0) }).map((_, dot) => (
-              <button 
-                key={dot} 
+              <button
+                key={dot}
                 className={`dot ${index === dot ? 'active' : ''}`}
                 onClick={() => setIndex(dot)}
               />

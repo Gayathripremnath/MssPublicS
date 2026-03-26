@@ -48,10 +48,9 @@
   margin-right: 25px;
 }
 
-.admission-icon-img {
-  width: 55px;
-  height: auto;
-  filter: grayscale(100%) brightness(0.2); 
+.admission-icon {
+  font-size: 55px;
+  color: #1a1a1a; 
 }
 
 .admission-text-wrapper {

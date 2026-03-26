@@ -50,8 +50,8 @@
 
 .carousel-track-wrapper {
   overflow: hidden; /* Only hide what goes out of the viewport */
-  padding: 20px 0 40px; /* Add space for shadows */
-  margin: 0 -15px; /* Pull slightly to edges while staying centered */
+  padding: 30px 20px 60px; /* Add space for shadows and breathing room */
+  margin: 0 -20px; /* Compensate for horizontal padding */
 }
 
 .facilities-slider-track {

@@ -1,0 +1,46 @@
+/* Floating Background Icons */
+.floating-bg-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.floating-icon {
+  position: absolute;
+  color: #8C1127; /* Use theme color but low opacity elsewhere */
+  opacity: 0.05;
+  filter: blur(1px);
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.05; }
+  90% { opacity: 0.05; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -50px) rotate(10deg); }
+  66% { transform: translate(-20px, -100px) rotate(-10deg); }
+  100% { transform: translate(0, -150px) rotate(0deg); }
+}
+
+.floating-icon.ani-1 { animation: float-up 20s infinite linear; }
+.floating-icon.ani-2 { animation: drift 25s infinite ease-in-out alternate; }
+.floating-icon.ani-3 { animation: float-up 18s infinite linear reverse; }
+
+/* Individual Icon Positions - Randomized look */
+.icon-1 { top: 10%; left: 5%; font-size: 80px; }
+.icon-2 { top: 30%; right: 10%; font-size: 100px; }
+.icon-3 { bottom: 20%; left: 15%; font-size: 60px; }
+.icon-4 { top: 60%; right: 5%; font-size: 90px; }
+.icon-5 { bottom: 10%; right: 20%; font-size: 70px; }
+.icon-6 { top: 40%; left: 40%; font-size: 120px; }
+.icon-7 { bottom: 40%; right: 40%; font-size: 50px; }
+.icon-8 { top: 80%; left: 2%; font-size: 110px; }

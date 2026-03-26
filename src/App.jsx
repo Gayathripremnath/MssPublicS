@@ -4,14 +4,10 @@ import TopBar from './components/TopBar';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HomePage from './components/HomePage';
-import PrincipalMessage from './components/PrincipalMessage';
-import StudyResources from './components/StudyResources';
+import Home from './components/Home';
 import FloatingContact from './components/FloatingContact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import AboutSection from './components/AboutSection';
-import BlogSection from './components/BlogSection';
-
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,10 +35,7 @@ function App() {
             <>
               <Hero />
               <HomePage />
-              <AboutSection />
-              <PrincipalMessage />
-              <StudyResources />
-              <BlogSection />
+              <Home />
             </>
           } />
           {/* Add more routes here as the website grows */}

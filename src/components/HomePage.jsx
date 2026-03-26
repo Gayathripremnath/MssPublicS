@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './HomePage.css';
-import NewsMarquee from './NewsMarquee';
 
 const HomePage = () => {
   return (
@@ -79,9 +78,6 @@ const HomePage = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* News Marquee under admission section */}
-        <NewsMarquee />
       </div>
     </section>
   );

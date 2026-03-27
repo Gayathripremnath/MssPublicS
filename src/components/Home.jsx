@@ -301,22 +301,40 @@ const DepartmentSection = () => {
 // ---------------------------------------------------------
 const FacilitiesSection = () => {
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 = Forward, -1 = Backward
   const trackRef = useRef(null);
 
   const facilities = [
-    { img: "https://msspublicschool.org/images/sliders/004.jpg", icon: <FaMicroscope />, title: "Science Lab", desc: "Our high-tech science laboratories are designed to foster curiosity and hands-on experimental learning.", color: "#D31E25" },
-    { img: "https://msspublicschool.org/images/mss.jpg", icon: <FaLaptopCode />, title: "Computer Center", desc: "Advanced computing labs with high-speed internet to ensure our students are future-ready.", color: "#222" },
-    { img: "https://msspublicschool.org/images/sliders/003.jpg", icon: <FaChalkboardTeacher />, title: "Smart Classroom", desc: "Digital classrooms equipped with interactive boards and modern tools for immersive learning.", color: "#D31E25" },
-    { img: "https://msspublicschool.org/images/sliders/004.jpg", icon: <FaBasketballBall />, title: "Sports & Games", desc: "State-of-the-art sports facilities promoting physical health and a collaborative spirit.", color: "#222" }
+    { img: "https://msspublicschool.org/images/01.jpg", icon: <FaBook />, title: "Library", desc: "A vast collection of books, journals, and digital resources to support academic research and reading habits.", color: "#D31E25" },
+    { img: "https://msspublicschool.org/images/02.jpg", icon: <FaBook />, title: "Laboratory", desc: "A vast collection of books, journals, and digital resources to support academic research and reading habits.", color: "#D31E25" },
+    { img: "https://msspublicschool.org/images/phys.jpg", icon: <FaMicroscope />, title: "Physics Lab", desc: "Equipped with modern apparatus for exploring the laws of physics through precision experiments.", color: "#222" },
+    { img: "https://msspublicschool.org/images/09.jpg", icon: <FaMicroscope />, title: "Biology Lab", desc: "Discovery-based learning with advanced microscopes and specimen collections for life sciences.", color: "#D31E25" },
+    { img: "https://msspublicschool.org/images/05.jpg", icon: <FaMicroscope />, title: "Chemistry Lab", desc: "A safe and well-ventilated space for hands-on chemical analysis and experimentation.", color: "#222" },
+    { img: "https://msspublicschool.org/images/06.jpg", icon: <FaLaptopCode />, title: "Computer Lab", desc: "Advanced computing labs with high-speed internet to ensure our students are future-ready.", color: "#D31E25" },
+    { img: "https://msspublicschool.org/images/07.jpg", icon: <FaBasketballBall />, title: "Sports", desc: "Comprehensive sports facilities promoting physical health, discipline, and team spirit.", color: "#222" },
+    { img: "https://msspublicschool.org/images/mss_03.jpg", icon: <FaSchool />, title: "Other Amenities", desc: "Additional facilities including art rooms, music rooms, and safe student living spaces.", color: "#D31E25" }
   ];
 
-  const nextStep = () => setIndex((prev) => (prev + 1) % (facilities.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0)));
-  const prevStep = () => setIndex((prev) => (prev - 1 + (facilities.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0))) % (facilities.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0)));
+  // Oscillating Logic (Ping-Pong 1-2-3-2-1)
+  const totalPages = 3;
 
   useEffect(() => {
-    const timer = setInterval(nextStep, 5000);
+    const timer = setInterval(() => {
+      setIndex((prev) => {
+        let next = prev + direction;
+        if (next >= totalPages) {
+          setDirection(-1);
+          return prev - 1;
+        }
+        if (next < 0) {
+          setDirection(1);
+          return prev + 1;
+        }
+        return next;
+      });
+    }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [direction]);
 
   return (
     <section id="resources" className="resources-section">
@@ -333,8 +351,8 @@ const FacilitiesSection = () => {
             <motion.div
               ref={trackRef}
               className="facilities-slider-track"
-              animate={{ x: `-${index * (100 / (window.innerWidth > 800 ? 3 : window.innerWidth > 480 ? 2 : 1))}%` }}
-              transition={{ type: "spring", stiffness: 100, damping: 22 }}
+              animate={{ x: `-${index * 100}%` }}
+              transition={{ type: "spring", stiffness: 80, damping: 20 }}
             >
               {facilities.map((fac, i) => (
                 <div key={i} className="fac-card-new">
@@ -348,8 +366,9 @@ const FacilitiesSection = () => {
               ))}
             </motion.div>
           </div>
+          
           <div className="teachers-dots">
-            {Array.from({ length: facilities.length - (window.innerWidth > 800 ? 2 : window.innerWidth > 480 ? 1 : 0) }).map((_, dot) => (
+            {[0, 1, 2].map((dot) => (
               <button
                 key={dot}
                 className={`dot ${index === dot ? 'active' : ''}`}

@@ -12,7 +12,8 @@
   padding: 80px 40px;
   gap: 60px;
   align-items: center;
-  font-family: 'Inter', sans-serif; /* For body text */
+  font-family: 'Inter', sans-serif;
+  /* For body text */
 }
 
 /* --- Left Side Styling --- */
@@ -32,7 +33,8 @@
 }
 
 .dept-title {
-  font-family: 'Playfair Display', serif; /* Or any serif font */
+  font-family: 'Playfair Display', serif;
+  /* Or any serif font */
   font-size: clamp(2.5rem, 5vw, 4rem);
   color: var(--text-main);
   margin: 0 0 20px 0;
@@ -102,7 +104,7 @@
   left: 0;
   width: 100%;
   padding: 30px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
   display: flex;
   align-items: flex-end;
 }
@@ -119,13 +121,17 @@
   .dept-container {
     flex-direction: column;
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 40px;
   }
-  
+
+  .dept-label {
+    justify-content: center;
+  }
+
   .dept-description {
     margin: 0 auto 40px auto;
   }
-  
+
   .dept-button {
     margin: 0 auto;
   }
@@ -133,4 +139,80 @@
   .dept-visuals {
     width: 100%;
   }
+}
+
+@media (max-width: 768px) {
+  .dept-container {
+    padding: 50px 20px;
+    gap: 40px;
+  }
+
+  .img-wrapper.small {
+    height: 140px;
+  }
+
+  .img-wrapper.large {
+    height: 300px;
+  }
+
+  .img-overlay {
+    padding: 20px;
+  }
+
+  .img-overlay h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dept-container {
+    padding: 40px 15px;
+    gap: 30px;
+  }
+
+  .dept-label {
+    font-size: 0.75rem;
+  }
+
+  .dept-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .dept-button {
+    padding: 15px 30px;
+    font-size: 0.9rem;
+  }
+
+  .img-wrapper.small {
+    height: 100px;
+  }
+
+  .img-wrapper.large {
+    height: 220px;
+  }
+
+  .img-overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .dept-visuals {
+    gap: 15px;
+  }
+}
+
+.img-wrapper.small {
+  height: 100px;
+}
+
+.img-wrapper.large {
+  height: 220px;
+}
+
+.img-overlay h2 {
+  font-size: 1.5rem;
+}
+
+.dept-visuals {
+  gap: 15px;
 }

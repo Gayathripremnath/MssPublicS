@@ -461,8 +461,8 @@
   .logo-banner {
     top: 0px !important;
     /* Move logo down on mobile to be fully visible */
-    height: 120px;
-    width: 90px;
+    height: 170px;
+    width: 150px;
   }
 }
 
@@ -472,7 +472,7 @@
   }
 
   .logo-banner {
-    width: 80px;
-    height: 100px;
+    width: 135px;
+    height: 130px;
   }
 }

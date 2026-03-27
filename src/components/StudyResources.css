@@ -273,6 +273,7 @@
     height: 20px;
     padding-top: 6px;
     justify-content: center;
+    gap: 0;
   }
   .teachers-dots .dot {
     display: none;
@@ -283,19 +284,19 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: rgba(140, 17, 39, 0.2);
     box-shadow:
-      -49px 0 0 rgba(140, 17, 39, 0.2),
-      -35px 0 0 rgba(140, 17, 39, 0.2),
-      -21px 0 0 rgba(140, 17, 39, 0.2),
-      -7px  0 0 rgba(140, 17, 39, 0.2),
-      7px   0 0 rgba(140, 17, 39, 0.2),
-      21px  0 0 rgba(140, 17, 39, 0.2),
-      35px  0 0 rgba(140, 17, 39, 0.2),
-      49px  0 0 rgba(140, 17, 39, 0.2);
+      -42px 0 0 rgba(140, 17, 39, 0.2),
+      -28px 0 0 rgba(140, 17, 39, 0.2),
+      -14px 0 0 rgba(140, 17, 39, 0.2),
+      0px   0 0 rgba(140, 17, 39, 0.2),
+      14px  0 0 rgba(140, 17, 39, 0.2),
+      28px  0 0 rgba(140, 17, 39, 0.2),
+      42px  0 0 rgba(140, 17, 39, 0.2),
+      56px  0 0 rgba(140, 17, 39, 0.2);
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
@@ -305,11 +306,11 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: rgba(140, 17, 39, 0.8);
-    transform: translate(-50%, -50%) translateX(-49px);
+    transform: translate(-50%, -50%) translateX(-42px);
     animation: activeDotStep 32s steps(7, end) infinite alternate;
     pointer-events: none;
     box-shadow: 0 0 6px rgba(140, 17, 39, 0.35);
@@ -322,6 +323,6 @@
 }
 
 @keyframes activeDotStep {
-  0%   { transform: translate(-50%, -50%) translateX(-49px); }
-  100% { transform: translate(-50%, -50%) translateX(49px); }
+  0%   { transform: translate(-50%, -50%) translateX(-42px); }
+  100% { transform: translate(-50%, -50%) translateX(56px); }
 }

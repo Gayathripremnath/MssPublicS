@@ -275,7 +275,7 @@ const DepartmentSection = () => {
       <div className="dept-visuals">
         {/* Top Small Image */}
         <div className="img-wrapper small">
-          <img src="https://images.unsplash.com/photo-1523240715629-66f73356794c?auto=format&fit=crop&w=800&q=80" alt="Students in library" />
+          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Students in library" />
         </div>
 
         {/* Middle Main Image with Overlay */}

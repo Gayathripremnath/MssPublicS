@@ -25,8 +25,8 @@ function App() {
     <Router>
       <div className="app-wrapper">
         {!isMobileMenuOpen && <TopBar />}
-        <Navbar 
-          isScrolled={isScrolled} 
+        <Navbar
+          isScrolled={isScrolled}
           isMobileMenuOpen={isMobileMenuOpen}
           setIsMobileMenuOpen={setIsMobileMenuOpen}
         />

@@ -23,7 +23,7 @@ const HomePage = () => {
               </div>
               <div className="admission-text-wrapper">
                 <h3>Junior School</h3>
-                <p>Our programs are designed to develop skilled legal....</p>
+                <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
               </div>
             </div>
             <div className="admission-card-bottom">
@@ -46,7 +46,7 @@ const HomePage = () => {
               </div>
               <div className="admission-text-wrapper">
                 <h3>Boarding School</h3>
-                <p>Our programs are designed to develop skilled legal...</p>
+                <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
               </div>
             </div>
             <div className="admission-card-bottom">
@@ -69,7 +69,7 @@ const HomePage = () => {
               </div>
               <div className="admission-text-wrapper">
                 <h3>Senior School</h3>
-                <p>Our programs are designed to develop skilled legal...</p>
+                <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
               </div>
             </div>
             <div className="admission-card-bottom">

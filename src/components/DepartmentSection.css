@@ -1,0 +1,136 @@
+:root {
+  --brand-red: #8b1523;
+  --text-main: #121212;
+  --text-muted: #666666;
+  --radius: 16px;
+}
+
+.dept-container {
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  gap: 60px;
+  align-items: center;
+  font-family: 'Inter', sans-serif; /* For body text */
+}
+
+/* --- Left Side Styling --- */
+.dept-content {
+  flex: 1;
+}
+
+.dept-label {
+  color: var(--brand-red);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.dept-title {
+  font-family: 'Playfair Display', serif; /* Or any serif font */
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--text-main);
+  margin: 0 0 20px 0;
+  line-height: 1.1;
+}
+
+.dept-description {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  margin-bottom: 40px;
+  max-width: 450px;
+}
+
+.dept-button {
+  background-color: var(--brand-red);
+  color: white;
+  border: none;
+  padding: 18px 36px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.3s ease;
+}
+
+.dept-button:hover {
+  background-color: #6d101b;
+}
+
+/* --- Right Side Styling --- */
+.dept-visuals {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.img-wrapper {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.img-wrapper.small {
+  height: 180px;
+}
+
+.img-wrapper.large {
+  height: 380px;
+}
+
+/* Overlay for the text on image */
+.img-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+}
+
+.img-overlay h2 {
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Responsive Logic */
+@media (max-width: 1024px) {
+  .dept-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .dept-description {
+    margin: 0 auto 40px auto;
+  }
+  
+  .dept-button {
+    margin: 0 auto;
+  }
+
+  .dept-visuals {
+    width: 100%;
+  }
+}

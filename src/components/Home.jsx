@@ -6,7 +6,7 @@ import {
   FaBasketballBall, FaArrowRight, FaChevronLeft,
   FaChevronRight,
   FaBook, FaGraduationCap, FaCertificate, FaGlobe, FaLightbulb, FaSchool,
-  FaQuoteLeft, FaUsers, FaChevronDown, FaIdBadge, FaLeanpub, FaAddressCard
+  FaQuoteLeft, FaUsers
 } from 'react-icons/fa';
 
 // CSS Imports
@@ -16,8 +16,7 @@ import './PrincipalMessage.css';
 import './StudyResources.css';
 import './BlogSection.css';
 import './BackgroundDecor.css';
-import './AdmissionSection.css';
-import './AcademicDepartments.css';
+import './DepartmentSection.css';
 
 // ---------------------------------------------------------
 // 0. BackgroundDecorations Component
@@ -190,148 +189,6 @@ const SchoolAbout = () => {
   );
 };
 
-// ---------------------------------------------------------
-// 2.5 Admission Banners Section (Academic Levels)
-// ---------------------------------------------------------
-const AdmissionSection = () => {
-  return (
-    <section id="admission" className="admission-section">
-      <div className="container">
-        <div className="admission-grid">
-          {/* Card 1 */}
-          <motion.div 
-            className="admission-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="card-icon-box">
-              <FaIdBadge />
-            </div>
-            <div className="card-content">
-              <h3>Junior School</h3>
-              <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
-            </div>
-            <button className="card-arrow-btn">
-              <FaChevronDown />
-            </button>
-          </motion.div>
-
-          {/* Card 2 */}
-          <motion.div 
-            className="admission-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            <div className="card-icon-box">
-              <FaLeanpub />
-            </div>
-            <div className="card-content">
-              <h3>Boarding School</h3>
-              <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
-            </div>
-            <button className="card-arrow-btn">
-              <FaChevronDown />
-            </button>
-          </motion.div>
-
-          {/* Card 3 */}
-          <motion.div 
-            className="admission-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <div className="card-icon-box">
-              <FaUserGraduate />
-            </div>
-            <div className="card-content">
-              <h3>Senior School</h3>
-              <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
-            </div>
-            <button className="card-arrow-btn">
-              <FaChevronDown />
-            </button>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// ---------------------------------------------------------
-// 2.7 Academic Departments Section
-// ---------------------------------------------------------
-const DepartmentsSection = () => {
-  const departments = [
-    {
-      title: 'Academics',
-      img: 'https://univet.rstheme.com/red-school/wp-content/uploads/2023/12/d1.jpg',
-      desc: 'Our programs are designed to develop skilled academic experts and critical thinkers and our faculty members will guide you.'
-    },
-    {
-      title: 'Art & Culture',
-      img: 'https://univet.rstheme.com/red-school/wp-content/uploads/2023/12/d2.jpg',
-      desc: 'Exploring creative expression and traditional values through comprehensive art programs.'
-    }
-  ];
-
-  return (
-    <section id="departments" className="departments-section">
-      <div className="container">
-        <div className="departments-container">
-          <motion.div
-            className="departments-left-col"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="dept-tag">
-              <FaUsers className="tag-icon-small" />
-              <span>OUR DEPARTMENTS</span>
-            </div>
-            <h2 className="dept-main-title">Academic Department</h2>
-            <p className="dept-desc">
-              Enroll now to begin your transformative academic journey with us.
-            </p>
-            <a href="#" className="dept-explore-btn">
-              Explore All Section <span className="btn-dots-white">...</span>
-            </a>
-          </motion.div>
-
-          <div className="departments-right-col">
-            {departments.map((dept, i) => (
-              <motion.div
-                key={i}
-                className="dept-card"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.2 }}
-              >
-                <div className="dept-card-img-wrapper">
-                  <img src={dept.img} alt={dept.title} className="dept-card-img" />
-                  <div className="dept-card-overlay"></div>
-                </div>
-                <div className="dept-card-content">
-                  <h3>{dept.title}</h3>
-                  <p className="dept-card-hover-text">{dept.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-
 
 // ---------------------------------------------------------
 // 4. PrincipalMessage
@@ -339,37 +196,48 @@ const DepartmentsSection = () => {
 const PrincipalMessage = () => {
   return (
     <section id="principal" className="principal-section">
-      <div className="container">
-        <div className="principal-content-area">
+      <div className="principal-container">
+        <div className="principal-content-grid">
+          {/* Image Column (Left) */}
           <motion.div
-            className="principal-text-box"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            className="principal-image-col"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h4 className="section-subtitle">Principal's View</h4>
-            <h2 className="section-title">Principal's <span>Message</span></h2>
-            <div className="title-separator"></div>
-            <div className="principal-desc">
-              <p>M.S.S Public School (Senior Secondary) run by Muslim Service Society, offers universally accepted education through CBSE stream. M.S.S Public School therefore meets the long-felt need of the students and parents for a standard school offering effective child centric education.</p>
-              <p>The biggest challenge faced by the educators of today is to prepare students for the challenges of a globalised world. Students of today face a world that continually demands new knowledge and abilities.</p>
+            <div className="principal-image-container">
+              <img src="https://msspublicschool.org/images/sindhu_incharge.jpg" alt="Principal" />
+              <div className="image-decoration-dots"></div>
             </div>
-            <a href="#" className="btn principal-btn">Read Full Message</a>
           </motion.div>
+
+          {/* Text Column (Right) */}
           <motion.div
-            className="principal-img-box"
+            className="principal-text-col"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="principal-img-wrapper">
-              <img src="https://msspublicschool.org/images/sindhu_incharge.jpg" alt="Principal" />
-              <div className="principal-info">
-                <h4>Sindhu</h4>
-                <p>Principal In-charge</p>
-              </div>
+            <div className="principal-tag">
+              <span className="tag-line-red"></span>
+              <span className="tag-text-red">PRINCIPAL'S VIEW</span>
+            </div>
+            <h2 className="principal-header-title">A Word from our <span>Principal</span></h2>
+
+            <div className="principal-message-body">
+              <p>M.S.S Public School (Senior Secondary) run by Muslim Service Society, offers universally accepted education through CBSE stream. M.S.S Public School therefore meets the long-felt need of the students and parents for a standard school offering effective child centric education. The biggest challenge faced by the educators of today is to prepare students for the challenges of a globalised world.</p>
+              <p>Students of today face a world that continually demands new knowledge and abilities. We are committed to nurturing every learner towards excellence.</p>
+            </div>
+
+            <div className="principal-sig-box">
+              <h3 className="principal-name-main">Mrs. Sindhu</h3>
+              <p className="principal-role-main">Principal In-charge</p>
+            </div>
+
+            <div className="principal-btn-box">
+              <a href="#" className="modern-btn-maroon">Read Full Message</a>
             </div>
           </motion.div>
         </div>
@@ -377,6 +245,56 @@ const PrincipalMessage = () => {
     </section>
   );
 };
+
+// ---------------------------------------------------------
+// 4.5. DepartmentSection (Univet Theme Inspired)
+// ---------------------------------------------------------
+const DepartmentSection = () => {
+  return (
+    <section className="dept-container">
+      {/* Left Content Column */}
+      <div className="dept-content">
+        <div className="dept-label">
+          <span className="dept-icon">👥</span>
+          OUR DEPARTMENTS
+        </div>
+        
+        <h2 className="dept-title">Academic Department</h2>
+        
+        <p className="dept-description">
+          Enroll now to begin your transformative academic journey with us.
+        </p>
+        
+        <button className="dept-button">
+          Explore All Section
+          <span className="button-dots">⠿</span>
+        </button>
+      </div>
+
+      {/* Right Image Stack Column */}
+      <div className="dept-visuals">
+        {/* Top Small Image */}
+        <div className="img-wrapper small">
+          <img src="https://images.unsplash.com/photo-1523240715629-66f73356794c?auto=format&fit=crop&w=800&q=80" alt="Students in library" />
+        </div>
+
+        {/* Middle Main Image with Overlay */}
+        <div className="img-wrapper large">
+          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Student raising hand" />
+          <div className="img-overlay">
+            <h2>Athletics</h2>
+          </div>
+        </div>
+
+        {/* Bottom Small Image (Partially visible) */}
+        <div className="img-wrapper small">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Group study" />
+        </div>
+      </div>
+    </section>
+  );
+};
+
 
 // ---------------------------------------------------------
 // 5. FacilitiesSection
@@ -491,10 +409,9 @@ const Home = () => {
     <div className="main-home-wrapper" style={{ position: 'relative' }}>
       <BackgroundDecorations />
       <NewsMarquee />
-      <AdmissionSection />
       <SchoolAbout />
       <PrincipalMessage />
-      <DepartmentsSection />
+      <DepartmentSection />
       <FacilitiesSection />
       <SchoolBlog />
     </div>

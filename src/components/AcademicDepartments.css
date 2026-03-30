@@ -63,9 +63,14 @@
   font-family: sans-serif;
 }
 
-/* ==============================================================
-   RESPONSIVE MEDIA QUERIES FOR ALL SCREEN SIZES
-   ============================================================== */
+/* Mobile Phones (Portrait) */
+@media (max-width: 480px) {
+  .card {
+    width: 90%;
+    height: 400px;   
+    top: calc(var(--i) * 30px); /* Tighter physical stacking */
+  }
+}
 
 /* Tablet & Smaller Desktop Screens */
 @media (max-width: 1024px) {

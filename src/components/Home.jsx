@@ -194,51 +194,84 @@ const SchoolAbout = () => {
 // 4. PrincipalMessage
 // ---------------------------------------------------------
 const PrincipalMessage = () => {
+  const container = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeInOut", staggerChildren: 0.12 },
+    },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 26 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeInOut" } },
+  };
+
   return (
-    <section id="principal" className="principal-section">
+    <section id="principal" className="principal-section principal-room-section">
       <div className="principal-container">
-        <div className="principal-content-grid">
+        <div className="principal-content-grid principal-room-grid">
           {/* Image Column (Left) */}
           <motion.div
-            className="principal-image-col"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            className="principal-image-col principal-amenities"
+            initial={{ opacity: 0, x: -60, scale: 0.96 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.4 }}
+            transition={{ duration: 0.9, ease: "easeInOut" }}
+            whileHover={{ y: -6 }}
           >
             <div className="principal-image-container">
               <img src="https://msspublicschool.org/images/sindhu_incharge.jpg" alt="Principal" />
-              <div className="image-decoration-dots"></div>
+            </div>
+            <div className="principal-meta">
+              <div className="principal-name-main">Mrs. Sindhu</div>
+              <div className="principal-role-main">Principal In-charge</div>
+              <div className="signature-chip">
+                <span className="signature-dot"></span>
+                Available Today
+              </div>
             </div>
           </motion.div>
 
           {/* Text Column (Right) */}
           <motion.div
-            className="principal-text-col"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            className="principal-text-col principal-room-main"
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.35 }}
           >
-            <div className="principal-tag">
+            <motion.div className="principal-tag" variants={item}>
               <span className="tag-line-red"></span>
-              <span className="tag-text-red">PRINCIPAL'S VIEW</span>
-            </div>
-            <h2 className="principal-header-title">A Word from our <span>Principal</span></h2>
+              <span className="tag-text-red">PRINCIPAL&apos;S DESK</span>
+            </motion.div>
 
-            <div className="principal-message-body">
-              <p>M.S.S Public School (Senior Secondary) run by Muslim Service Society, offers universally accepted education through CBSE stream. M.S.S Public School therefore meets the long-felt need of the students and parents for a standard school offering effective child centric education. The biggest challenge faced by the educators of today is to prepare students for the challenges of a globalised world.</p>
-              <p>Students of today face a world that continually demands new knowledge and abilities. We are committed to nurturing every learner towards excellence.</p>
-            </div>
+            <motion.h2 className="principal-header-title" variants={item}>
+              Message from our <span>Principal</span>
+            </motion.h2>
 
-            <div className="principal-sig-box">
-              <h3 className="principal-name-main">Mrs. Sindhu</h3>
-              <p className="principal-role-main">Principal In-charge</p>
-            </div>
+            <motion.div className="principal-message-body" variants={item}>
+              <p className="principal-desc">M.S.S Public School (Senior Secondary) run by Muslim Service Society, offers universally accepted education through CBSE stream. We meet the long-felt need for a standard school delivering effective child-centric learning and global readiness.</p>
+              <p className="principal-desc">Students today face a world that demands curiosity, courage, and character. We are committed to nurturing every learner toward excellence with steady effort and care.</p>
+            </motion.div>
 
-            <div className="principal-btn-box">
-              <a href="#" className="modern-btn-maroon">Read Full Message</a>
-            </div>
+            <motion.div className="principal-features" variants={item}>
+              {[
+                { title: "Child-Centric", desc: "Personal attention with balanced academics & activities." },
+                { title: "Global Readiness", desc: "Skills for a connected, technology-first future." },
+                { title: "Safe Campus", desc: "Secure, inclusive environment for every learner." },
+              ].map((f) => (
+                <motion.div key={f.title} className="principal-feature-card" variants={item}>
+                  <h5>{f.title}</h5>
+                  <p>{f.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div className="principal-cta-row" variants={item}>
+              <a href="#" className="modern-btn-maroon principal-btn-dark">Read Full Message</a>
+              <a href="#admission" className="principal-ghost-link">Book a visit</a>
+            </motion.div>
           </motion.div>
         </div>
       </div>

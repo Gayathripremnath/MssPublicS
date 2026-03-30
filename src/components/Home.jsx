@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+﻿import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence ,useTransform,useScroll} from 'framer-motion';
 import {
   FaCheckCircle, FaUserGraduate, FaCalendarAlt, FaTag,
   FaMicroscope, FaLaptopCode, FaChalkboardTeacher,
@@ -193,39 +193,79 @@ const SchoolAbout = () => {
 // ---------------------------------------------------------
 // 4. PrincipalMessage
 // ---------------------------------------------------------
-const PrincipalMessage = () => {
-  const container = {
-    hidden: { opacity: 0, y: 24 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeInOut", staggerChildren: 0.12 },
+
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
     },
-  };
-  const item = {
-    hidden: { opacity: 0, y: 26 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeInOut" } },
-  };
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0 },
+};
+
+/* ================= COMPONENT ================= */
+const PrincipalMessage = () => {
+  const ref = useRef(null);
+
+  // Scroll tracking
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  // 👇 Parallax movement (adjust 150 → change speed)
+  const y = useTransform(scrollYProgress, [0, 1], [0, 250]);
+
+  const features = [
+    {
+      title: "Child-Centric",
+      desc: "Personal attention with balanced academics & activities.",
+    },
+    {
+      title: "Global Readiness",
+      desc: "Skills for a connected, technology-first future.",
+    },
+    {
+      title: "Safe Campus",
+      desc: "Secure, inclusive environment for every learner.",
+    },
+  ];
 
   return (
-    <section id="principal" className="principal-section principal-room-section">
+    <section
+      ref={ref}
+      id="principal"
+      className="principal-section principal-room-section"
+    >
       <div className="principal-container">
         <div className="principal-content-grid principal-room-grid">
-          {/* Image Column (Left) */}
+
+          {/* LEFT - IMAGE (SCROLL EFFECT) */}
           <motion.div
+            style={{ y }}
             className="principal-image-col principal-amenities"
-            initial={{ opacity: 0, x: -60, scale: 0.96 }}
+            initial={{ opacity: 0, x: -80, scale: 0.95 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.4 }}
-            transition={{ duration: 0.9, ease: "easeInOut" }}
-            whileHover={{ y: -6 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="principal-image-container">
-              <img src="https://msspublicschool.org/images/sindhu_incharge.jpg" alt="Principal" />
+              <img
+                src="https://msspublicschool.org/images/sindhu_incharge.jpg"
+                alt="Principal"
+              />
             </div>
+
             <div className="principal-meta">
               <div className="principal-name-main">Mrs. Sindhu</div>
               <div className="principal-role-main">Principal In-charge</div>
+
               <div className="signature-chip">
                 <span className="signature-dot"></span>
                 Available Today
@@ -233,52 +273,70 @@ const PrincipalMessage = () => {
             </div>
           </motion.div>
 
-          {/* Text Column (Right) */}
+          {/* RIGHT - TEXT */}
           <motion.div
             className="principal-text-col principal-room-main"
-            variants={container}
+            variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.35 }}
+            viewport={{ once: true }}
           >
-            <motion.div className="principal-tag" variants={item}>
+            {/* Tag */}
+            <motion.div className="principal-tag" variants={fadeUp}>
               <span className="tag-line-red"></span>
-              <span className="tag-text-red">PRINCIPAL&apos;S DESK</span>
+              <span className="tag-text-red">PRINCIPAL'S DESK</span>
             </motion.div>
 
-            <motion.h2 className="principal-header-title" variants={item}>
+            {/* Heading */}
+            <motion.h2 className="principal-header-title" variants={fadeUp}>
               Message from our <span>Principal</span>
             </motion.h2>
 
-            <motion.div className="principal-message-body" variants={item}>
-              <p className="principal-desc">M.S.S Public School (Senior Secondary) run by Muslim Service Society, offers universally accepted education through CBSE stream. We meet the long-felt need for a standard school delivering effective child-centric learning and global readiness.</p>
-              <p className="principal-desc">Students today face a world that demands curiosity, courage, and character. We are committed to nurturing every learner toward excellence with steady effort and care.</p>
+            {/* Message */}
+            <motion.div className="principal-message-body" variants={fadeUp}>
+              <p>
+                M.S.S Public School (Senior Secondary) run by Muslim Service
+                Society offers quality CBSE education with a focus on
+                child-centric learning and global readiness.
+              </p>
+
+              <p>
+                We nurture curiosity, courage, and character to help students
+                achieve excellence in all aspects of life.
+              </p>
             </motion.div>
 
-            <motion.div className="principal-features" variants={item}>
-              {[
-                { title: "Child-Centric", desc: "Personal attention with balanced academics & activities." },
-                { title: "Global Readiness", desc: "Skills for a connected, technology-first future." },
-                { title: "Safe Campus", desc: "Secure, inclusive environment for every learner." },
-              ].map((f) => (
-                <motion.div key={f.title} className="principal-feature-card" variants={item}>
+            {/* Features */}
+            <div className="principal-features">
+              {features.map((f, i) => (
+                <motion.div
+                  key={i}
+                  className="principal-feature-card"
+                  variants={fadeUp}
+                >
                   <h5>{f.title}</h5>
                   <p>{f.desc}</p>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div className="principal-cta-row" variants={item}>
-              <a href="#" className="modern-btn-maroon principal-btn-dark">Read Full Message</a>
-              <a href="#admission" className="principal-ghost-link">Book a visit</a>
+            {/* Buttons */}
+            <motion.div className="principal-cta-row" variants={fadeUp}>
+              <a href="#" className="modern-btn-maroon principal-btn-dark">
+                Read Full Message
+              </a>
+
+              <a href="#admission" className="principal-ghost-link">
+                Book a visit
+              </a>
             </motion.div>
           </motion.div>
+
         </div>
       </div>
     </section>
   );
 };
-
 // ---------------------------------------------------------
 // 4.5. DepartmentSection (Univet Theme Inspired)
 // ---------------------------------------------------------

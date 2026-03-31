@@ -21,6 +21,11 @@ const Navbar = ({ isScrolled, isMobileMenuOpen, setIsMobileMenuOpen }) => {
           </div>
         </div>
 
+        {/* Compact logo shown only after scroll */}
+        <div className="logo-compact">
+          <img src={logo} alt="MSS Logo" />
+        </div>
+
         <div className="nav-links-wrapper">
           <ul className="main-nav">
             <li><a href="#home" className="active-link">Home</a></li>

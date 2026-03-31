@@ -32,15 +32,15 @@ function App() {
         setIsNavHidden(false);
       }
 
-      // Hide the large banner only after the hero section height
-      const heroHeight = heroRef.current ? heroRef.current.offsetHeight : 500;
-      const hideThreshold = Math.max(heroHeight - 80, 200);
+      // Hide the large banner after the user starts scrolling
+      const hideThreshold = 80;
       setIsBannerHidden(currentY > hideThreshold);
 
       lastScrollY.current = currentY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // initialize on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

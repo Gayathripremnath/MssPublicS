@@ -21,6 +21,7 @@
 .dept-heading {
   text-align: left;
   max-width: 760px;
+  font-family: "Bitter", sans-serif;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -35,7 +36,7 @@
 }
 
 .dept-title {
-  font-family: 'Playfair Display', serif;
+  font-family: "Bitter", sans-serif;
   font-size: clamp(2.3rem, 4vw, 3rem);
   margin: 0;
   color: var(--deep);
@@ -77,7 +78,7 @@
 }
 
 .academic-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Bitter", sans-serif;
   font-size: 1.7rem;
   color: var(--deep);
   margin: 0;

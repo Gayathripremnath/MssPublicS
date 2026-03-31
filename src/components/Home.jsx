@@ -316,9 +316,9 @@ const DepartmentSection = () => {
         "https://msspublicschool.org/images/co-curricular.jpg",
     },
     {
-      title: "Clubs and Organizations",
+      title: "Cultural Organizations",
       desc:
-        "Advance your career with streamlined graduate program admissions.",
+        "Advance your career with streamlined graduate program admissions with mss school.",
       img:
         "https://msspublicschool.org/images/seed.jpg",
     },
@@ -439,7 +439,7 @@ const FacilitiesSection = () => {
                   <div className="fac-card-content">
                     <div className="fac-card-title-row"><span className="fac-card-icon" style={{ color: fac.color }}>{fac.icon}</span><h3>{fac.title}</h3></div>
                     <p>{fac.desc}</p>
-                    <div className="fac-card-footer"><a href="#admission" className="apply-now-btn">Apply Now <FaArrowRight className="arrow-icon" /></a></div>
+                    <div className="fac-card-footer"><a href="#admission" className="apply-now-btn">Read More<FaArrowRight className="arrow-icon" /></a></div>
                   </div>
                 </div>
               ))}

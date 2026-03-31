@@ -24,6 +24,10 @@
   box-shadow: none;
 }
 
+.navbar.banner-hidden {
+  /* class marker only; behaviors below */
+}
+
 /* Compact logo appears when scrolled */
 .logo-compact {
   display: none;
@@ -40,7 +44,7 @@
   object-fit: contain;
 }
 
-.navbar.scrolled .logo-compact {
+.navbar.banner-hidden .logo-compact {
   display: flex;
 }
 
@@ -87,7 +91,7 @@
   transition: all 0.4s ease;
 }
 
-.navbar.scrolled .logo-banner {
+.navbar.banner-hidden .logo-banner {
   top: -220px;
   height: 170px;
   padding: 12px 10px 8px;
@@ -149,7 +153,7 @@
   flex-grow: 1;
 }
 
-.navbar.scrolled .nav-links-wrapper {
+.navbar.banner-hidden .nav-links-wrapper {
   margin-left: 110px;
 }
 

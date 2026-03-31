@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TopBar from './components/TopBar';
 import Navbar from './components/Navbar';
@@ -11,13 +11,36 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isNavHidden, setIsNavHidden] = useState(false);
+  const [isBannerHidden, setIsBannerHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
+  const heroRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentY = window.scrollY;
+      setIsScrolled(currentY > 50);
+
+      const scrollingDown = currentY > lastScrollY.current;
+      const hasLeftHeroArea = currentY > 120;
+      const isDesktop = window.innerWidth > 992;
+
+      if (isDesktop && scrollingDown && hasLeftHeroArea) {
+        setIsNavHidden(true);
+      } else {
+        setIsNavHidden(false);
+      }
+
+      // Hide the large banner only after the hero section height
+      const heroHeight = heroRef.current ? heroRef.current.offsetHeight : 500;
+      const hideThreshold = Math.max(heroHeight - 80, 200);
+      setIsBannerHidden(currentY > hideThreshold);
+
+      lastScrollY.current = currentY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -27,13 +50,15 @@ function App() {
         {!isMobileMenuOpen && <TopBar />}
         <Navbar
           isScrolled={isScrolled}
+          isNavHidden={isNavHidden}
+          isBannerHidden={isBannerHidden}
           isMobileMenuOpen={isMobileMenuOpen}
           setIsMobileMenuOpen={setIsMobileMenuOpen}
         />
         <Routes>
           <Route path="/" element={
             <>
-              <Hero />
+              <Hero innerRef={heroRef} />
               <HomePage />
               <Home />
             </>

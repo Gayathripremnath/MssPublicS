@@ -5,7 +5,7 @@ import './Hero.css';
 
 import logo from '../assets/mss_logo.png'
 
-const Hero = () => {
+const Hero = ({ innerRef }) => {
   const images = [
     'https://msspublicschool.org/images/sliders/004.jpg',
     'https://msspublicschool.org/images/sliders/003.jpg'
@@ -21,7 +21,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero" ref={innerRef}>
       <div className="hero-bg-wrapper">
         <AnimatePresence>
           <motion.div

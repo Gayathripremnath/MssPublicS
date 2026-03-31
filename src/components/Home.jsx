@@ -222,21 +222,6 @@ const PrincipalMessage = () => {
   // 👇 Parallax movement (adjust 150 → change speed)
   const y = useTransform(scrollYProgress, [0, 1], [0, 250]);
 
-  const features = [
-    {
-      title: "Child-Centric",
-      desc: "Personal attention with balanced academics & activities.",
-    },
-    {
-      title: "Global Readiness",
-      desc: "Skills for a connected, technology-first future.",
-    },
-    {
-      title: "Safe Campus",
-      desc: "Secure, inclusive environment for every learner.",
-    },
-  ];
-
   return (
     <section
       ref={ref} 
@@ -304,32 +289,13 @@ const PrincipalMessage = () => {
                 We nurture curiosity, courage, and character to help students
                 achieve excellence in all aspects of life.
               </p>
+
+              <p>
+                The biggest challenge faced by the educators of today is to prepare students for the challenges of a globalised world. Students of today face a world that continually demands new knowledge and abilities, a world that requires the students to become adaptable, life-long learners, in an ever changing scenario of new skills and competencies. They also need to be good communicators and should be able to relate themselves with other people, think critically and creatively.
+              </p>
             </motion.div>
 
-            {/* Features */}
-            <div className="principal-features">
-              {features.map((f, i) => (
-                <motion.div
-                  key={i}
-                  className="principal-feature-card"
-                  variants={fadeUp}
-                >
-                  <h5>{f.title}</h5>
-                  <p>{f.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Buttons */}
-            <motion.div className="principal-cta-row" variants={fadeUp}>
-              <a href="#" className="modern-btn-maroon principal-btn-dark">
-                Read Full Message
-              </a>
-
-              <a href="#admission" className="principal-ghost-link">
-                Book a visit
-              </a>
-            </motion.div>
+           
           </motion.div>
 
         </div>
@@ -338,49 +304,71 @@ const PrincipalMessage = () => {
   );
 };
 // ---------------------------------------------------------
-// 4.5. DepartmentSection (Univet Theme Inspired)
+// 4.5. DepartmentSection (Academic experience grid)
 // ---------------------------------------------------------
 const DepartmentSection = () => {
+  const cards = [
+    {
+      title: "Student Affairs",
+      desc:
+        "Begin your academic journey with flexible entry requirements and application.",
+      img:
+        "https://msspublicschool.org/images/co-curricular.jpg",
+    },
+    {
+      title: "Clubs and Organizations",
+      desc:
+        "Advance your career with streamlined graduate program admissions.",
+      img:
+        "https://msspublicschool.org/images/seed.jpg",
+    },
+    {
+      title: "Museums",
+      desc:
+        "Join a diverse campus community through a simple application and visa guidance.",
+      img:
+        "https://msspublicschool.org/images/pta.jpg",
+    },
+  ];
+
+  const stats = [
+    { value: "200K+", title: "Active Student Clubs", desc: "Clubs encourage leadership" },
+    { value: "80+", title: "Cultural Events", desc: "Enrich campus life" },
+    { value: "120+", title: "Sports Activities", desc: "Fitness and a healthy lifestyle" },
+    { value: "100+", title: "School Organizations", desc: "Student involvement across" },
+  ];
+
   return (
     <section className="dept-container">
-      {/* Left Content Column */}
-      <div className="dept-content">
-        <div className="dept-label">
-          <span className="dept-icon">👥</span>
-          OUR DEPARTMENTS
-        </div>
-        
+      <div className="dept-heading">
+        <div className="dept-label">OUR DEPARTMENTS</div>
         <h2 className="dept-title">Academic Department</h2>
-        
-        <p className="dept-description">
+        <p className="dept-subtitle">
           Enroll now to begin your transformative academic journey with us.
         </p>
-        
-        <button className="dept-button">
-          Explore All Section
-          <span className="button-dots">⠿</span>
-        </button>
       </div>
 
-      {/* Right Image Stack Column */}
-      <div className="dept-visuals">
-        {/* Top Small Image */}
-        <div className="img-wrapper small">
-          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Students in library" />
-        </div>
-
-        {/* Middle Main Image with Overlay */}
-        <div className="img-wrapper large">
-          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Student raising hand" />
-          <div className="img-overlay">
-            <h2>Athletics</h2>
+      <div className="academic-cards">
+        {cards.map((card) => (
+          <div className="academic-card" key={card.title}>
+            <span className="card-accent" aria-hidden="true"></span>
+            <h3>{card.title}</h3>
+            <p className="card-desc">{card.desc}</p>
+            <div className="card-image">
+              <img src={card.img} alt={card.title} />
+            </div>
           </div>
-        </div>
+        ))}
+      </div>
 
-        {/* Bottom Small Image (Partially visible) */}
-        <div className="img-wrapper small">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Group study" />
-        </div>
+      <div className="academic-stats">
+        {stats.map((item) => (
+          <div className="stat" key={item.title}>
+            <div className="stat-value">{item.value}</div>
+            <div className="stat-title">{item.title}</div>
+            <div className="stat-desc">{item.desc}</div>
+          </div>
+        ))}
       </div>
     </section>
   );

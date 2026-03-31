@@ -16,8 +16,8 @@ const Navbar = ({ isScrolled, isMobileMenuOpen, setIsMobileMenuOpen }) => {
         <div className="logo-banner">
           <div className="logo-inner">
             <img src={logo} alt="MSS Logo" className="logo-icon-img" />
-            <div className="logo-text-small">SCHOOL OF</div>
-            <div className="logo-text-large">M.S.S.</div>
+            <div className="logo-text-small">MSS</div>
+            <div className="logo-text-large">PUBLIC SCHOOL</div>
           </div>
         </div>
 

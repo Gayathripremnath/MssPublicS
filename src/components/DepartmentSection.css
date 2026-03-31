@@ -1,218 +1,215 @@
 :root {
-  --brand-red: #8b1523;
-  --text-main: #121212;
-  --text-muted: #666666;
-  --radius: 16px;
+  --crimson: #9b1b2b;
+  --deep: #1c1412;
+  --muted: #5a5a5a;
+  --sand: #f7f3eb;
+  --card-radius: 18px;
 }
 
 .dept-container {
+  background: transparent;
+  padding: 80px 5vw;
   display: flex;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 40px 40px 80px;
-  gap: 60px;
-  align-items: center;
+  flex-direction: column;
+  gap: 28px;
   font-family: 'Inter', sans-serif;
-  /* For body text */
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-/* --- Left Side Styling --- */
-.dept-content {
-  flex: 1;
+.dept-heading {
+  text-align: left;
+  max-width: 760px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .dept-label {
-  color: var(--brand-red);
+  color: var(--crimson);
+  letter-spacing: 2px;
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  font-size: 0.9rem;
 }
 
 .dept-title {
   font-family: 'Playfair Display', serif;
-  /* Or any serif font */
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  color: var(--text-main);
-  margin: 0 0 20px 0;
-  line-height: 1.1;
+  font-size: clamp(2.3rem, 4vw, 3rem);
+  margin: 0;
+  color: var(--deep);
 }
 
-.dept-description {
-  color: var(--text-muted);
-  font-size: 1.15rem;
-  margin-bottom: 40px;
-  max-width: 450px;
+.dept-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
-.dept-button {
-  background-color: var(--brand-red);
-  color: white;
-  border: none;
-  padding: 18px 36px;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: background 0.3s ease;
+.academic-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.dept-button:hover {
-  background-color: #6d101b;
-}
-
-/* --- Right Side Styling --- */
-.dept-visuals {
-  flex: 1.2;
+.academic-card {
+  background: #ffffff;
+  border-radius: var(--card-radius);
+  padding: 26px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.img-wrapper {
+  gap: 14px;
   position: relative;
-  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.img-wrapper img {
+.card-accent {
+  display: inline-block;
+  width: 48px;
+  height: 4px;
+  border-radius: 10px;
+  background: var(--crimson);
+}
+
+.academic-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  color: var(--deep);
+  margin: 0;
+}
+
+.card-desc {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.card-image {
+  margin-top: 4px;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 230px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.img-wrapper.small {
-  height: 180px;
-}
-
-.img-wrapper.large {
-  height: 380px;
-}
-
-/* Overlay for the text on image */
-.img-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.academic-stats {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px 32px;
+  padding: 28px 32px;
   width: 100%;
-  padding: 30px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-  display: flex;
-  align-items: flex-end;
+  margin: 0 auto;
 }
 
-.img-overlay h2 {
-  color: white;
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
+.stat {
+  border-left: 3px solid var(--crimson);
+  padding-left: 16px;
+}
+
+.stat-value {
+  font-weight: 800;
+  font-size: 2.2rem;
+  color: var(--deep);
   margin: 0;
 }
 
-/* Responsive Logic */
-@media (max-width: 1024px) {
+.stat-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin: 4px 0;
+  color: var(--deep);
+}
+
+.stat-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1200px) {
   .dept-container {
-    flex-direction: column;
-    text-align: center;
-    padding: 60px 40px;
-  }
-
-  .dept-label {
-    justify-content: center;
-  }
-
-  .dept-description {
-    margin: 0 auto 40px auto;
-  }
-
-  .dept-button {
-    margin: 0 auto;
-  }
-
-  .dept-visuals {
-    width: 100%;
+    padding: 72px 48px;
   }
 }
 
-@media (max-width: 768px) {
-  .dept-container {
-    padding: 50px 20px;
-    gap: 40px;
+@media (max-width: 900px) {
+  .card-image {
+    height: 200px;
   }
 
-  .img-wrapper.small {
-    height: 140px;
+  .stat {
+    border-left-width: 2px;
+    padding-left: 12px;
   }
 
-  .img-wrapper.large {
-    height: 300px;
-  }
-
-  .img-overlay {
-    padding: 20px;
-  }
-
-  .img-overlay h2 {
+  .stat-value {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .dept-container {
+    padding: 64px 18px;
+  }
+
+  .academic-card {
+    padding: 22px;
+  }
+
+  .card-image {
+    height: 180px;
+  }
+
+  .dept-title {
+    font-size: clamp(2rem, 7vw, 2.4rem);
+  }
+
+  .dept-subtitle {
+    font-size: 0.98rem;
+  }
+
+  .academic-stats {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    padding: 22px 24px;
+  }
+
+  .stat-value {
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .dept-container {
-    padding: 40px 15px;
-    gap: 30px;
+    padding: 52px 14px;
+    gap: 22px;
   }
 
-  .dept-label {
-    font-size: 0.75rem;
+  .academic-card {
+    padding: 18px;
   }
 
-  .dept-description {
-    font-size: 1rem;
-    margin-bottom: 30px;
+  .card-image {
+    height: 150px;
   }
 
-  .dept-button {
-    padding: 15px 30px;
-    font-size: 0.9rem;
+  .academic-stats {
+    gap: 14px 18px;
   }
-
-  .img-wrapper.small {
-    height: 100px;
-  }
-
-  .img-wrapper.large {
-    height: 220px;
-  }
-
-  .img-overlay h2 {
-    font-size: 1.5rem;
-  }
-
-  .dept-visuals {
-    gap: 15px;
-  }
-}
-
-.img-wrapper.small {
-  height: 100px;
-}
-
-.img-wrapper.large {
-  height: 220px;
-}
-
-.img-overlay h2 {
-  font-size: 1.5rem;
-}
-
-.dept-visuals {
-  gap: 15px;
 }

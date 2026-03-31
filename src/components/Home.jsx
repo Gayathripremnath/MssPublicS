@@ -239,7 +239,7 @@ const PrincipalMessage = () => {
 
   return (
     <section
-      ref={ref}
+      ref={ref} 
       id="principal"
       className="principal-section principal-room-section"
     >

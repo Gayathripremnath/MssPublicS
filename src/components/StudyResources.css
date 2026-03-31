@@ -16,8 +16,8 @@
 .facilities-main-title {
   font-size: 48px;
   color: #222;
-  font-family: 'Bitter', serif;
-  font-weight: 600;
+  font-family: 'Bitter', sans-serif;
+  font-weight: 700;
   margin-top: 10px;
   margin-bottom: 0;
   line-height: 1.2;
@@ -109,6 +109,7 @@
 .fac-card-title-row h3 {
   font-size: 18px;
   margin: 0;
+  font-family: "Bitter", serif;
   font-weight: 700;
   color: var(--heading-color);
 }

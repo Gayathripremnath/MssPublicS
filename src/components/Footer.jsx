@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-container">
           
-          {/* Contact Info */}
+          
           <div className="footer-column contact-info">
             <h3>Contact Us</h3>
             <div className="footer-widget-content">

@@ -37,6 +37,7 @@ const Hero = ({ innerRef }) => {
         <div className="hero-overlay"></div>
       </div>
 
+
       <div className="container hero-content">
         <motion.div
           initial={{ opacity: 0, x: -50 }}

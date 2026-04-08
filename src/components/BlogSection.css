@@ -128,9 +128,7 @@
   color: #555;
 }
 
-/* ========================
-   MEDIA QUERIES
-======================== */
+
 @media (max-width: 1200px) {
   .news-card-info h3 {
     font-size: 18px;

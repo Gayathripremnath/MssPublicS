@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  /* No margin pull needed as TopBar/Navbar are absolute */
 }
 
 .hero-bg-wrapper {
@@ -196,12 +195,12 @@
 
   .hero-buttons {
     justify-content: center !important;
-    /* Center the buttons */
+   
   }
 
   .hero-title {
     font-size: 38px !important;
-    /* Slightly smaller for mobile fitting */
+   
   }
 
   .hero-subtitle {

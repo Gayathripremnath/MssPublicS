@@ -59,11 +59,10 @@ function App() {
           <Route path="/" element={
             <>
               <Hero innerRef={heroRef} />
-              <HomePage />
+                  <HomePage />
               <Home />
             </>
           } />
-          {/* Add more routes here as the website grows */}
         </Routes>
         <FloatingContact />
         <Footer />

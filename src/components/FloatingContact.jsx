@@ -34,6 +34,7 @@ const FloatingContact = () => {
             <FaTimes />
           </button>
         </div>
+        
         <form className="contact-form-body">
           <input type="text" placeholder="Your Name" required />
           <input type="tel" placeholder="Phone Number" required />

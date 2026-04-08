@@ -156,7 +156,6 @@
   margin-bottom: 30px;
 }
 
-/* Features Checks */
 .about-features {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -181,8 +180,6 @@
   color: var(--heading-color);
 }
 
-/* Footer Row */
-.about-footer-row {
   display: flex;
   align-items: center;
   gap: 50px;

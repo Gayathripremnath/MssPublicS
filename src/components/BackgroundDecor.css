@@ -12,7 +12,7 @@
 
 .floating-icon {
   position: absolute;
-  color: #8C1127; /* Use theme color but low opacity elsewhere */
+  color: #8C1127; 
   opacity: 0.05;
   filter: blur(1px);
 }

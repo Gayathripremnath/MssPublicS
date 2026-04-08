@@ -68,7 +68,7 @@
   .card {
     width: 90%;
     height: 400px;   
-    top: calc(var(--i) * 30px); /* Tighter physical stacking */
+    top: calc(var(--i) * 30px); 
   }
 }
 
@@ -77,7 +77,7 @@
   .card {
     width: 90%;
     height: 480px;
-    top: calc(var(--i) * 35px); /* Tighter physical stacking */
+    top: calc(var(--i) * 35px); 
   }
 }
 
@@ -113,10 +113,10 @@
 /* Mobile Devices (Smartphones) */
 @media (max-width: 480px) {
   .card {
-    width: 100%; /* Stretch completely for best visual space */
-    height: 350px; /* Shortest height for tiny phones */
+    width: 100%;
+    height: 350px;
     border-radius: 20px;
-    top: calc(var(--i) * 15px); /* Perfect tight stack offset */
+    top: calc(var(--i) * 15px); 
   }
   
   .info {

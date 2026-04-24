@@ -24,9 +24,6 @@
   box-shadow: none;
 }
 
-.navbar.banner-hidden {
-  /* class marker only; behaviors below */
-}
 
 /* Compact logo appears when scrolled */
 .logo-compact {
@@ -105,17 +102,19 @@
 }
 
 .navbar.scrolled .logo-text-small {
-  font-size: 22px;
+  font-size: 34px;
+  font-weight: 900;
   letter-spacing: 1.8px;
 }
 
 .navbar.scrolled .logo-text-large {
-  font-size: 10px;
+  font-size: 13px;
+  font-weight: 600 !important;
 }
 
 .logo-inner {
   margin-top: 4px;
-  gap: 4px;
+  gap: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -126,31 +125,35 @@
   width: 80px;
   height: auto;
   margin-top: 8px;
+  margin-bottom: 0;
   display: block;
   object-fit: contain;
 }
 
 .logo-text-small {
-  font-size: 26px;
+  font-size: 34px;
   letter-spacing: 2px;
-  margin-top: 10px;
-  font-weight: 700;
-  font-family: header,sans-serif;
+  margin-top: -20px;
+  margin-bottom: 0;
+  font-weight: 900;
+  font-family: header, sans-serif;
   text-transform: uppercase;
 }
 
 .logo-text-large {
   font-size: 13px;
-  font-weight: 200;
-  font-family: header,sans-serif;
-  letter-spacing: 1px;
-
-  margin-bottom: 20px;
+  font-weight: 500 !important;
+  font-family: header, sans-serif;
+  letter-spacing: 1.3px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  line-height: 1.4;
 }
 
 /* Nav Links Wrapper pushed left */
 .nav-links-wrapper {
-  margin-left: 200px; /* Aligned with the 200px fixed banner */
+  margin-left: 200px;
+  /* Aligned with the 200px fixed banner */
   flex-grow: 1;
 }
 
@@ -455,7 +458,7 @@
   /* Keep MSS bold, PUBLIC SCHOOL subtle */
   .logo-text-small {
     display: block;
-    font-size: 18px;
+    font-size: 24px;
     letter-spacing: 1.4px;
   }
 
@@ -490,7 +493,7 @@
 
   /* MSS remains dominant on smaller screens */
   .logo-text-small {
-    font-size: 14px;
+    font-size: 20px;
     letter-spacing: 1.2px;
   }
 

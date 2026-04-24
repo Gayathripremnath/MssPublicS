@@ -146,8 +146,8 @@
   font-family: header, sans-serif;
   letter-spacing: 1.3px;
   margin-top: 0;
-  margin-bottom: 25px;
-  line-height: 1.4;
+  margin-bottom: 30px;
+  line-height: 1.1;
 }
 
 /* Nav Links Wrapper pushed left */
@@ -162,7 +162,7 @@
 }
 
 .main-nav {
-  display: flex;
+  display:flex;
   font-family: 'Inter', sans-serif;
   gap: 29px;
   /* increase gap for premium feel */

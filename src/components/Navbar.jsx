@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Navbar.css';
 import logo from '../assets/mss_logo.png';
 import { FaSearch, FaBars, FaSignOutAlt, FaTimes, FaChevronDown, FaThLarge, FaSignInAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, setIsMobileMenuOpen }) => {
   const toggleMobileMenu = () => {
@@ -11,8 +12,7 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isNavHidden ? 'nav-hidden' : ''} ${isBannerHidden ? 'banner-hidden' : ''}`}>
       <div className="nav-content-fluid">
-
-        {/* The Banner Logo */}
+        {/* Banner Logo */}
         <div className="logo-banner">
           <div className="logo-inner">
             <img src={logo} alt="MSS Logo" className="logo-icon-img" />
@@ -28,54 +28,50 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
 
         <div className="nav-links-wrapper">
           <ul className="main-nav">
-            <li><a href="/home" className="active-link">Home</a></li>
+            <li><Link to="/home" className="active-link">Home</Link></li>
             <li className="dropdown">
-              <a href="/about">About Us <FaChevronDown className="drop-icon" /></a>
+              <Link to="/about">About Us <FaChevronDown className="drop-icon" /></Link>
               <ul className="dropdown-menu">
-                <li><a href="/management">Management</a></li>
-                <li><a href="/mandatory-disclosure">Mandatory Disclosure</a></li>
-                <li><a href="/principal">Principal's Message</a></li>
-                <li><a href="/faculty">Faculty</a></li>
-                <li><a href="/news-events">News & Events</a></li>
-                <li><a href="/activities">Activities</a></li>
+                <li><Link to="/management">Management</Link></li>
+                <li><Link to="/mandatory-disclosure">Mandatory Disclosure</Link></li>
+                <li><Link to="/principal">Principal's Message</Link></li>
+                <li><Link to="/faculty">Faculty</Link></li>
+                <li><Link to="/news-events">News &amp; Events</Link></li>
+                <li><Link to="/activities">Activities</Link></li>
               </ul>
             </li>
             <li className="dropdown">
-              <a href="/about">For CBSE <FaChevronDown className="drop-icon" /></a>
+              <Link to="/about">For CBSE <FaChevronDown className="drop-icon" /></Link>
               <ul className="dropdown-menu">
-                <li><a href="/transfer-certificate">Transfer Certificate</a></li>
-                <li><a href="/annual-report">Annual Report</a></li>
-                <li><a href="/book-list">Book List</a></li>
-                <li><a href="/circular">Circular</a></li>
-                <li><a href="/curriculum">Curriculum</a></li>
-                <li><a href="/fire-safety-certificate">Fire & Safety Certificate</a></li>
-                <li><a href="/fitness-certificate">Fitness Certificate</a></li>
-                <li><a href="/affiliation-certificate">Affiliation Certificate</a></li>
-                <li><a href="/deo-certificate">DEO Certificate</a></li>
-                <li><a href="/noc">NOC</a></li>
-                <li><a href="/sanitation-certificate">Sanitation Certificate</a></li>
-                <li><a href="/recognition-letter">Recognition Letter</a></li>
-                <li><a href="/water-analysis-certificate">Water Analysis Certificate</a></li>
-                <li><a href="/trust-certificate">Trust Certificate</a></li>
-                <li><a href="/affidavit">Affidavit</a></li>
+                <li><Link to="/transfer-certificate">Transfer Certificate</Link></li>
+                <li><Link to="/annual-report">Annual Report</Link></li>
+                <li><Link to="/book-list">Book List</Link></li>
+                <li><Link to="/circular">Circular</Link></li>
+                <li><Link to="/curriculum">Curriculum</Link></li>
+                <li><Link to="/fire-safety-certificate">Fire &amp; Safety Certificate</Link></li>
+                <li><Link to="/fitness-certificate">Fitness Certificate</Link></li>
+                <li><Link to="/affiliation-certificate">Affiliation Certificate</Link></li>
+                <li><Link to="/deo-certificate">DEO Certificate</Link></li>
+                <li><Link to="/noc">NOC</Link></li>
+                <li><Link to="/sanitation-certificate">Sanitation Certificate</Link></li>
+                <li><Link to="/recognition-letter">Recognition Letter</Link></li>
+                <li><Link to="/water-analysis-certificate">Water Analysis Certificate</Link></li>
+                <li><Link to="/trust-certificate">Trust Certificate</Link></li>
+                <li><Link to="/affidavit">Affidavit</Link></li>
               </ul>
             </li>
-            <li><a href="/result">Results</a></li>
-            <li><a href="/cocurricular">Co-Curricular</a></li>
-            <li><a href="/students">Students</a></li>
-  <li>
-    <a
-      href="https://msspublicschool.sactin.com/online"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Online Admission
-    </a>
-  </li>
-            <li className="dropdown">
-              <a href="/gallery">Gallery </a>
+            <li><Link to="/result">Results</Link></li>
+            <li><Link to="/cocurricular">Co-Curricular</Link></li>
+            <li><Link to="/students">Students</Link></li>
+            <li>
+              <a href="https://msspublicschool.sactin.com/online" target="_blank" rel="noopener noreferrer">
+                Online Admission
+              </a>
             </li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li className="dropdown">
+              <Link to="/gallery">Gallery </Link>
+            </li>
+            <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
 
@@ -83,9 +79,12 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
           <button className="action-btn-icon search-trigger"><FaSearch /></button>
           <span className="action-separator">|</span>
           <button className="action-btn-icon menu-trigger" onClick={toggleMobileMenu}><FaThLarge size={18} /></button>
-          <a href="/apply" className="btn action-btn-apply">Apply Now <FaSignInAlt style={{ marginLeft: '8px' }} /></a>
+          <Link to="/apply" className="btn action-btn-apply">
+            Apply Now <FaSignInAlt style={{ marginLeft: '8px' }} />
+          </Link>
         </div>
       </div>
+
       {/* Side Menu Drawer */}
       <div className={`side-drawer-overlay ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}></div>
       <div className={`side-drawer ${isMobileMenuOpen ? 'active' : ''}`}>
@@ -96,56 +95,52 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
           </div>
           <button className="drawer-close-btn" onClick={toggleMobileMenu}><FaTimes size={20} /></button>
         </div>
-<div className="drawer-content  ">
+        <div className="drawer-content">
           <ul className="drawer-menu-list">
-            <li><a href="/home" className="active-link">Home</a></li>
+            <li><Link to="/home" className="active-link">Home</Link></li>
             <li className="dropdown">
-              <a href="/about">About Us <FaChevronDown className="drop-icon" /></a>
+              <Link to="/about">About Us <FaChevronDown className="drop-icon" /></Link>
               <ul className="dropdown-menu">
-                <li><a href="/management">Management</a></li>
-                <li><a href="/mandatory-disclosure">Mandatory Disclosure</a></li>
-                <li><a href="/principal">Principal's Message</a></li>
-                <li><a href="/faculty">Faculty</a></li>
-                <li><a href="/news-events">News & Events</a></li>
-                <li><a href="/activities">Activities</a></li>
+                <li><Link to="/management">Management</Link></li>
+                <li><Link to="/mandatory-disclosure">Mandatory Disclosure</Link></li>
+                <li><Link to="/principal">Principal's Message</Link></li>
+                <li><Link to="/faculty">Faculty</Link></li>
+                <li><Link to="/news-events">News &amp; Events</Link></li>
+                <li><Link to="/activities">Activities</Link></li>
               </ul>
             </li>
             <li className="dropdown">
-              <a href="/about">For CBSE <FaChevronDown className="drop-icon" /></a>
+              <Link to="/about">For CBSE <FaChevronDown className="drop-icon" /></Link>
               <ul className="dropdown-menu">
-                <li><a href="/transfer-certificate">Transfer Certificate</a></li>
-                <li><a href="/annual-report">Annual Report</a></li>
-                <li><a href="/book-list">Book List</a></li>
-                <li><a href="/circular">Circular</a></li>
-                <li><a href="/curriculum">Curriculum</a></li>
-                <li><a href="/fire-safety-certificate">Fire & Safety Certificate</a></li>
-                <li><a href="/fitness-certificate">Fitness Certificate</a></li>
-                <li><a href="/affiliation-certificate">Affiliation Certificate</a></li>
-                <li><a href="/deo-certificate">DEO Certificate</a></li>
-                <li><a href="/noc">NOC</a></li>
-                <li><a href="/sanitation-certificate">Sanitation Certificate</a></li>
-                <li><a href="/recognition-letter">Recognition Letter</a></li>
-                <li><a href="/water-analysis-certificate">Water Analysis Certificate</a></li>
-                <li><a href="/trust-certificate">Trust Certificate</a></li>
-                <li><a href="/affidavit">Affidavit</a></li>
+                <li><Link to="/transfer-certificate">Transfer Certificate</Link></li>
+                <li><Link to="/annual-report">Annual Report</Link></li>
+                <li><Link to="/book-list">Book List</Link></li>
+                <li><Link to="/circular">Circular</Link></li>
+                <li><Link to="/curriculum">Curriculum</Link></li>
+                <li><Link to="/fire-safety-certificate">Fire &amp; Safety Certificate</Link></li>
+                <li><Link to="/fitness-certificate">Fitness Certificate</Link></li>
+                <li><Link to="/affiliation-certificate">Affiliation Certificate</Link></li>
+                <li><Link to="/deo-certificate">DEO Certificate</Link></li>
+                <li><Link to="/noc">NOC</Link></li>
+                <li><Link to="/sanitation-certificate">Sanitation Certificate</Link></li>
+                <li><Link to="/recognition-letter">Recognition Letter</Link></li>
+                <li><Link to="/water-analysis-certificate">Water Analysis Certificate</Link></li>
+                <li><Link to="/trust-certificate">Trust Certificate</Link></li>
+                <li><Link to="/affidavit">Affidavit</Link></li>
               </ul>
             </li>
-            <li><a href="/result">Results</a></li>
-            <li><a href="/cocurricular">Co-Curricular</a></li>
-            <li><a href="/students">Students</a></li>
-  <li>
-    <a
-      href="https://msspublicschool.sactin.com/online"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Online Admission
-    </a>
-  </li>
-            <li className="dropdown">
-              <a href="/gallery">Gallery </a>
+            <li><Link to="/result">Results</Link></li>
+            <li><Link to="/cocurricular">Co-Curricular</Link></li>
+            <li><Link to="/students">Students</Link></li>
+            <li>
+              <a href="https://msspublicschool.sactin.com/online" target="_blank" rel="noopener noreferrer">
+                Online Admission
+              </a>
             </li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li className="dropdown">
+              <Link to="/gallery">Gallery </Link>
+            </li>
+            <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
       </div>

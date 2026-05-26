@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Global Container Setup */
+.contact-page-wrapper {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #fafafa;
+  color: #333333;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Banner Design */
+.contact-banner {
+  background: linear-gradient(135deg, rgba(138, 21, 56, 0.93) 0%, rgba(90, 12, 34, 0.95) 100%), 
+              url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1200');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.banner-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.banner-underline {
+  width: 60px;
+  height: 4px;
+  background-color: #ffc107;
+  margin: 15px auto;
+  border-radius: 2px;
+}
+
+.banner-subtitle {
+  font-size: 1rem;
+  max-width: 750px;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Info Grid Cards */
+.info-cards-container {
+  max-width: 1200px;
+  margin: -40px auto 60px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.info-card {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  background-color: #fff3f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px auto;
+}
+
+.card-icon {
+  width: 24px;
+  height: 24px;
+  color: #8a1538;
+}
+
+.info-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #111111;
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  color: #555555;
+  margin: 4px 0;
+  word-break: break-word;
+}
+
+.info-card p a {
+  color: #8a1538;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-card p a:hover {
+  text-decoration: underline;
+}
+
+/* Split Columns Layout Matrix - Map Left (45%) and Form Right (55%) */
+.main-content-split {
+  max-width: 1200px;
+  margin: 0 auto 80px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr; 
+  gap: 40px;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+/* Left Side Map UI Box */
+.map-column-box {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  min-height: 550px;
+  background: #f8fafc;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* Right Form Panel Container */
+.form-column-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+}
+
+.form-title-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  border-bottom: 1px dashed #e2e8f0;
+  padding-bottom: 15px;
+}
+
+.title-icon-spec {
+  color: #8a1538;
+  width: 26px;
+  height: 26px;
+}
+
+.form-title-area h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+/* School Contact Form Styles */
+.school-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.form-field-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.field-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Dual Input Rows (Name & Phone) */
+.inputs-dual-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.inputs-dual-row .form-field-block,
+.inputs-dual-row input {
+  flex: 1;
+  width: 100%;
+}
+
+/* Input & Textarea Elements Aesthetics */
+.form-custom-select,
+.school-contact-form input[type="text"],
+.school-contact-form input[type="email"],
+.school-contact-form input[type="tel"],
+.school-contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #2d3748;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-custom-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+/* Input Focus States */
+.school-contact-form input:focus,
+.form-custom-select:focus,
+.school-contact-form textarea:focus {
+  border-color: #8a1538;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(138, 21, 56, 0.1);
+}
+
+/* Checkbox Styling Wrapper */
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  accent-color: #8a1538;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkbox-container label {
+  font-size: 0.88rem;
+  color: #555555;
+  line-height: 1.4;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Submit Button Style */
+.school-submit-btn {
+  background-color: #8a1538;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 35px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(138, 21, 56, 0.2);
+}
+
+.school-submit-btn:hover {
+  background-color: #6b0e29;
+}
+
+.school-submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive View Breakpoints Handler */
+@media (max-width: 1024px) {
+  .info-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: -20px;
+  }
+  
+  .main-content-split {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .map-column-box {
+    height: 400px;
+    min-height: auto;
+    order: 2; /* Moves map below the form on smaller viewports */
+  }
+  
+  .form-column-box {
+    order: 1;
+    padding: 35px;
+  }
+}
+
+@media (max-width: 640px) {
+  .info-cards-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .inputs-dual-row {
+    flex-direction: column;
+    gap: 22px;
+  }
+  
+  .form-column-box {
+    padding: 25px 20px;
+  }
+  
+  .school-submit-btn {
+    width: 100%;
+    text-align: center;  
+  }
+}

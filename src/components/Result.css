@@ -1,0 +1,156 @@
+.result-page {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.result-hero {
+  background: linear-gradient(135deg, #8a1538 0%, #4a0d1f 100%);
+  color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.result-hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.result-divider {
+  width: 60px;
+  height: 4px;
+  background-color: #ffc107;
+  margin: 15px auto;
+  border-radius: 2px;
+}
+
+.result-container {
+  max-width: 1100px;
+  margin: 40px auto 60px auto;
+  padding: 0 20px;
+}
+
+.result-card-header {
+  margin-bottom: 30px;
+}
+
+.result-card-header h3 {
+  font-size: 1.6rem;
+  color: #212529;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* 1 Row 2 Columns CSS Grid Setup */
+.result-two-column-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates 2 equal columns per row */
+  gap: 20px; /* Space between rows and columns */
+}
+
+/* Styled single row item card */
+.result-download-card {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.result-download-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(138, 21, 56, 0.06);
+  border-color: #8a1538; /* light hue of school theme if configured */
+}
+
+.batch-label-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+/* Buttons and Badge structures */
+.pdf-trigger-btn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  background: #fff5f7;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #fbc4d0;
+  transition: all 0.2s ease;
+}
+
+.pdf-trigger-btn:hover {
+  background: #8a1538;
+}
+
+.pdf-trigger-btn:hover .batch-label-text,
+.pdf-trigger-btn:hover .download-arrow-icon,
+.pdf-trigger-btn:hover .pdf-svg-icon {
+  color: #ffffff;
+}
+
+.pdf-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pdf-svg-icon {
+  width: 22px;
+  height: 22px;
+  fill: #dc3545;
+  transition: fill 0.2s ease;
+}
+
+.pdf-trigger-btn:hover .pdf-svg-icon {
+  fill: #ffffff;
+}
+
+.pdf-badge-text {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.pdf-trigger-btn:hover .pdf-badge-text {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.download-arrow-icon {
+  color: #8a1538;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.pdf-trigger-btn:hover .download-arrow-icon {
+  color: #ffffff;
+}
+
+/* Responsive view collapse for smaller mobile screens */
+@media (max-width: 768px) {
+  .result-two-column-grid {
+    grid-template-columns: 1fr; /* Shifts to 1 single column layout on mobile */
+    gap: 15px;
+  }
+  
+  .result-download-card {
+    padding: 14px 18px;
+  }
+  
+  .batch-label-text {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,670 @@
+/* ==========================================================================
+   ABOUT US PREMIUM EDITORIAL STYLING WITH UPDATED SPLIT VIEW (`AboutUs.css`)
+   ========================================================================== */
+
+/* 1. Base Container & Theme Variables */
+:root {
+  --primary-maroon: #8a1538;     /* Premium Accent Title Color */
+  --text-dark: #0f172a;          /* Charcoal for Headers */
+  --text-body: #334155;          /* Deep Slate for Readable Body Text */
+  --text-muted: #64748b;         /* Soft Gray for Sub-labels / Captions */
+  --border-color: #e2e8f0;       /* Fine Line Border Split */
+  --bg-light: #fafafa;           /* Light Editorial Card Background */
+}
+
+.editorial-about-container {
+  width: 100%;
+  font-family: 'Plus Jakarta Sans', 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: var(--text-body);
+  overflow-x: hidden;
+}
+
+/* 2. Hero Landing Banner Section */
+.landing-banner {
+  width: 100%;
+  height: 480px;
+  background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.85)), 
+              url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=1800') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.banner-overlay-gradient {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-context-tag {
+
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  color: #fffcfc;
+  font-weight: 700;
+  margin-top: 22px;
+  text-transform: uppercase;
+}
+
+.banner-main-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  letter-spacing: -1px;
+}
+
+.banner-gold-line {
+  width: 60px;
+  height: 3px;
+  background-color: #1e0202;
+  margin-bottom: 25px;
+}
+
+.banner-subtext {
+  font-size: 1.15rem;
+  line-height: -1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+}
+
+/* 3. Global Structural Wrapper */
+.editorial-wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+/* Section Common Headers */
+.editorial-section-header {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-top: 90px;
+  margin-bottom: 45px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 40px;
+}
+
+.section-vertical-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--primary-maroon);
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+  padding-right: 10px;
+}
+
+.section-title-block h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.section-title-block p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   4. UPDATED ROW 1: PREMIUM SIDE-BY-SIDE SPLIT (LEFT IMAGE / RIGHT TEXT)
+   ========================================================================== */
+.row-intro-split {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr; /* Premium asymmetrical balance */
+  gap: 60px;
+  align-items: center; /* Beautiful center alignment */
+}
+
+/* Left Image Frame Setup */
+.intro-split-image-zone {
+  width: 100%;
+}
+
+.premium-frame-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+  background-color: var(--bg-light);
+}
+
+.premium-split-image {
+  width: 100%;
+  height: 540px; /* Tall high-end editorial proportion */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.premium-frame-wrapper:hover .premium-split-image {
+  transform: scale(1.03);
+}
+
+.frame-bottom-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--primary-maroon);
+}
+
+/* Right Text Content Zone */
+.intro-split-text-zone {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-split-text-zone .edi-meta-tag {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--primary-maroon);
+  margin-bottom: 12px;
+}
+
+.intro-split-text-zone .edi-main-title {
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.25;
+  margin: 0 0 25px 0;
+  letter-spacing: -0.8px;
+}
+
+.editorial-body-wrapper {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 25px;
+  margin-bottom: 30px;
+}
+
+.edi-body-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin: 0 0 20px 0;
+  text-align: justify;
+}
+
+.highlighted-lead {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+/* Embedded Message Copy Styles */
+.embedded-message-block {
+  margin-bottom: 35px;
+  background-color: #fffafb; /* Subtle maroon tint background */
+  padding: 24px;
+  border-radius: 4px;
+  border-left: 3px solid var(--primary-maroon);
+}
+
+.embedded-block-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.2px;
+}
+
+.embedded-quote-para {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.embedded-sub-para {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.embedded-signature {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sig-label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.sig-author {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-maroon);
+}
+
+/* Counter Badges Row */
+.edi-stats-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.edi-stat-pill {
+  background-color: var(--bg-light);
+  padding: 12px 20px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edi-stat-pill strong {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary-maroon);
+}
+
+.edi-stat-pill span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* ==========================================================================
+   5. ROW 2: TALL ASYMMETRIC FACILITIES GRID
+   ========================================================================== */
+.editorial-facilities-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.fac-tall-column {
+  position: relative;
+  height: 480px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #0f172a;
+}
+
+.fac-tall-column img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 0.75;
+}
+
+.column-over-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 15%, rgba(15, 23, 42, 0.4) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.fac-content-block {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 20px;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.fac-num {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffc107;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.fac-tall-column h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+}
+
+.fac-content-block p {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.4s ease;
+}
+
+/* Interaction Effects for Tall Cards */
+.fac-tall-column:hover img {
+  transform: scale(1.08);
+  opacity: 0.55;
+}
+
+.fac-tall-column:hover .fac-content-block p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   6. ROW 3: CAMPUS INFRASTRUCTURE & BOUNDARIES PANELS
+   ========================================================================== */
+.row-infra-boundaries {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.edi-panel-block {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 45px;
+  background-color: #ffffff;
+}
+
+.panel-header-minimal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+}
+
+.panel-icon-svg {
+  color: var(--primary-maroon);
+}
+
+.panel-header-minimal h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.panel-intro-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin: 0 0 25px 0;
+}
+
+.panel-list-items {
+  padding-left: 18px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panel-list-items li {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+/* Boundary Grid Configurations */
+.boundary-editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+
+.bg-cell {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  padding: 18px 20px;
+  border-radius: 4px;
+}
+
+.bg-cell span {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.bg-cell strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.panel-footer-noc {
+  border-top: 1px dashed var(--border-color);
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel-footer-noc p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   7. ROW 4: ADMISSION SPLIT LAYOUT (1 ROW, 2 COLUMNS)
+   ========================================================================== */
+.editorial-admission-split-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 45px;
+  align-items: start;
+}
+
+.adm-split-left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.adm-text-block h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 15px 0;
+  letter-spacing: -0.3px;
+}
+
+.adm-text-block p {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin: 0 0 15px 0;
+  text-align: justify;
+}
+
+.adm-text-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Inner Age/Cert Sub Row cards */
+.adm-text-block-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 35px;
+}
+
+.adm-sub-info-card h5 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 12px 0;
+}
+
+.adm-sub-info-card p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin: 0;
+}
+
+/* Premium Dark Maroon Container for Payment Structure */
+.adm-split-right-card {
+  background-color: #4a0d1f; /* Elegant Dark Maroon Base */
+  background-image: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.03) 0%, transparent 80%);
+  padding: 45px 40px;
+  border-radius: 6px;
+  box-shadow: 0 12px 40px rgba(74, 13, 31, 0.12);
+}
+
+.adm-split-right-card h4 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 18px 0;
+  letter-spacing: -0.3px;
+}
+
+.adm-split-right-card p {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 25px 0;
+}
+
+/* Warning alert label inside box */
+.warning-note {
+  background-color: rgba(255, 193, 7, 0.08);
+  border-left: 3px solid #ffc107;
+  padding: 16px 20px;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 25px;
+}
+
+.warning-note strong {
+  color: #ffc107;
+  font-weight: 700;
+}
+
+/* Deposit note section divider line */
+.deposit-note-box {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.18);
+}
+
+.deposit-note-box h5 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffc107;
+  margin: 0 0 8px 0;
+}
+
+.deposit-note-box p {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE MEDIA QUERIES (Adaptive Controls)
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .editorial-facilities-strip {
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns on standard laptops */
+  }
+  .fac-tall-column {
+    height: 380px;
+  }
+  .fac-content-block p {
+    opacity: 1;
+    transform: translateY(0); /* Persistent details on tablet devices */
+  }
+}
+
+@media (max-width: 992px) {
+  .row-intro-split {
+    grid-template-columns: 1fr; /* Image and content stacks seamlessly */
+    gap: 40px;
+  }
+  .premium-split-image {
+    height: 420px; /* Adjusted size for tablets */
+  }
+  .row-infra-boundaries, .editorial-admission-split-grid {
+    grid-template-columns: 1fr; 
+    gap: 40px;
+  }
+  .banner-main-title {
+    font-size: 2.3rem;
+  }
+  .editorial-section-header {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .editorial-wrapper {
+    padding: 50px 16px;
+  }
+  .intro-split-text-zone .edi-main-title {
+    font-size: 1.95rem;
+  }
+  .premium-split-image {
+    height: 320px;
+  }
+  .editorial-facilities-strip {
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns on smaller mobile screens */
+  }
+  .adm-text-block-row {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .embedded-message-block, .edi-panel-block, .adm-split-right-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editorial-facilities-strip {
+    grid-template-columns: 1fr; /* Single column layout on small phones */
+  }
+  .fac-tall-column {
+    height: 320px;
+  }
+  .boundary-editorial-grid {
+    grid-template-columns: 1fr;
+  }
+  .edi-stats-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .edi-stat-pill {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .banner-main-title {
+    font-size: 1.85rem;
+  }
+}

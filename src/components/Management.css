@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Global Reset context within component */
+.mgmt-page-container {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #fafafa;
+  color: #334155;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mgmt-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 80px 20px;
+  box-sizing: border-box;
+}
+
+/* Hero Banner */
+.mgmt-hero-banner {
+  background: linear-gradient(135deg, rgba(138, 21, 56, 0.288) 0%, rgba(71, 8, 25, 0.584) 100%), 
+              url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1200');
+  background-size: cover;
+  background-position: center;
+  padding: 90px 20px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+.mgmt-hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-top: 70px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.mgmt-hero-underline {
+  width: 60px;
+  height: 4px;
+  background-color: #ffc107;
+  margin: 15px auto;
+  border-radius: 2px;
+}
+
+.mgmt-hero-subtitle {
+  font-size: 1.05rem;
+  max-width: 750px;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Global Headings Inside Content */
+.section-heading-block {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 15px;
+}
+
+.heading-icon {
+  color: #8a1538;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 8px;
+}
+
+.section-heading-block h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.3px;
+}
+
+.section-heading-block p {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Two Column Layout for Health/Counselling */
+.mgmt-grid-twocol {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.welfare-card-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease;
+}
+
+.welfare-card-box:hover {
+  transform: translateY(-3px);
+}
+
+.welfare-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.welfare-icon {
+  width: 28px;
+  height: 28px;
+  background: #fff0f3;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.text-maroon {
+  color: #8a1538;
+}
+
+.welfare-icon-title h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.welfare-text {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Committees Panels Section */
+.committees-section-wrapper {
+  margin-bottom: 60px;
+}
+
+.committees-grid-threecol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.committee-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.committee-panel-header {
+  background-color: #8a1538;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.committee-panel-header.header-blue {
+  background-color: #1e3a8a;
+}
+
+.committee-panel-header.header-green {
+  background-color: #065f46;
+}
+
+.committee-panel-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.committee-member-list {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.committee-member-list li {
+  padding: 14px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.committee-member-list li:last-child {
+  border-bottom: none;
+}
+
+.committee-member-list li strong {
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.committee-member-list li span {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* Custom Table for SMC Details */
+.smc-table-section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.smc-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.smc-custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.smc-custom-table th {
+  background-color: #8a1538;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 16px 18px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.smc-custom-table th:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.smc-custom-table th:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.smc-custom-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #edf2f7;
+  color: #4a5568;
+  vertical-align: middle;
+}
+
+.smc-custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+.smc-custom-table tr:hover td {
+  background-color: #f8fafc;
+}
+
+/* Helpers styles inside cells */
+.text-center { text-align: center; }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.text-dark { color: #0f172a !important; }
+.text-muted { color: #94a3b8; }
+
+.role-tag {
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.role-tag.tag-gold {
+  background-color: #fef3c7;
+  color: #92400e;
+  font-weight: 600;
+}
+
+.role-tag.tag-silver {
+  background-color: #e0f2fe;
+  color: #075985;
+  font-weight: 600;
+}
+
+.phone-cells {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.phone-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: #334155;
+}
+
+.inline-icon {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+/* Responsive View Breakpoints Matrix */
+@media (max-width: 1024px) {
+  .committees-grid-threecol {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .mgmt-grid-twocol {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .committees-grid-threecol {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .mgmt-hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .smc-table-section {
+    padding: 20px 15px;
+  }
+}

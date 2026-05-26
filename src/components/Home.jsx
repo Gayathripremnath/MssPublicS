@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence ,useTransform,useScroll} from 'framer-motion';
 import {
   FaCheckCircle, FaUserGraduate, FaCalendarAlt, FaTag,
@@ -439,7 +439,7 @@ const FacilitiesSection = () => {
                   <div className="fac-card-content">
                     <div className="fac-card-title-row"><span className="fac-card-icon" style={{ color: fac.color }}>{fac.icon}</span><h3>{fac.title}</h3></div>
                     <p>{fac.desc}</p>
-                    <div className="fac-card-footer"><a href="#admission" className="apply-now-btn">Read More<FaArrowRight className="arrow-icon" /></a></div>
+                    <div className="fac-card-footer"><a href="/facilities" className="apply-now-btn">Read More<FaArrowRight className="arrow-icon" /></a></div>
                   </div>
                 </div>
               ))}

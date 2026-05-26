@@ -8,6 +8,16 @@ import Home from './components/Home';
 import FloatingContact from './components/FloatingContact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import Aboutus from './components/Aboutus';
+import Gallery from './components/Gallery';
+import Result from './components/Result';
+import ContactUs from './components/Contactus';
+import Students from './components/Students';
+import CoCurricular from './components/Co-curricular';
+import Management from './components/Managemnet';
+import Facilities from './components/Facilities';
+import FacilityDetails from './components/FacilityDetails';
+import AboutUs from './components/Aboutus';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -63,7 +73,24 @@ function App() {
               <Home />
             </>
           } />
+          <Route path="/home" element={
+            <>
+              <Hero innerRef={heroRef} />
+              <HomePage />
+              <Home />
+            </>
+          } />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/result" element={<Result />} />
+          <Route path="/students" element={<Students />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/cocurricular" element={<CoCurricular />} />
+          <Route path="/management" element={<Management />} />
+          <Route path="/facilities" element={<Facilities />} />
+          <Route path="/facilities/:id" element={<FacilityDetails />} />
         </Routes>
+
         <FloatingContact />
         <Footer />
         <ScrollToTop />

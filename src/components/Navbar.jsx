@@ -63,15 +63,15 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
             <li><a href="/result">Results</a></li>
             <li><a href="/cocurricular">Co-Curricular</a></li>
             <li><a href="/students">Students</a></li>
-<li>
-  <a
-    href="https://msspublicschool.sactin.com/online"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Online Admission
-  </a>
-</li>
+  <li>
+    <a
+      href="https://msspublicschool.sactin.com/online"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Online Admission
+    </a>
+  </li>
             <li className="dropdown">
               <a href="/gallery">Gallery </a>
             </li>
@@ -96,19 +96,57 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
           </div>
           <button className="drawer-close-btn" onClick={toggleMobileMenu}><FaTimes size={20} /></button>
         </div>
-        <div className="drawer-content">
-          <p className="drawer-desc">Empowering students through quality education and excellence since 1998.</p>
+<div className="drawer-content  ">
           <ul className="drawer-menu-list">
-            <li><a href="/home">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/admission">Online Admission</a></li>
+            <li><a href="/home" className="active-link">Home</a></li>
+            <li className="dropdown">
+              <a href="/about">About Us <FaChevronDown className="drop-icon" /></a>
+              <ul className="dropdown-menu">
+                <li><a href="/management">Management</a></li>
+                <li><a href="/mandatory-disclosure">Mandatory Disclosure</a></li>
+                <li><a href="/principal">Principal's Message</a></li>
+                <li><a href="/faculty">Faculty</a></li>
+                <li><a href="/news-events">News & Events</a></li>
+                <li><a href="/activities">Activities</a></li>
+              </ul>
+            </li>
+            <li className="dropdown">
+              <a href="/about">For CBSE <FaChevronDown className="drop-icon" /></a>
+              <ul className="dropdown-menu">
+                <li><a href="/transfer-certificate">Transfer Certificate</a></li>
+                <li><a href="/annual-report">Annual Report</a></li>
+                <li><a href="/book-list">Book List</a></li>
+                <li><a href="/circular">Circular</a></li>
+                <li><a href="/curriculum">Curriculum</a></li>
+                <li><a href="/fire-safety-certificate">Fire & Safety Certificate</a></li>
+                <li><a href="/fitness-certificate">Fitness Certificate</a></li>
+                <li><a href="/affiliation-certificate">Affiliation Certificate</a></li>
+                <li><a href="/deo-certificate">DEO Certificate</a></li>
+                <li><a href="/noc">NOC</a></li>
+                <li><a href="/sanitation-certificate">Sanitation Certificate</a></li>
+                <li><a href="/recognition-letter">Recognition Letter</a></li>
+                <li><a href="/water-analysis-certificate">Water Analysis Certificate</a></li>
+                <li><a href="/trust-certificate">Trust Certificate</a></li>
+                <li><a href="/affidavit">Affidavit</a></li>
+              </ul>
+            </li>
+            <li><a href="/result">Results</a></li>
+            <li><a href="/cocurricular">Co-Curricular</a></li>
+            <li><a href="/students">Students</a></li>
+  <li>
+    <a
+      href="https://msspublicschool.sactin.com/online"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Online Admission
+    </a>
+  </li>
+            <li className="dropdown">
+              <a href="/gallery">Gallery </a>
+            </li>
             <li><a href="/contact">Contact Us</a></li>
           </ul>
-          <div className="drawer-footer">
-            <h4>Contact Info</h4>
-            <p>Kozhikode, Kerala</p>
-            <p>+91 495 - 2374584</p>
-          </div>
         </div>
       </div>
     </nav>

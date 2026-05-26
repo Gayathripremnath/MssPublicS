@@ -214,6 +214,16 @@
   border-top: 3px solid var(--primary-color);
 }
 
+@media (max-width: 992px) {
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    padding-left: 15px;
+    transform: translateY(0);
+  }
+}
+
 .dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;

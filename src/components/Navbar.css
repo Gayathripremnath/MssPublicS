@@ -458,6 +458,7 @@
   /* Keep MSS bold, PUBLIC SCHOOL subtle */
   .logo-text-small {
     display: block;
+    margin-top: -7px;
     font-size: 24px;
     letter-spacing: 1.4px;
   }

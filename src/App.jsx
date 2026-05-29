@@ -18,6 +18,9 @@ import Management from './components/Managemnet';
 import Facilities from './components/Facilities';
 import FacilityDetails from './components/FacilityDetails';
 import AboutUs from './components/Aboutus';
+import Mandatory from './components/Mandatory';
+import PrincipalMessage from './components/Principal';
+import Faculty from './components/Faculty';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -89,6 +92,9 @@ function App() {
           <Route path="/management" element={<Management />} />
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/facilities/:id" element={<FacilityDetails />} />
+          <Route path="/mandatory" element={<Mandatory />} />
+          <Route path="/principal" element={<PrincipalMessage />} />
+          <Route path="/faculty" element={<Faculty />} />
         </Routes>
 
         <FloatingContact />

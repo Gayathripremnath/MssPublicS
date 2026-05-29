@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 import logo from '../assets/mss_logo.png';
 import { FaSearch, FaBars, FaSignOutAlt, FaTimes, FaChevronDown, FaThLarge, FaSignInAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, setIsMobileMenuOpen }) => {
+  const [openDropdown, setOpenDropdown] = useState(null);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  const handleDropdownClick = (e, name) => {
+    e.preventDefault();
+    setOpenDropdown(prev => (prev === name ? null : name));
+  };
+
+
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isNavHidden ? 'nav-hidden' : ''} ${isBannerHidden ? 'banner-hidden' : ''}`}>
@@ -30,19 +37,20 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
           <ul className="main-nav">
             <li><Link to="/home" className="active-link">Home</Link></li>
             <li className="dropdown">
-              <Link to="/about">About Us <FaChevronDown className="drop-icon" /></Link>
-              <ul className="dropdown-menu">
+              <a href="#" onClick={e => handleDropdownClick(e, 'about')} className="dropdown-toggle">About Us <FaChevronDown className="drop-icon" /></a>
+              <ul className={`dropdown-menu ${openDropdown === 'about' ? 'open' : ''}` }>
                 <li><Link to="/management">Management</Link></li>
-                <li><Link to="/mandatory-disclosure">Mandatory Disclosure</Link></li>
+                <li><Link to="/mandatory">Mandatory Disclosure</Link></li>
                 <li><Link to="/principal">Principal's Message</Link></li>
                 <li><Link to="/faculty">Faculty</Link></li>
                 <li><Link to="/news-events">News &amp; Events</Link></li>
                 <li><Link to="/activities">Activities</Link></li>
               </ul>
             </li>
+
             <li className="dropdown">
-              <Link to="/about">For CBSE <FaChevronDown className="drop-icon" /></Link>
-              <ul className="dropdown-menu">
+              <a href="#" onClick={e => handleDropdownClick(e, 'cbse')} className="dropdown-toggle">For CBSE <FaChevronDown className="drop-icon" /></a>
+              <ul className={`dropdown-menu ${openDropdown === 'cbse' ? 'open' : ''}`}>
                 <li><Link to="/transfer-certificate">Transfer Certificate</Link></li>
                 <li><Link to="/annual-report">Annual Report</Link></li>
                 <li><Link to="/book-list">Book List</Link></li>
@@ -99,8 +107,8 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
           <ul className="drawer-menu-list">
             <li><Link to="/home" className="active-link">Home</Link></li>
             <li className="dropdown">
-              <Link to="/about">About Us <FaChevronDown className="drop-icon" /></Link>
-              <ul className="dropdown-menu">
+              <a href="#" onClick={e => handleDropdownClick(e, 'about')} className="dropdown-toggle">About Us <FaChevronDown className="drop-icon" /></a>
+              <ul className={`dropdown-menu ${openDropdown === 'about' ? 'open' : ''}`}>
                 <li><Link to="/management">Management</Link></li>
                 <li><Link to="/mandatory-disclosure">Mandatory Disclosure</Link></li>
                 <li><Link to="/principal">Principal's Message</Link></li>
@@ -110,8 +118,8 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
               </ul>
             </li>
             <li className="dropdown">
-              <Link to="/about">For CBSE <FaChevronDown className="drop-icon" /></Link>
-              <ul className="dropdown-menu">
+              <a href="#" onClick={e => handleDropdownClick(e, 'cbse')} className="dropdown-toggle">For CBSE <FaChevronDown className="drop-icon" /></a>
+              <ul className={`dropdown-menu ${openDropdown === 'cbse' ? 'open' : ''}`}>
                 <li><Link to="/transfer-certificate">Transfer Certificate</Link></li>
                 <li><Link to="/annual-report">Annual Report</Link></li>
                 <li><Link to="/book-list">Book List</Link></li>

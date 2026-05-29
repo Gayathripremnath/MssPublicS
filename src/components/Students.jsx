@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Students.css";
 
 const Students = () => {
   const [activeTab, setActiveTab] = useState("incharges");
   const [activeFeeSubTab, setActiveFeeSubTab] = useState("inst1");
+  useEffect(() => {
+  if (window.location.hash === "#fees") {
+    setActiveTab("fees");
+  }
+}, []);
 
   // 1. Class Incharges Data
   const inchargesData = [
@@ -160,8 +165,8 @@ const Students = () => {
           )}
 
           {/* TAB 2: FEE STRUCTURES */}
-          {activeTab === "fees" && (
-            <div className="table-section animate-fade-in">
+         {activeTab === "fees" && (
+  <div id="fees" className="table-section animate-fade-in">
               <div className="fee-header-flex">
                 <h2>Fee Structure Details</h2>
                 {/* Sub Tab Switchers for Instalments */}

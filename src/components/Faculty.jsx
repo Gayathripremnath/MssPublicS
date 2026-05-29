@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 import './Faculty.css';
+import suja from '../assets/suja.jpg';
+import thara from '../assets/thara.jpg';
+import shimna from '../assets/shimna.jpg';
+import nameer from '../assets/nameer.jpg';
+import pragitha from '../assets/pragitha.jpg';
+import haseena from '../assets/Haseena.jpg';
+import rinsha from '../assets/rinsha.jpg';
+import priya from '../assets/priya.jpg';
+import shahila from '../assets/shahila.jpg';
+import suhara from '../assets/suhara.jpg';
+import kavyasree from '../assets/kavyasree.jpg';
 
 const Faculty = () => {
   const [activeTab, setActiveTab] = useState('admin');
@@ -7,18 +18,18 @@ const Faculty = () => {
   // 1. Administration & In-Charges Data (With placeholder images)
   // 1. Administration & In-Charges Data (FULLY UPDATED)
   const administration = [
-    { name: "Mrs. Sindhu B. P", designation: "Principal", img: "https://msspublicschool.org/images/sindhu.jpg" },
-    { name: "Mrs. Suja. C", designation: "Vice Principal", img: "https://msspublicschool.org/images/suja.jpg" },
-    { name: "Mrs. Thara. S", designation: "Academic Co-ordinator", img: "https://msspublicschool.org/images/tara.jpg" },
-    { name: "Mrs. Shimna K P", designation: "Staff Secretary", img: "https://msspublicschool.org/images/shimnakp.jpg" },
-    { name: "Mr. Nameer N V", designation: "Event Co-ordinator", img: "https://msspublicschool.org/images/nameer.jpg" },
-    { name: "Mrs. Pragitha P", designation: "Programme Co-Ordinator", img: "https://msspublicschool.org/images/prajitha.jpg" },
-    { name: "Mrs. Rinsa C P", designation: "H.S.S Section Incharge", img: "https://msspublicschool.org/images/rinsha.jpg" },
-    { name: "Mrs. Haseena P", designation: "H.S. Section Incharge", img: "https://msspublicschool.org/images/haseenap.jpg" },
-    { name: "Mrs. Priya P", designation: "U.P. Section Incharge", img: "https://msspublicschool.org/images/priyap.jpg" },
-    { name: "Mrs. Shahila K T", designation: "L.P Junior Section Incharge", img: "https://msspublicschool.org/images/shahilap.jpg" },
-    { name: "Mrs. Suhara K T", designation: "L.P Senior Section Incharge", img: "https://msspublicschool.org/images/suharap.jpg" },
-    { name: "Mrs. Kavyasree V V", designation: "K.G Section Incharge", img: "https://msspublicschool.org/images/kavyasree.jpg" }
+    { name: "Mrs. Sindhu B. P", designation: "Principal", img: "https://msspublicschool.org/images/sindhu_incharge.jpg" },
+    { name: "Mrs. Suja. C", designation: "Vice Principal", img:suja },
+    { name: "Mrs. Thara. S", designation: "Academic Co-ordinator", img:thara },
+    { name: "Mrs. Shimna K P", designation: "Staff Secretary", img: shimna },
+    { name: "Mr. Nameer N V", designation: "Event Co-ordinator", img: nameer },
+    { name: "Mrs. Pragitha P", designation: "Programme Co-Ordinator", img: pragitha },
+    { name: "Mrs. Rinsa C P", designation: "H.S.S Section Incharge", img: rinsha },
+    { name: "Mrs. Haseena P", designation: "H.S. Section Incharge", img: haseena },
+    { name: "Mrs. Priya P", designation: "U.P. Section Incharge", img: priya },
+    { name: "Mrs. Shahila K T", designation: "L.P Junior Section Incharge", img: shahila },
+    { name: "Mrs. Suhara K T", designation: "L.P Senior Section Incharge", img: suhara },
+    { name: "Mrs. Kavyasree V V", designation: "K.G Section Incharge", img: kavyasree }
   ];
 
   // 2. Full Teaching Staff List

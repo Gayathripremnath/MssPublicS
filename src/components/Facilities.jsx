@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import './Facilities.css';
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const facilitiesData = [
   {
     id: "library",

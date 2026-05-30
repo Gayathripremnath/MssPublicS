@@ -5,10 +5,12 @@ const Students = () => {
   const [activeTab, setActiveTab] = useState("incharges");
   const [activeFeeSubTab, setActiveFeeSubTab] = useState("inst1");
   useEffect(() => {
-  if (window.location.hash === "#fees") {
-    setActiveTab("fees");
-  }
-}, []);
+    if (window.location.hash === "#fees") {
+      setTimeout(() => {
+        setActiveTab("fees");
+      }, 0);
+    }
+  }, []);
 
   // 1. Class Incharges Data
   const inchargesData = [

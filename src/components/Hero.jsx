@@ -18,7 +18,7 @@ const Hero = ({ innerRef }) => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 5000); // 5 seconds interval
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   return (
     <section id="home" className="hero" ref={innerRef}>

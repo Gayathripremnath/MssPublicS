@@ -8,8 +8,8 @@ import pragitha from '../assets/pragitha.jpg';
 import haseena from '../assets/Haseena.jpg';
 import rinsha from '../assets/rinsha.jpg';
 import priya from '../assets/priya.jpg';
-import shahila from '../assets/shahila.jpg';
-import suhara from '../assets/suhara.jpg';
+import shahila from '../assets/Shahila.jpg';
+import suhara from '../assets/Suhara.jpg';
 import kavyasree from '../assets/kavyasree.jpg';
 
 const Faculty = () => {

@@ -230,19 +230,50 @@
   transform: translateY(0);
 }
 
-/* Specific styling for the wide CBSE dropdown */
+/* Specific styling for the wide CBSE dropdown in drawer */
 .drawer-menu-list .dropdown .dropdown-menu {
   position: static;
-  opacity: 1;
-  visibility: visible;
+  opacity: 0;
+  visibility: hidden;
   transform: none;
   box-shadow: none;
   border-top: none;
   padding-left: 20px;
   background: var(--white);
   margin: 0;
+  display: none;
+}
+
+.drawer-menu-list .dropdown.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
   display: block;
 }
+
+.drawer-menu-list .dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--heading-color);
+  font-family: var(--font-text);
+  padding: 10px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.drawer-menu-list .dropdown-toggle:hover {
+  color: var(--primary-color);
+}
+
+.drawer-menu-list .dropdown.open .drop-icon {
+  transform: rotate(180deg);
+}
+.drawer-menu-list .drop-icon {
+  transition: transform 0.3s ease;
+}
+
 /* Tighten spacing for nested items on mobile */
 @media (max-width: 992px) {
   .drawer-menu-list .dropdown .dropdown-menu li {
@@ -252,14 +283,14 @@
     padding: 8px 0;
   }
 }
-.dropdown:nth-child(3) .dropdown-menu {
+.main-nav .dropdown:nth-child(3) .dropdown-menu {
   min-width: 650px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 20px;
 }
 
-.dropdown:nth-child(3) .dropdown-menu li {
+.main-nav .dropdown:nth-child(3) .dropdown-menu li {
   width: 100%;
 }
 

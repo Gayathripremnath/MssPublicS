@@ -108,12 +108,15 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
           <ul className="drawer-menu-list">
             <li><Link to="/home" className="active-link" onClick={toggleMobileMenu}>Home</Link></li>
             <li className={`dropdown ${openDropdowns['about'] ? 'open' : ''}`}>
-              <div className="dropdown-toggle" onClick={() => toggleDropdown('about')}>
-                <span>About Us</span> <FaChevronDown className="drop-icon" />
+              <div className="dropdown-toggle">
+                <Link to="/about" className="dropdown-link-text" onClick={toggleMobileMenu}>About Us</Link>
+                <div className="dropdown-icon-btn" onClick={() => toggleDropdown('about')}>
+                  <FaChevronDown className="drop-icon" />
+                </div>
               </div>
               <ul className="dropdown-menu">
                 <li><Link to="/management" onClick={toggleMobileMenu}>Management</Link></li>
-                <li><Link to="/mandatory-disclosure" onClick={toggleMobileMenu}>Mandatory Disclosure</Link></li>
+                <li><Link to="/mandatory" onClick={toggleMobileMenu}>Mandatory Disclosure</Link></li>
                 <li><Link to="/principal" onClick={toggleMobileMenu}>Principal's Message</Link></li>
                 <li><Link to="/faculty" onClick={toggleMobileMenu}>Faculty</Link></li>
                 <li><Link to="/news-events" onClick={toggleMobileMenu}>News &amp; Events</Link></li>
@@ -122,7 +125,10 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
             </li>
             <li className={`dropdown ${openDropdowns['cbse'] ? 'open' : ''}`}>
               <div className="dropdown-toggle" onClick={() => toggleDropdown('cbse')}>
-                <span>For CBSE</span> <FaChevronDown className="drop-icon" />
+                <span className="dropdown-link-text" style={{ cursor: 'pointer', flexGrow: 1 }}>For CBSE</span>
+                <div className="dropdown-icon-btn">
+                  <FaChevronDown className="drop-icon" />
+                </div>
               </div>
               <ul className="dropdown-menu">
                  <li><a href="/document/Transfer Certificate/transfer.pdf" target="_blank" rel="noopener noreferrer">Transfer Certificate</a></li>

@@ -254,13 +254,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--heading-color);
-  font-family: var(--font-text);
   padding: 10px 0;
+}
+
+.drawer-menu-list .dropdown-link-text {
+  flex-grow: 1;
+}
+
+.drawer-menu-list .dropdown-icon-btn {
+  padding: 5px 15px;
+  margin-right: -15px;
   cursor: pointer;
-  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .drawer-menu-list .dropdown-toggle:hover {

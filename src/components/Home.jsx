@@ -109,7 +109,7 @@ const SchoolAbout = () => {
                 <span className="tag-text">ABOUT OUR SCHOOL</span>
               </div>
               <h2 className="about-main-title">
-                An International Standard <br /> of <span>Excellence School</span>
+                A public school with  <br /><span>standards of excellence.</span>
               </h2>
 
               <div className="about-tabs">

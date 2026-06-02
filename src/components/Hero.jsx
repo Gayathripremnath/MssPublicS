@@ -52,7 +52,7 @@ const Hero = ({ innerRef }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h1 className="hero-title"> International  </h1>
+            <h1 className="hero-title"> PUBLIC  </h1>
             <div className="hero-title-row">
               <span className="hero-title-icon"><img src={logo} alt="" /></span>
               <h1 className="hero-title" style={{ fontSize: "120px", fontWeight: "600" }}>School</h1>

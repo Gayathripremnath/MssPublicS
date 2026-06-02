@@ -13,44 +13,43 @@ const Students = () => {
   }, []);
 
   // 1. Class Incharges Data
-  const inchargesData = [
-    { class: "KG I A", teacher: "ASWATHI K M", strength: 38 },
-    { class: "KG I B", teacher: "JESITHA N K", strength: 39 },
-    { class: "KG II A", teacher: "KAVYASREE V V", strength: 27 },
-    { class: "KG II B", teacher: "SHYMA K", strength: 27 },
-    { class: "KG II C", teacher: "SENHA N", strength: 26 },
-    { class: "I A", teacher: "RIMNA N K", strength: 37 },
-    { class: "I B", teacher: "USHAKUMARI G V", strength: 37 },
-    { class: "I C", teacher: "SHAHILA K T", strength: 37 },
-    { class: "II A", teacher: "SINI C V", strength: 26 },
-    { class: "II B", teacher: "ABHIJA P V", strength: 27 },
-    { class: "II C", teacher: "SREEVIDYA K", strength: 28 },
-    { class: "III A", teacher: "SNIJA CHANDRAN", strength: 29 },
-    { class: "III B", teacher: "AARATHI C M", strength: 27 },
-    { class: "III C", teacher: "PRAGITHA P", strength: 26 },
-    { class: "IV A", teacher: "JIJI P R", strength: 30 },
-    { class: "IV B", teacher: "AMRUTHA N S", strength: 31 },
-    { class: "IV C", teacher: "SUHARA P", strength: 31 },
-    { class: "V A", teacher: "AGHILA C S", strength: 31 },
-    { class: "V B", teacher: "SHIFA V", strength: 32 },
-    { class: "V C", teacher: "NAINA JAGADISH", strength: 33 },
-    { class: "VI A", teacher: "REMYA E", strength: 26 },
-    { class: "VI B", teacher: "SMITHA NAIR", strength: 29 },
-    { class: "VI C", teacher: "FEMINA", strength: 28 },
-    { class: "VII A", teacher: "DHURGA P", strength: 32 },
-    { class: "VII B", teacher: "JISHA P", strength: 32 },
-    { class: "VII C", teacher: "DEESHITHA P", strength: 30 },
-    { class: "VIII A", teacher: "PADMAJA K", strength: 42 },
-    { class: "VIII B", teacher: "RENU N V", strength: 32 },
-    { class: "IX A", teacher: "HASEENA P", strength: 23 },
-    { class: "IX B", teacher: "PRIYA P", strength: 23 },
-    { class: "X A", teacher: "BABITHA K V", strength: 25 },
-    { class: "X B", teacher: "SHARMIDA T K", strength: 25 },
-    { class: "XI A", teacher: "UNNIMAYA M", strength: 23 },
-    { class: "XI B", teacher: "SUBHA K", strength: 7 },
-    { class: "XII A", teacher: "LINDA JAMES", strength: 16 },
-    { class: "XII B", teacher: "JAYA P", strength: 7 }
-  ];
+ const inchargesData = [
+  { slNo: 1, teacher: "LINDA JAMES", classCharge: "XII A" },
+  { slNo: 2, teacher: "JAYA P", classCharge: "XII B" },
+  { slNo: 3, teacher: "CHITRA P K", classCharge: "XI A" },
+  { slNo: 4, teacher: "SUBHA K", classCharge: "XI B" },
+  { slNo: 5, teacher: "BABITHA K V", classCharge: "X A" },
+  { slNo: 6, teacher: "PRIYA P", classCharge: "X B" },
+  { slNo: 7, teacher: "PADMAJA P", classCharge: "IX A" },
+  { slNo: 8, teacher: "HASEENA P", classCharge: "IX B" },
+  { slNo: 9, teacher: "GAYATHRI B S", classCharge: "VIII A" },
+  { slNo: 10, teacher: "DHURGA P", classCharge: "VIII B" },
+  { slNo: 11, teacher: "SREETHUMOL V S", classCharge: "VII A" },
+  { slNo: 12, teacher: "DEESHITHA G P", classCharge: "VII B" },
+  { slNo: 13, teacher: "JISHA P", classCharge: "VII C" },
+  { slNo: 14, teacher: "SMITHA NAIR", classCharge: "VI A" },
+  { slNo: 15, teacher: "RAMYA E", classCharge: "VI B" },
+  { slNo: 16, teacher: "SHIMNA K P", classCharge: "VI C" },
+  { slNo: 17, teacher: "NAINA JAGADISH", classCharge: "V A" },
+  { slNo: 18, teacher: "SUHARA P", classCharge: "V B" },
+  { slNo: 19, teacher: "AGHILA C S", classCharge: "V C" },
+  { slNo: 20, teacher: "ARATHI C M", classCharge: "IV A" },
+  { slNo: 21, teacher: "AMNA MINNATH M A", classCharge: "IV B" },
+  { slNo: 22, teacher: "JIJI P R", classCharge: "IV C" },
+  { slNo: 23, teacher: "PRAGITHA P", classCharge: "III A" },
+  { slNo: 24, teacher: "SHYNI AUGUSTINE", classCharge: "III B" },
+  { slNo: 25, teacher: "SHIFA V", classCharge: "III C" },
+  { slNo: 26, teacher: "SUPRABHA M", classCharge: "II A" },
+  { slNo: 27, teacher: "SINI C V", classCharge: "II B" },
+  { slNo: 28, teacher: "SNIJA CHANDRAN U", classCharge: "II C" },
+  { slNo: 29, teacher: "RIMNA N K", classCharge: "I A" },
+  { slNo: 30, teacher: "SHYMA K", classCharge: "I B" },
+  { slNo: 31, teacher: "SHAHILA K T", classCharge: "I C" },
+  { slNo: 32, teacher: "SENHA", classCharge: "KG II A" },
+  { slNo: 33, teacher: "KAVYASREE V V", classCharge: "KG II B" },
+  { slNo: 34, teacher: "JESITHA N K", classCharge: "KG I A" },
+  { slNo: 35, teacher: "ASWATHI K M", classCharge: "KG I B" }
+];
 
   // Fee Dataset Headers
   const feeHeaders = ["ITEM", "KG - I & II", "I & II", "III - V", "VI -VIII", "IX - X", "SS", "COMM"];
@@ -149,15 +148,15 @@ const Students = () => {
                     <tr>
                       <th>Class</th>
                       <th>Name of Teacher</th>
-                      <th>Total Strength</th>
+                      <th>Class Charge</th>
                     </tr>
                   </thead>
                   <tbody>
                     {inchargesData.map((row, idx) => (
                       <tr key={idx}>
-                        <td className="font-weight-medium">{row.class}</td>
+                        <td className="font-weight-medium">{row.slNo}</td>
                         <td className="teacher-name">{row.teacher}</td>
-                        <td>{row.strength}</td>
+                        <td>{row.classCharge}</td>
                       </tr>
                     ))}
                   </tbody>

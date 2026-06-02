@@ -21,6 +21,7 @@ import AboutUs from './components/Aboutus';
 import Mandatory from './components/Mandatory';
 import PrincipalMessage from './components/Principal';
 import Faculty from './components/Faculty';
+import GalleryDetails from './components/GalleryDetails';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -95,6 +96,7 @@ function App() {
           <Route path="/mandatory" element={<Mandatory />} />
           <Route path="/principal" element={<PrincipalMessage />} />
           <Route path="/faculty" element={<Faculty />} />
+          <Route path="/gallery/:id" element={<GalleryDetails />} />
         </Routes>
 
         <FloatingContact />

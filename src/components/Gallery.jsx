@@ -15,7 +15,17 @@ const Gallery = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  const filteredImages = galleryData;
+  const uniqueAlbums = [];
+  const titles = new Set();
+  
+  galleryData.forEach((item) => {
+    if (!titles.has(item.title)) {
+      uniqueAlbums.push(item);
+      titles.add(item.title);
+    }
+  });
+
+  const filteredImages = uniqueAlbums;
 
   return (
     <div className="gallery-page">

@@ -31,9 +31,16 @@ const Transfer = () => {
       });
   }, []);
 
-  const openImageModal = (imageUrl, title) => {
+  const openImageModal = (imageUrl, title, e) => {
+    e.stopPropagation();
     setSelectedImage({ url: imageUrl, title });
     setModalOpen(true);
+  };
+
+  const handleTitleClick = (id, e) => {
+    e.stopPropagation();
+    if (modalOpen) return;
+    navigate(`/transfer/${id}`);
   };
 
   if (loading) {
@@ -59,10 +66,10 @@ const Transfer = () => {
       <div className="gallery-container">
         <div className="gallery-grid">
           {tcData.map((item) => (
-            <div key={item.id} className="gallery-card" style={{ cursor: 'pointer' }}>
+            <div key={item.id} className="gallery-card" style={{ cursor: 'pointer' }} onClick={(e) => e.stopPropagation()}>
               <div
                 className="gallery-img-wrapper"
-                onClick={() => openImageModal(item.tc_image_url, item.tc_no)}
+                onClick={(e) => openImageModal(item.tc_image_url, item.tc_no, e)}
               >
                 <img
                   src={item.tc_image_url}
@@ -72,7 +79,7 @@ const Transfer = () => {
               </div>
               <p
                 className="gallery-title"
-                onClick={() => navigate(`/transfer/${item.id}`)}
+                onClick={(e) => handleTitleClick(item.id, e)}
               >
                 {item.student_name} — {item.tc_no}
               </p>
@@ -92,6 +99,7 @@ const Transfer = () => {
         imageUrl={selectedImage?.url}
         title={selectedImage?.title}
         onClose={() => setModalOpen(false)}
+        onBackgroundClick={() => setModalOpen(false)}
       />
     </div>
   );

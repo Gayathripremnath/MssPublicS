@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./GalleryDetails.css"; // Reuse GalleryDetails styles
 
-const API_BASE = 'http://127.0.0.1:8000';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8000';
 
 const TransferDetails = () => {
     const { id } = useParams();
@@ -12,20 +12,28 @@ const TransferDetails = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Fetch the specific TC item, which includes nested tc_images array
-        fetch(`${API_BASE}/api/tc/${id}/`)
-            .then((res) => {
-                if (!res.ok) throw new Error("Transfer Certificate not found");
-                return res.json();
-            })
-            .then((data) => {
-                setCurrentItem(data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                console.error(err);
-                setLoading(false);
-            });
+      const fetchData = async () => {
+        try {
+          const res = await fetch(`${API_BASE}/api/tc/${id}/`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+            mode: 'cors',
+          });
+          
+          if (!res.ok) {
+            throw new Error(`HTTP ${res.status}: Transfer Certificate not found`);
+          }
+          
+          const data = await res.json();
+          setCurrentItem(data);
+        } catch (err) {
+          console.error('Fetch error:', err);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchData();
     }, [id]);
 
     const getImageUrl = (imagePath) => {

@@ -3,7 +3,7 @@ import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 import ImageModal from './ImageModal';
 
-const API_BASE = 'http://127.0.0.1:8000';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8000';
 
 const Transfer = () => {
   const navigate = useNavigate();
@@ -15,20 +15,30 @@ const Transfer = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/tc/`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch Transfer Certificates");
-        return res.json();
-      })
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/tc/`, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+          mode: 'cors',
+        });
+        
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}: Failed to fetch Transfer Certificates`);
+        }
+        
+        const data = await res.json();
         setTcData(data);
+        setError(null);
+      } catch (err) {
+        console.error('Fetch error:', err);
+        setError(err.message || 'Failed to fetch Transfer Certificates. Please check your connection.');
+      } finally {
         setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setError(err.message);
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
   const openImageModal = (imageUrl, title, e) => {
@@ -48,7 +58,42 @@ const Transfer = () => {
   }
 
   if (error) {
-    return <div className="gallery-page"><h2 style={{ textAlign: 'center', paddingTop: '100px' }}>Error: {error}</h2></div>;
+    return (
+      <div className="gallery-page">
+        <div className="gallery-hero">
+          <div className="gallery-hero-content">
+            <h1>Transfer Certificates</h1>
+            <div className="gallery-divider"></div>
+          </div>
+        </div>
+        <div className="gallery-container">
+          <div style={{
+            textAlign: 'center',
+            padding: '60px 20px',
+            background: '#fff5f5',
+            borderRadius: '12px',
+            border: '1px solid #fecaca'
+          }}>
+            <h2 style={{ color: '#b91c1c', marginBottom: '10px' }}>Unable to Load</h2>
+            <p style={{ color: '#dc2626', marginBottom: '20px' }}>{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              style={{
+                padding: '10px 28px',
+                background: '#8a1538',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '8px',
+                fontWeight: '600',
+                cursor: 'pointer',
+              }}
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (

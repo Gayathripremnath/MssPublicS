@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Gallery = () => {
   const navigate = useNavigate();
-
-  const [activeFilter, setActiveFilter] = useState('all');
   const [galleryData, setGalleryData] = useState([]);
 
   useEffect(() => {
@@ -17,15 +15,12 @@ const Gallery = () => {
 
   const uniqueAlbums = [];
   const titles = new Set();
-  
   galleryData.forEach((item) => {
     if (!titles.has(item.title)) {
       uniqueAlbums.push(item);
       titles.add(item.title);
     }
   });
-
-  const filteredImages = uniqueAlbums;
 
   return (
     <div className="gallery-page">
@@ -41,9 +36,8 @@ const Gallery = () => {
       </div>
 
       <div className="gallery-container">
-       
         <div className="gallery-grid">
-          {filteredImages.map((item) => (
+          {uniqueAlbums.map((item) => (
             <div
               key={item.id}
               className="gallery-card"
@@ -52,7 +46,7 @@ const Gallery = () => {
             >
               <div className="gallery-img-wrapper">
                 <img
-                  src={item.image}
+                  src={item.image_url}
                   alt={item.title}
                   className="gallery-img"
                 />

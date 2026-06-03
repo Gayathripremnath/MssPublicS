@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Gallery.css'; // Re-use gallery styles for consistency
+import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
+import ImageModal from './ImageModal';
 
 const API_BASE = 'http://127.0.0.1:8000';
 
@@ -10,6 +11,8 @@ const Transfer = () => {
   const [tcData, setTcData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     fetch(`${API_BASE}/api/tc/`)
@@ -28,10 +31,9 @@ const Transfer = () => {
       });
   }, []);
 
-  const getImageUrl = (imagePath) => {
-    if (!imagePath) return '';
-    if (imagePath.startsWith('http')) return imagePath;
-    return `${API_BASE}${imagePath}`;
+  const openImageModal = (imageUrl, title) => {
+    setSelectedImage({ url: imageUrl, title });
+    setModalOpen(true);
   };
 
   if (loading) {
@@ -57,30 +59,40 @@ const Transfer = () => {
       <div className="gallery-container">
         <div className="gallery-grid">
           {tcData.map((item) => (
-            <div
-              key={item.id}
-              className="gallery-card"
-              onClick={() => navigate(`/transfer/${item.id}`)}
-              style={{ cursor: 'pointer' }}
-            >
-              <div className="gallery-img-wrapper">
+            <div key={item.id} className="gallery-card" style={{ cursor: 'pointer' }}>
+              <div
+                className="gallery-img-wrapper"
+                onClick={() => openImageModal(item.tc_image_url, item.tc_no)}
+              >
                 <img
-                  src={getImageUrl(item.image)}
-                  alt={item.title}
+                  src={item.tc_image_url}
+                  alt={item.tc_no}
                   className="gallery-img"
                 />
               </div>
-              <p className="gallery-title">{item.title}</p>
+              <p
+                className="gallery-title"
+                onClick={() => navigate(`/transfer/${item.id}`)}
+              >
+                {item.student_name} — {item.tc_no}
+              </p>
             </div>
           ))}
         </div>
-        
+
         {tcData.length === 0 && (
           <div style={{ textAlign: 'center', marginTop: '40px' }}>
             <h2>No Transfer Certificates found.</h2>
           </div>
         )}
       </div>
+
+      <ImageModal
+        isOpen={modalOpen}
+        imageUrl={selectedImage?.url}
+        title={selectedImage?.title}
+        onClose={() => setModalOpen(false)}
+      />
     </div>
   );
 };

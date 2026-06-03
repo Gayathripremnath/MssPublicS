@@ -22,6 +22,8 @@ import Mandatory from './components/Mandatory';
 import PrincipalMessage from './components/Principal';
 import Faculty from './components/Faculty';
 import GalleryDetails from './components/GalleryDetails';
+import Transfer from './components/Transfer';
+import TransferDetails from './components/TransferDetails';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -97,6 +99,8 @@ function App() {
           <Route path="/principal" element={<PrincipalMessage />} />
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/gallery/:id" element={<GalleryDetails />} />
+          <Route path="/transfer" element={<Transfer />} />
+          <Route path="/transfer/:id" element={<TransferDetails />} />
         </Routes>
 
         <FloatingContact />

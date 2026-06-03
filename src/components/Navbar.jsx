@@ -52,7 +52,7 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
             <li className="dropdown">
               <Link to="/about">For CBSE <FaChevronDown className="drop-icon" /></Link>
               <ul className="dropdown-menu">
-                <li><a href="/document/Transfer Certificate/transfer.pdf" target="_blank" rel="noopener noreferrer">Transfer Certificate</a></li>
+                <li><Link to="/transfer">Transfer Certificate</Link></li>
                 <li><a href="/document/annual_report/annual.pdf" target="_blank" rel="noopener noreferrer">Annual Report</a></li>
                 <li><a href="/document/Book List/book.pdf" target="_blank" rel="noopener noreferrer">Book List</a></li>
                 <li><a href="/document/Circular/circular.pdf" target="_blank" rel="noopener noreferrer">Circular</a></li>
@@ -131,7 +131,7 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
                 </div>
               </div>
               <ul className="dropdown-menu">
-                 <li><a href="/document/Transfer Certificate/transfer.pdf" target="_blank" rel="noopener noreferrer">Transfer Certificate</a></li>
+                 <li><Link to="/transfer" onClick={toggleMobileMenu}>Transfer Certificate</Link></li>
                 <li><a href="/document/annual_report/annual.pdf" target="_blank" rel="noopener noreferrer">Annual Report</a></li>
                 <li><a href="/document/Book List/book.pdf" target="_blank" rel="noopener noreferrer">Book List</a></li>
                 <li><a href="/document/Circular/circular.pdf" target="_blank" rel="noopener noreferrer">Circular</a></li>

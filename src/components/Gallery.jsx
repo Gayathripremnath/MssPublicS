@@ -2,15 +2,38 @@ import React, { useState, useEffect } from 'react';
 import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 
+const API_BASE = "https://mssd.onrender.com";
 const Gallery = () => {
   const navigate = useNavigate();
   const [galleryData, setGalleryData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/gallery/")
-      .then((res) => res.json())
-      .then((data) => setGalleryData(data))
-      .catch((err) => console.error(err));
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/gallery/`, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+          mode: 'cors',
+        });
+
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}: Failed to fetch gallery`);
+        }
+
+        const data = await res.json();
+        setGalleryData(data);
+        setError(null);
+      } catch (err) {
+        console.error('Fetch error:', err);
+        setError(err.message || 'Failed to load gallery images');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const uniqueAlbums = [];
@@ -21,6 +44,77 @@ const Gallery = () => {
       titles.add(item.title);
     }
   });
+
+  if (loading) {
+    return (
+      <div className="gallery-page">
+        <div className="gallery-hero">
+          <div className="gallery-hero-content">
+            <h1>Our School Gallery</h1>
+            <div className="gallery-divider"></div>
+          </div>
+        </div>
+        <div className="gallery-container">
+          <h2 style={{ textAlign: 'center', color: '#666' }}>Loading gallery...</h2>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="gallery-page">
+        <div className="gallery-hero">
+          <div className="gallery-hero-content">
+            <h1>Our School Gallery</h1>
+            <div className="gallery-divider"></div>
+          </div>
+        </div>
+        <div className="gallery-container">
+          <div style={{
+            textAlign: 'center',
+            padding: '60px 20px',
+            background: '#fff5f5',
+            borderRadius: '12px',
+            border: '1px solid #fecaca'
+          }}>
+            <h2 style={{ color: '#b91c1c', marginBottom: '10px' }}>Unable to Load Gallery</h2>
+            <p style={{ color: '#dc2626', marginBottom: '20px' }}>{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              style={{
+                padding: '10px 28px',
+                background: '#8a1538',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '8px',
+                fontWeight: '600',
+                cursor: 'pointer',
+              }}
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (galleryData.length === 0) {
+    return (
+      <div className="gallery-page">
+        <div className="gallery-hero">
+          <div className="gallery-hero-content">
+            <h1>Our School Gallery</h1>
+            <div className="gallery-divider"></div>
+          </div>
+        </div>
+        <div className="gallery-container">
+          <h2 style={{ textAlign: 'center', color: '#666' }}>No gallery images available</h2>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="gallery-page">
@@ -49,6 +143,7 @@ const Gallery = () => {
                   src={item.image_url}
                   alt={item.title}
                   className="gallery-img"
+                  loading="lazy"
                 />
               </div>
               <p className="gallery-title">{item.title}</p>

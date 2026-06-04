@@ -2,31 +2,82 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./GalleryDetails.css";
 
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8000';
+
 const GalleryDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
     const [currentItem, setCurrentItem] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/gallery/${id}/`)
-            .then((res) => {
-                if (!res.ok) throw new Error("Gallery item not found");
-                return res.json();
-            })
-            .then((data) => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`${API_BASE}/api/gallery/${id}/`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' },
+                    mode: 'cors',
+                });
+
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}: Gallery item not found`);
+                }
+
+                const data = await res.json();
                 setCurrentItem(data);
+                setError(null);
+            } catch (err) {
+                console.error('Fetch error:', err);
+                setError(err.message || 'Failed to load gallery item');
+            } finally {
                 setLoading(false);
-            })
-            .catch((err) => {
-                console.error(err);
-                setLoading(false);
-            });
+            }
+        };
+
+        fetchData();
     }, [id]);
 
     if (loading) {
-        return <div className="gallery-details"><h2>Loading...</h2></div>;
+        return (
+            <div className="gallery-details">
+                <h2 style={{ textAlign: 'center', paddingTop: '100px' }}>Loading...</h2>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="gallery-details">
+                <div style={{
+                    textAlign: 'center',
+                    padding: '60px 20px',
+                    background: '#fff5f5',
+                    borderRadius: '12px',
+                    border: '1px solid #fecaca',
+                    margin: '40px'
+                }}>
+                    <h2 style={{ color: '#b91c1c', marginBottom: '10px' }}>Error Loading Gallery</h2>
+                    <p style={{ color: '#dc2626', marginBottom: '20px' }}>{error}</p>
+                    <button
+                        onClick={() => window.location.reload()}
+                        className="view-btn"
+                        style={{
+                            padding: '10px 28px',
+                            background: '#8a1538',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontWeight: '600',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        );
     }
 
     if (!currentItem) {
@@ -53,7 +104,7 @@ const GalleryDetails = () => {
                 {/* Main gallery image */}
                 <div className="details-card">
                     <div className="gallery-img-wrapper">
-                        <img src={currentItem.image_url} alt={currentItem.title} />
+                        <img src={currentItem.image_url} alt={currentItem.title} loading="lazy" />
                     </div>
                     <p className="gallery-title">{currentItem.title}</p>
                 </div>
@@ -62,7 +113,7 @@ const GalleryDetails = () => {
                 {albumImages.map((imageItem) => (
                     <div className="details-card" key={imageItem.id}>
                         <div className="gallery-img-wrapper">
-                            <img src={imageItem.image_url} alt="Album Image" />
+                            <img src={imageItem.image_url} alt="Album Image" loading="lazy" />
                         </div>
                         <p className="gallery-title">Album Photo</p>
                     </div>

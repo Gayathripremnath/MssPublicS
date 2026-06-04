@@ -104,13 +104,27 @@
 @media (max-width: 600px) {
   .details-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .gallery-img-wrapper {
+    min-height: 250px;
+    width: 100%;
   }
   
   .details-card img {
-    height: 280px;
+    height: auto;
+    min-height: 250px;
+    width: 100%;
+    object-fit: cover;
   }
   
   .gallery-details h1 {
     font-size: 2rem;
+  }
+  
+  .gallery-details {
+    margin: 60px auto 40px;
+    padding: 0 10px;
   }
 }

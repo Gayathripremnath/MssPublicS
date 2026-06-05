@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 
-const API_BASE = "https://mssd.onrender.com";
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8000';
+
 const Gallery = () => {
   const navigate = useNavigate();
   const [galleryData, setGalleryData] = useState([]);

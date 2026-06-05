@@ -3,7 +3,7 @@ import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 import ImageModal from './ImageModal';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8000';
+const API_BASE = 'https://mssd.onrender.com';
 
 const Transfer = () => {
   const navigate = useNavigate();

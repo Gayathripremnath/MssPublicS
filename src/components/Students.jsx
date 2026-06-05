@@ -3,7 +3,6 @@ import "./Students.css";
 
 const Students = () => {
   const [activeTab, setActiveTab] = useState("incharges");
-  const [activeFeeSubTab, setActiveFeeSubTab] = useState("inst1");
   useEffect(() => {
     if (window.location.hash === "#fees") {
       setTimeout(() => {
@@ -51,55 +50,18 @@ const Students = () => {
   { slNo: 35, teacher: "ASWATHI K M", classCharge: "KG I B" }
 ];
 
-  // Fee Dataset Headers
-  const feeHeaders = ["ITEM", "KG - I & II", "I & II", "III - V", "VI -VIII", "IX - X", "SS", "COMM"];
+  const feeHeaders = ["CLASS", "1ST INSTALLMENT", "2ND INSTALLMENT", "TOTAL"];
 
-  // 2. Fee Structure - Instalment 1
-  const feeInst1 = {
-    rows: [
-      { item: "Tution Fee", values: [6500, 7000, 7500, 8000, 8500, 9000, 8500] },
-      { item: "Medical Fee", values: [300, 400, 400, 500, 700, 700, 700] },
-      { item: "Stationary Fee", values: [400, 400, 400, 500, 700, 700, 700] },
-      { item: "Examination Fee", values: [400, 500, 500, 700, 800, 800, 800] },
-      { item: "Festival Fee", values: [300, 400, 500, 600, 700, 700, 700] },
-      { item: "Co-Curricular Fee", values: [500, 600, 700, 800, 900, 900, 900] },
-      { item: "Computer Fee", values: ["-", 1000, 1600, 1600, 1800, 1100, 1000] },
-      { item: "Laboratory Fee", values: ["-", "-", "-", "-", 600, 2200, 1000] },
-      { item: "Magazine Fee", values: [200, 200, 200, 200, 200, 200, 200] }
-    ],
-    totals: [8600, 10500, 11800, 12900, 14700, 16200, 14400]
-  };
-
-  // 3. Fee Structure - Instalment 2
-  const feeInst2 = {
-    rows: [
-      { item: "Tution Fee", values: [6500, 7000, 7500, 8000, 8500, 9000, 8500] },
-      { item: "Medical Fee", values: [300, 400, 400, 500, 600, 600, 600] },
-      { item: "Stationary Fee", values: [400, 400, 400, 500, 700, 700, 700] },
-      { item: "Examination Fee", values: [400, 500, 500, 700, 800, 800, 800] },
-      { item: "Festival Fee", values: [300, 400, 500, 600, 700, 700, 700] },
-      { item: "Co-Curricular Fee", values: [500, 600, 700, 800, 900, 900, 900] },
-      { item: "Computer Fee", values: ["-", 1000, 1600, 1600, 1800, 1100, 1000] },
-      { item: "Laboratory Fee", values: ["-", "-", "-", "-", 500, 2200, 1000] }
-    ],
-    totals: [8400, 10300, 11600, 12700, 14500, 16000, 14200]
-  };
-
-  // 4. Total Fee Structural Data
-  const feeTotalData = {
-    rows: [
-      { item: "Tution Fee", values: [13000, 14000, 15000, 16000, 17000, 18000, 17000] },
-      { item: "Medical Fee", values: [600, 800, 800, 1000, 1200, 1200, 1200] },
-      { item: "Stationary Fee", values: [800, 800, 800, 1000, 1400, 1400, 1400] },
-      { item: "Examination Fee", values: [800, 1000, 1000, 1400, 1600, 1600, 1600] },
-      { item: "Festival Fee", values: [600, 800, 1000, 1200, 1400, 1400, 1400] },
-      { item: "Co-Curricular Fee", values: [1000, 1200, 1400, 1600, 1800, 1800, 1800] },
-      { item: "Computer Fee", values: ["-", 2000, 3200, 3200, 3600, 2200, 2000] },
-      { item: "Laboratory Fee", values: ["-", "-", "-", "-", 1000, 4400, 2000] },
-      { item: "Magazine Fee", values: [200, 200, 200, 200, 200, 200, 200] }
-    ],
-    totals: [17000, 20800, 23400, 25600, 29200, 32200, 28600]
-  };
+  const feeTotalsByClass = [
+    { className: "KG - I & II", firstInstallment: 9600, secondInstallment: 9400, total: 19000 },
+    { className: "I - II", firstInstallment: 12700, secondInstallment: 11400, total: 24100 },
+    { className: "III", firstInstallment: 14100, secondInstallment: 12800, total: 26900 },
+    { className: "IV - V", firstInstallment: 14200, secondInstallment: 12800, total: 27000 },
+    { className: "VI - VIII", firstInstallment: 15400, secondInstallment: 14000, total: 29400 },
+    { className: "IX - X", firstInstallment: 16200, secondInstallment: 16000, total: 32200 },
+    { className: "XI & XII SCIENCE", firstInstallment: 17600, secondInstallment: 17400, total: 35000 },
+    { className: "XI & XII COMMERCE", firstInstallment: 15200, secondInstallment: 14800, total: 30000 }
+  ];
 
   return (
     <div className="students-page">
@@ -170,27 +132,6 @@ const Students = () => {
   <div id="fees" className="table-section animate-fade-in">
               <div className="fee-header-flex">
                 <h2>Fee Structure Details</h2>
-                {/* Sub Tab Switchers for Instalments */}
-                <div className="fee-sub-tabs">
-                  <button 
-                    className={`sub-tab-btn ${activeFeeSubTab === "inst1" ? "active" : ""}`}
-                    onClick={() => setActiveFeeSubTab("inst1")}
-                  >
-                    Instalment 1
-                  </button>
-                  <button 
-                    className={`sub-tab-btn ${activeFeeSubTab === "inst2" ? "active" : ""}`}
-                    onClick={() => setActiveFeeSubTab("inst2")}
-                  >
-                    Instalment 2
-                  </button>
-                  <button 
-                    className={`sub-tab-btn ${activeFeeSubTab === "total" ? "active" : ""}`}
-                    onClick={() => setActiveFeeSubTab("total")}
-                  >
-                    Total Annual Fee
-                  </button>
-                </div>
               </div>
 
               <p className="fee-notice-text">
@@ -208,24 +149,14 @@ const Students = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {/* Dynamic Row Rendering logic depending on subtab */}
-                    {(activeFeeSubTab === "inst1" ? feeInst1.rows : activeFeeSubTab === "inst2" ? feeInst2.rows : feeTotalData.rows).map((row, idx) => (
+                    {feeTotalsByClass.map((row, idx) => (
                       <tr key={idx}>
-                        <td className="font-weight-medium item-column">{row.item}</td>
-                        {row.values.map((val, valIdx) => (
-                          <td key={valIdx} className={val === "-" ? "empty-cell" : ""}>
-                            {val !== "-" ? `₹${val}` : "-"}
-                          </td>
-                        ))}
+                        <td className="font-weight-medium item-column">{row.className}</td>
+                        <td>₹{row.firstInstallment}</td>
+                        <td>₹{row.secondInstallment}</td>
+                        <td>₹{row.total}</td>
                       </tr>
                     ))}
-                    {/* Dynamically Loaded Total Row */}
-                    <tr className="total-row">
-                      <td className="total-label">TOTAL</td>
-                      {(activeFeeSubTab === "inst1" ? feeInst1.totals : activeFeeSubTab === "inst2" ? feeInst2.totals : feeTotalData.totals).map((total, idx) => (
-                        <td key={idx} className="total-amount">₹{total}</td>
-                      ))}
-                    </tr>
                   </tbody>
                 </table>
               </div>

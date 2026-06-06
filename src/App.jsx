@@ -24,6 +24,7 @@ import Faculty from './components/Faculty';
 import GalleryDetails from './components/GalleryDetails';
 import Transfer from './components/Transfer';
 import TransferDetails from './components/TransferDetails';
+import Activities from './components/Activities';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -101,6 +102,7 @@ function App() {
           <Route path="/gallery/:id" element={<GalleryDetails />} />
           <Route path="/transfer" element={<Transfer />} />
           <Route path="/transfer/:id" element={<TransferDetails />} />
+          <Route path="/activities" element={<Activities />} />
         </Routes>
 
         <FloatingContact />

@@ -25,6 +25,9 @@ import GalleryDetails from './components/GalleryDetails';
 import Transfer from './components/Transfer';
 import TransferDetails from './components/TransferDetails';
 import Activities from './components/Activities';
+import { Rotate3D } from 'lucide-react';
+import Admission from './components/Admission';
+import SeniorAdmission from './components/SeniorAdmission';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -102,7 +105,9 @@ function App() {
           <Route path="/gallery/:id" element={<GalleryDetails />} />
           <Route path="/transfer" element={<Transfer />} />
           <Route path="/transfer/:id" element={<TransferDetails />} />
-          <Route path="/activities" element={<Activities />} />
+          <Route path="/admission" element={<Admission />} />
+          <Route path="/seniorsec" element={<SeniorAdmission />} /> 
+         
         </Routes>
 
         <FloatingContact />

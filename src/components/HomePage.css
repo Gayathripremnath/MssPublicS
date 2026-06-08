@@ -1,9 +1,13 @@
-.welcome-section {
+/* ==========================================================================
+   Base Styles & Layout Core
+   ========================================================================== */
+
+.hp-welcome-section {
   padding: 60px 0;
   background-color: var(--white);
 }
 
-.admission-banners {
+.hp-admission-banners {
   display: flex;
   gap: 30px;
   margin-top: -120px;
@@ -12,7 +16,9 @@
   z-index: 10;
 }
 
-.admission-card {
+.hp-admission-card {
+  display: block;
+  text-decoration: none;
   flex: 1;
   background-color: var(--white);
   border-radius: 4px;
@@ -24,7 +30,7 @@
 }
 
 /* Background lined pattern watermark in bottom left corner */
-.admission-card::before {
+.hp-admission-card::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -36,29 +42,29 @@
   pointer-events: none;
 }
 
-.admission-card-content {
+.hp-admission-card-content {
   display: flex;
   align-items: center;
   padding: 40px 30px;
   border-radius: 4px;
 }
 
-.admission-icon-wrapper {
+.hp-admission-icon-wrapper {
   flex-shrink: 0;
   margin-right: 25px;
 }
 
-.admission-icon {
+.hp-admission-icon {
   font-size: 55px;
   color: #1a1a1a; 
 }
 
-.admission-text-wrapper {
+.hp-admission-text-wrapper {
   flex-grow: 1;
   text-align: left;
 }
 
-.admission-text-wrapper h3 {
+.hp-admission-text-wrapper h3 {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 22px;
@@ -67,14 +73,14 @@
   text-transform: none;
 }
 
-.admission-text-wrapper p {
+.hp-admission-text-wrapper p {
   font-family: var(--font-text);
   font-size: 14px;
   color: var(--text-color);
   line-height: 1.6;
 }
 
-.admission-card-bottom {
+.hp-admission-card-bottom {
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -82,7 +88,7 @@
   z-index: 2;
 }
 
-.admission-circle-btn {
+.hp-admission-circle-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,40 +103,40 @@
   box-shadow: 0 5px 15px rgba(158, 17, 36, 0.3);
 }
 
-.admission-circle-btn:hover {
+.hp-admission-circle-btn:hover {
   background-color: var(--heading-color);
   transform: scale(1.1);
 }
 
-.arrow-down {
+.hp-arrow-down {
   font-style: normal;
   font-weight: bold;
   display: inline;
 }
 
 /* Welcome Area */
-.welcome-area {
+.hp-welcome-area {
   display: flex;
   gap: 40px;
   align-items: center;
 }
 
-.welcome-img-box {
+.hp-welcome-img-box {
   flex: 1;
 }
 
-.img-wrapper {
+.hp-img-wrapper {
   position: relative;
   border: 5px solid #f5f5f5;
   overflow: hidden;
 }
 
-.img-wrapper img {
+.hp-img-wrapper img {
   width: 100%;
   display: block;
 }
 
-.experience-badge {
+.hp-experience-badge {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -143,52 +149,52 @@
   text-align: center;
 }
 
-.experience-badge .years {
+.hp-experience-badge .hp-years {
   font-size: 32px;
   font-weight: 700;
   line-height: 1;
 }
 
-.experience-badge .text {
+.hp-experience-badge .hp-text {
   font-size: 14px;
 }
 
-.welcome-text-box {
+.hp-welcome-text-box {
   flex: 1;
 }
 
-.section-subtitle {
+.hp-section-subtitle {
   color: var(--primary-color);
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-.section-title {
+.hp-section-title {
   font-size: 36px;
   line-height: 1.2;
   margin-bottom: 15px;
   font-family: var(--font-heading);
 }
 
-.section-title span {
+.hp-section-title span {
   color: var(--primary-color);
 }
 
-.title-separator {
+.hp-title-separator {
   width: 60px;
   height: 3px;
   background-color: var(--primary-color);
   margin-bottom: 25px;
 }
 
-.welcome-desc {
+.hp-welcome-desc {
   font-size: 15px;
   color: var(--text-color);
   margin-bottom: 15px;
 }
 
-.read-more-btn {
+.hp-read-more-btn {
   display: inline-block;
   padding: 10px 30px;
   background-color: var(--primary-color);
@@ -199,58 +205,143 @@
   font-size: 13px;
 }
 
-.read-more-btn:hover {
+.hp-read-more-btn:hover {
   background-color: var(--heading-color);
 }
 
 /* Register Banners Row */
-.register-banners-row {
+.hp-register-banners-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin-top: 40px;
 }
 
-.register-banner-item {
+.hp-register-banner-item {
   border: 1px solid #ddd;
 }
 
-.register-banner-item img {
+.hp-register-banner-item img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-@media (max-width: 992px) {
-  .welcome-area {
+/* ==========================================================================
+   Comprehensive Media Queries (All Screen Sizes)
+   ========================================================================== */
+
+/* 1. Large Desktops & Monitors (Min-width: 1200px) */
+@media (min-width: 1200px) {
+  .hp-admission-card:first-child {
+    margin-left: 130px; /* Applies your offset spacing safely only on wide displays */
+  }
+}
+
+/* 2. Tablets & Small Laptops (Max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hp-admission-banners {
+    gap: 20px;
+    margin-top: -100px;
+  }
+  .hp-admission-card-content {
+    padding: 30px 20px;
+  }
+  .hp-admission-icon {
+    font-size: 45px;
+  }
+  .hp-admission-text-wrapper h3 {
+    font-size: 19px;
+  }
+  .hp-section-title {
+    font-size: 32px;
+  }
+}
+
+/* 3. Medium & Small Tablets / Landscape Phones (Max-width: 768px) */
+@media (max-width: 768px) {
+  .hp-admission-banners {
+    flex-direction: column;
+    margin-top: -60px;
+    gap: 40px; /* Extra spacing handles absolute badge button offsets cleanly */
+  }
+  .hp-admission-card {
+    width: 100%;
+    margin-left: 0 !important; /* Forces normal full width distribution */
+    margin-bottom: 20px;
+  }
+  .hp-welcome-area {
     flex-direction: column;
     text-align: center;
     gap: 30px;
   }
-  .title-separator {
+  .hp-title-separator {
     margin-left: auto;
     margin-right: auto;
   }
-}
-
-@media (max-width: 768px) {
-  .admission-banners {
-    flex-direction: column;
-    margin-top: -60px;
-    gap: 40px; /* extra space for overlapping buttons */
-  }
-  .admission-card {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  .section-title {
+  .hp-section-title {
     font-size: 28px;
   }
-  .register-banners-row {
+  .hp-register-banners-row {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-  .welcome-img-box {
+  .hp-welcome-img-box {
     width: 100%;
+  }
+}
+
+/* 4. Large Mobile Devices (Max-width: 480px) */
+@media (max-width: 480px) {
+  .hp-welcome-section {
+    padding: 40px 0;
+  }
+  .hp-admission-banners {
+    margin-top: -40px;
+  }
+  .hp-admission-card-content {
+    padding: 25px 15px;
+  }
+  .hp-admission-icon-wrapper {
+    margin-right: 15px;
+  }
+  .hp-admission-icon {
+    font-size: 38px;
+  }
+  .hp-admission-text-wrapper h3 {
+    font-size: 17px;
+  }
+  .hp-admission-text-wrapper p {
+    font-size: 13px;
+  }
+  .hp-section-title {
+    font-size: 24px;
+  }
+  .hp-experience-badge {
+    padding: 12px;
+  }
+  .hp-experience-badge .hp-years {
+    font-size: 24px;
+  }
+  .hp-experience-badge .hp-text {
+    font-size: 12px;
+  }
+}
+
+/* 5. Ultra-Small Mobile Devices (Max-width: 360px) */
+@media (max-width: 360px) {
+  .hp-admission-card-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .hp-admission-icon-wrapper {
+    margin-right: 0;
+  }
+  .hp-admission-text-wrapper {
+    text-align: center;
+  }
+  .hp-section-title {
+    font-size: 21px;
   }
 }

@@ -1,83 +1,73 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaChevronDown, FaAddressCard, FaBookOpen, FaUserGraduate } from 'react-icons/fa';
+import { Link } from 'react-router-dom'; 
+import { FaChevronDown, FaAddressCard, FaUserGraduate } from 'react-icons/fa';
 import './HomePage.css';
 
 const HomePage = () => {
   return (
-    <section className="welcome-section">
+    <section className="hp-welcome-section">
       <div className="container">
-     
+
         {/* Admission Banners */}
-        <div id="admission" className="admission-banners">
-          <motion.div 
-            className="admission-card"
+        <div id="admission" className="hp-admission-banners">
+
+          {/* Card 1: KG to IX -> Links to /admission */}
+          <motion.div
+            className="hp-admission-card-wrapper"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="admission-card-content">
-              <div className="admission-icon-wrapper">
-                <FaAddressCard className="admission-icon" />
+            <Link to="/admission" className="hp-admission-card">
+              <div className="hp-admission-card-content">
+                <div className="hp-admission-icon-wrapper">
+                  <FaAddressCard className="hp-admission-icon" />
+                </div>
+
+                <div className="hp-admission-text-wrapper">
+                  <h3>ADMISSION OPEN</h3>
+                  <p>For All Classes From KG To IX</p>
+                </div>
               </div>
-              <div className="admission-text-wrapper">
-                <h3>Junior School</h3>
-                <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
+
+              <div className="hp-admission-card-bottom">
+                <span className="hp-admission-circle-btn">
+                  <FaChevronDown />
+                </span>
               </div>
-            </div>
-            <div className="admission-card-bottom">
-              <a href="#" className="admission-circle-btn">
-                <FaChevronDown />
-              </a>
-            </div>
+            </Link>
           </motion.div>
 
-          <motion.div 
-            className="admission-card"
+          {/* Card 2: XI & XII -> Links to /senior-admission */}
+          <motion.div
+            className="hp-admission-card-wrapper"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <div className="admission-card-content">
-              <div className="admission-icon-wrapper">
-                <FaBookOpen className="admission-icon" />
+            <Link to="/seniorsec" className="hp-admission-card">
+              <div className="hp-admission-card-content">
+                <div className="hp-admission-icon-wrapper">
+                  <FaUserGraduate className="hp-admission-icon" />
+                </div>
+
+                <div className="hp-admission-text-wrapper">
+                  <h3>ADMISSION OPEN</h3>
+                  <p>Class XI & XII</p>
+                </div>
               </div>
-              <div className="admission-text-wrapper">
-                <h3>Boarding School</h3>
-                <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
+
+              <div className="hp-admission-card-bottom">
+                <span className="hp-admission-circle-btn">
+                  <FaChevronDown />
+                </span>
               </div>
-            </div>
-            <div className="admission-card-bottom">
-              <a href="#" className="admission-circle-btn">
-                <FaChevronDown />
-              </a>
-            </div>
+            </Link>
           </motion.div>
 
-          <motion.div 
-            className="admission-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <div className="admission-card-content">
-              <div className="admission-icon-wrapper">
-                <FaUserGraduate className="admission-icon" />
-              </div>
-              <div className="admission-text-wrapper">
-                <h3>Senior School</h3>
-                <p>Our programs are designed to develop skilled academic experts and critical thinkers.</p>
-              </div>
-            </div>
-            <div className="admission-card-bottom">
-              <a href="#" className="admission-circle-btn">
-                <FaChevronDown />
-              </a>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

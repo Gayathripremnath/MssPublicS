@@ -1,0 +1,372 @@
+/* ==========================================================================
+   Senior Secondary Admission Form Styles
+   ========================================================================== */
+
+:root {
+  --primary-color: #9e1124;    /* Main branding deep red */
+  --heading-color: #1a1a1a;    /* Bold text color */
+  --text-color: #4a4a4a;       /* Body copy gray */
+  --light-bg: #f9f9f9;         /* Field background */
+  --border-color: #e0e0e0;     /* Subtle borders */
+  --white: #ffffff;
+  --font-heading: 'Plus Jakarta Sans', 'Montserrat', sans-serif;
+  --font-text: 'Inter', sans-serif;
+}
+
+/* Main Container - Added top margin space to prevent homepage layout collisions */
+.sr-admission-container {
+  max-width: 1100px;
+  margin: 160px auto 80px auto; 
+  padding: 40px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-text);
+  color: var(--text-color);
+}
+
+/* Form Header Block */
+.sr-form-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.sr-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: rgba(158, 17, 36, 0.08);
+  color: var(--primary-color);
+}
+
+.sr-form-title {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Sections Sub-Headings */
+.sr-section-subtitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin: 30px 0 20px 0;
+  line-height: 1.4;
+}
+
+/* Form Sections Dividers */
+.sr-section-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 35px 0;
+  position: relative;
+}
+
+/* Form Responsive Core Grid Layout */
+.sr-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Input Fields and Layout Groups */
+.sr-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Force textareas and custom elements to use full widths inside grids */
+.sr-form-group textarea,
+.sr-form-group.sr-full-width {
+  grid-column: span 2;
+}
+
+.sr-form-group label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.sr-sub-label {
+  font-size: 12px;
+  color: #888888;
+  font-weight: 400;
+}
+
+/* Form Native Input Element Reset & Styling */
+.sr-form-grid input[type="text"],
+.sr-form-grid input[type="date"],
+.sr-form-grid select,
+.sr-form-grid textarea,
+.sr-preference-section select,
+.sr-full-width input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--light-bg);
+  font-family: var(--font-text);
+  font-size: 14px;
+  color: var(--heading-color);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.sr-form-grid input:focus,
+.sr-form-grid select:focus,
+.sr-form-grid textarea:focus,
+.sr-preference-section select:focus,
+.sr-full-width input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: var(--white);
+  box-shadow: 0 0 0 3px rgba(158, 17, 36, 0.1);
+}
+
+.sr-form-grid textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Stream Combinations Grid Layout
+   ========================================================================== */
+.sr-stream-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.sr-stream-card {
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 20px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.sr-stream-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.sr-stream-card h3 {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 6px;
+}
+
+.sr-stream-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sr-stream-card ul li {
+  font-size: 13px;
+  padding: 4px 0;
+  color: var(--text-color);
+  border-bottom: 1px dashed #e8e8e8;
+}
+
+.sr-stream-card ul li:last-child {
+  border-bottom: none;
+}
+
+/* Preference Selectors Section Grid */
+.sr-preference-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ==========================================================================
+   File Upload System Styling
+   ========================================================================== */
+.sr-file-upload-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sr-file-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sr-file-item label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.sr-file-item input[type="file"] {
+  border: 1px dashed var(--border-color);
+  padding: 14px;
+  border-radius: 6px;
+  background-color: var(--light-bg);
+  cursor: pointer;
+  font-size: 13px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sr-file-item input[type="file"]:hover {
+  border-color: var(--primary-color);
+}
+
+/* ==========================================================================
+   Google reCAPTCHA Widget Simulator 
+   ========================================================================== */
+.sr-captcha-wrapper {
+  margin: 30px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sr-captcha-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  width: 302px;
+  height: 76px;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.sr-captcha-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sr-captcha-left input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.sr-captcha-left label {
+  font-family: Roboto, helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+  user-select: none;
+  cursor: pointer;
+}
+
+.sr-captcha-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sr-recaptcha-logo {
+  width: 32px;
+  height: 32px;
+  background: url('https://www.gstatic.com/recaptcha/api2/logo_48.png') no-repeat;
+  background-size: contain;
+}
+
+.sr-captcha-text {
+  font-family: Roboto, helvetica, arial, sans-serif;
+  font-size: 8px;
+  color: #555555;
+  margin-top: 2px;
+  text-align: center;
+}
+
+/* Submit Action Button */
+.sr-submit-btn {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  padding: 14px 30px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.sr-submit-btn:hover {
+  background-color: var(--heading-color);
+}
+
+/* ==========================================================================
+   Responsive Adaptive Layout Breakpoints
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .sr-stream-showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sr-admission-container {
+    margin: 100px 20px 40px 20px;
+    padding: 24px;
+  }
+
+  .sr-form-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .sr-form-group textarea,
+  .sr-form-group.sr-full-width {
+    grid-column: span 1;
+  }
+
+  .sr-preference-section,
+  .sr-file-upload-block {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .sr-form-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sr-stream-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sr-submit-btn {
+    max-width: 100%;
+  }
+}

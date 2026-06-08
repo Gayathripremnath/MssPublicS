@@ -1,5 +1,7 @@
 import React from 'react';
 import './Principal.css';
+import sindhu from '../assets/sindhu_incharge.jpg';
+import img1 from '../assets/04.jpg';
 
 const PrincipalMessage = () => {
   return (
@@ -21,7 +23,7 @@ const PrincipalMessage = () => {
             <div className="image-card">
               {/* Replace URL below with your actual teacher/principal image path */}
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" 
+                src={sindhu} 
                 alt="Principal Sindhu.B.P" 
                 className="principal-image"
               />

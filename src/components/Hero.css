@@ -39,6 +39,11 @@
     height: 100vh !important;
     min-height: 100vh !important;
   }
+
+  .hero-content {
+    top: 0 !important;
+    padding: 0 !important;
+  }
 }
 
 @keyframes bgZoom {
@@ -171,7 +176,6 @@
 @media (max-width: 768px) {
   .hero {
     height: 90vh !important;
-    /* Slightly reduced height for mobile better scaling */
     min-height: 500px !important;
   }
 
@@ -180,27 +184,27 @@
     height: 90vh !important;
   }
 
+  .hero-content {
+    top: 0 !important;
+    padding-top: 50px !important;
+  }
+
   .hero-text-content {
     text-align: center !important;
-    /* Center text */
     margin: 0 auto;
     padding-left: 0 !important;
-    /* Remove desktop indent */
   }
 
   .hero-title-row {
     justify-content: center !important;
-    /* Center the school title row */
   }
 
   .hero-buttons {
     justify-content: center !important;
-   
   }
 
   .hero-title {
     font-size: 38px !important;
-   
   }
 
   .hero-subtitle {

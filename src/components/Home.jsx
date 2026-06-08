@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence ,useTransform,useScroll} from 'framer-motion';
 import {
   FaCheckCircle, FaUserGraduate, FaCalendarAlt, FaTag,
@@ -8,11 +8,11 @@ import {
   FaBook, FaGraduationCap, FaCertificate, FaGlobe, FaLightbulb, FaSchool,
   FaQuoteLeft, FaUsers
 } from 'react-icons/fa';
-
+import sindhu from '../assets/sindhu_incharge.jpg';
 // CSS Imports
 import './NewsMarquee.css';
 import './AboutSection.css';
-import './PrincipalMessage.css';
+import './Principal.css';
 import './StudyResources.css';
 import './BlogSection.css';
 import './BackgroundDecor.css';
@@ -195,114 +195,84 @@ const SchoolAbout = () => {
 // ---------------------------------------------------------
 
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 50 },
-  show: { opacity: 1, y: 0 },
-};
-
-/* ================= COMPONENT ================= */
 const PrincipalMessage = () => {
-  const ref = useRef(null);
-
-  // Scroll tracking
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  // 👇 Parallax movement (adjust 150 → change speed)
-  const y = useTransform(scrollYProgress, [0, 1], [0, 250]);
-
   return (
-    <section
-      ref={ref} 
-      id="principal"
-      className="principal-section principal-room-section"
-    >
-      <div className="principal-container">
-        <div className="principal-content-grid principal-room-grid">
+    <div className="principal-container">
 
-          {/* LEFT - IMAGE (SCROLL EFFECT) */}
-          <motion.div
-            style={{ y }}
-            className="principal-image-col principal-amenities"
-            initial={{ opacity: 0, x: -80, scale: 0.95 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="principal-image-container">
+    
+      {/* Content Section */}
+      <div className="principal-content-wrapper">
+        <div className="principal-grid">
+
+          {/* Left Side */}
+          <div className="principal-sidebar">
+            <div className="image-card">
               <img
-                src="https://msspublicschool.org/images/sindhu_incharge.jpg"
-                alt="Principal"
+                src={sindhu}
+                alt="Principal Sindhu B P"
+                className="principal-image"
               />
-            </div>
 
-            <div className="principal-meta">
-              <div className="principal-name-main">Mrs. Sindhu</div>
-              <div className="principal-role-main">Principal In-charge</div>
-
-              <div className="signature-chip">
-                <span className="signature-dot"></span>
-                Available Today
+              <div className="principal-meta">
+                <h3>Sindhu B P</h3>
+                <p className="credentials">M.A., B.Ed.</p>
+                <p className="designation">
+                  Principal, M.S.S Public School
+                </p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* RIGHT - TEXT */}
-          <motion.div
-            className="principal-text-col principal-room-main"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-          >
-            {/* Tag */}
-            <motion.div className="principal-tag" variants={fadeUp}>
-              <span className="tag-line-red"></span>
-              <span className="tag-text-red">PRINCIPAL'S DESK</span>
-            </motion.div>
+          {/* Right Side */}
+          <div className="principal-text-section">
 
-            {/* Heading */}
-            <motion.h2 className="principal-header-title" variants={fadeUp}>
-              Message from our <span>Principal</span>
-            </motion.h2>
+            <p className="intro-text">
+              <strong>M.S.S Public School (Senior Secondary)</strong>,
+              run by Muslim Service Society, offers universally accepted
+              education through the CBSE stream. The school provides
+              child-centric education focusing on the all-round
+              development of body, mind, and spirit.The biggest challenge faced by educators today is preparing
+              students for the demands of a globalized world. Students
+              need to become adaptable lifelong learners with strong
+              communication, critical thinking, and creative problem-solving
+              skills.
+            </p>
 
-            {/* Message */}
-            <motion.div className="principal-message-body" variants={fadeUp}>
-              <p>
-                M.S.S Public School (Senior Secondary) run by Muslim Service
-                Society offers quality CBSE education with a focus on
-                child-centric learning and global readiness.
-              </p>
+            <blockquote>
+              "The crux of education is after all, the education of the heart.
+              We want our pupils to develop valuable life skills and become
+              more independent and confident individuals."
+            </blockquote>
 
-              <p>
-                We nurture curiosity, courage, and character to help students
-                achieve excellence in all aspects of life.
-              </p>
+            <p>
+              Education at M.S.S Public School develops a global outlook
+              while maintaining respect for our homeland and cultural
+              values. The curriculum helps students understand worldwide
+              developments and prepares them to collaborate effectively
+              with people from diverse backgrounds.It will remain our constant endeavor to provide quality
+              education that inspires a passion for learning and nurtures
+              reflective, responsive, and adaptable individuals capable of
+              meeting the challenges of a rapidly changing world.
+            </p>
+        
 
-              <p>
-                The biggest challenge faced by the educators of today is to prepare students for the challenges of a globalised world. Students of today face a world that continually demands new knowledge and abilities, a world that requires the students to become adaptable, life-long learners, in an ever changing scenario of new skills and competencies. They also need to be good communicators and should be able to relate themselves with other people, think critically and creatively.
-              </p>
-            </motion.div>
+            <div className="sign-off">
+              <p>Warm Regards,</p>
+              <h4>Sindhu B P</h4>
+              <span>Principal</span>
+            </div>
 
-           
-          </motion.div>
+          </div>
 
         </div>
       </div>
-    </section>
+
+    </div>
   );
 };
+
+
 // ---------------------------------------------------------
 // 4.5. DepartmentSection (Academic experience grid)
 // ---------------------------------------------------------

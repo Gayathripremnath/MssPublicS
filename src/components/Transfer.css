@@ -475,11 +475,24 @@
    ═══════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
   .tc-hero {
-    padding: 70px 16px 50px;
+    padding: 40px 16px;
+    min-height: 280px;
+  }
+
+  .tc-hero-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 20px;
+    border-radius: 12px;
+    max-width: 100%;
   }
 
   .tc-hero-content h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .tc-hero-content p {
+    font-size: 0.95rem;
   }
 
   .tc-toolbar {

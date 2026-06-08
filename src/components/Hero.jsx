@@ -52,7 +52,7 @@ const Hero = ({ innerRef }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h1 className="hero-title"> MSS Public School
+            <h1 className="hero-title1"> MSS Public School
   </h1>
             <div className="hero-title-row">
             </div>

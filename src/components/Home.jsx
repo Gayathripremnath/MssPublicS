@@ -171,9 +171,7 @@ const SchoolAbout = () => {
                 <a href="#" className="btn-modern">More About Us <span className="btn-icon"></span></a>
                 <div className="years-experience">
                   <div className="exp-icon">
-                    <svg viewBox="0 0 100 100" className="wreath-svg">
-                      <path d="M50,10 C25,10 10,25 10,50 C10,75 25,90 50,90 C75,90 90,75 90,50" fill="none" stroke="currentColor" strokeWidth="2" />
-                    </svg>
+                   
                   </div>
                   <div className="exp-text">
                     <h3>25+</h3>

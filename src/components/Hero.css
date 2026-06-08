@@ -92,9 +92,9 @@
   margin-bottom: 40px;
 }
 
-.hero-title {
+.hero-title1 {
   color: var(--white);
-  font-size: 95px;
+  font-size: 75px !important;
   font-weight: 600;
   line-height: 1.1;
   font-family: "Bitter";
@@ -156,7 +156,7 @@
     padding-left: 15px;
   }
 
-  .hero-title {
+  .hero-title1 {
     font-size: 60px;
   }
 }
@@ -203,7 +203,7 @@
     justify-content: center !important;
   }
 
-  .hero-title {
+  .hero-title1 {
     font-size: 38px !important;
   }
 

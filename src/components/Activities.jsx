@@ -57,7 +57,7 @@ const Activities = () => {
         </nav>
 
         {/* 3. Dynamic Tab View Windows */}
-        <div className="tab-panel">
+        <div className="tab-panel1">
           
           {/* TAB 1: CURRICULUM AND ASSESSMENT */}
           {activeTab === 'curriculum' && (

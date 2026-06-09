@@ -123,10 +123,11 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
                 <li><Link to="/activities" onClick={toggleMobileMenu}>Activities</Link></li>
               </ul>
             </li>
+            
             <li className={`dropdown ${openDropdowns['cbse'] ? 'open' : ''}`}>
-              <div className="dropdown-toggle" onClick={() => toggleDropdown('cbse')}>
-                <span className="dropdown-link-text" style={{ cursor: 'pointer', flexGrow: 1 }}>For CBSE</span>
-                <div className="dropdown-icon-btn">
+              <div className="dropdown-toggle"> 
+                <Link to="/about" className="dropdown-link-text" onClick={toggleMobileMenu}>For CBSE</Link>
+                  <div className="dropdown-icon-btn" onClick={() => toggleDropdown('cbse')}>
                   <FaChevronDown className="drop-icon" />
                 </div>
               </div>

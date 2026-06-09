@@ -107,6 +107,7 @@ function App() {
           <Route path="/transfer/:id" element={<TransferDetails />} />
           <Route path="/admission" element={<Admission />} />
           <Route path="/seniorsec" element={<SeniorAdmission />} /> 
+          <Route path="/activities" element={<Activities />} />
          
         </Routes>
 

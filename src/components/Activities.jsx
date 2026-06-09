@@ -27,7 +27,6 @@ const Activities = () => {
         <div className="hero-content">
           <span className="hero-badge">Annual Report Update</span>
           <h1>School Academic Profile & Co-Curricular Activities</h1>
-          <p>Explore our curriculum framework, continuous professional learning, and vibrant community milestones.</p>
         </div>
       </header>
 

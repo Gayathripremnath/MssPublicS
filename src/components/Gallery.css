@@ -18,7 +18,7 @@
 .gallery-hero {
   background:
     linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
-    url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1600&q=80');
+    url('../assets/lib.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

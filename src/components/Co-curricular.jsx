@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Co-curricular.css';
+import co1 from '../assets/07.jpg';
+import mag from '../assets/mag.jpg';
+import eng from '../assets/eng.jpg';
+import pta from '../assets/44001.jpg';
+import sci from '../assets/04.jpg';
+import nat from '../assets/img4.jpg';
 
 const CoCurricular = () => {
   // Modal State tracking
@@ -25,42 +31,42 @@ const CoCurricular = () => {
       title: 'Co-Curricular Activities',
       shortDesc: 'M.S.S. Public School follows a holistic approach towards co-curricular activities. We aim at the all round personality development of learners...',
       fullDesc: 'M.S.S. Public School follows a holistic approach towards co-curricular activities. We aim at the all round personality development of learners, ensuring equal importance for co-curricular setups alongside core curriculums. From art, crafts, music, debating platforms to national canvas talent shows, we hone individual skills.',
-      image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600' // Placeholder for school's local image path
+      image: co1  
     },
     {
       id: 'magazine-activity',
       title: 'Magazine & Creative Outlets',
       shortDesc: 'School magazine and class magazines are releasing every year. It provides ample opportunities for the students to showcase their creative and imaginative ideas...',
       fullDesc: 'School magazine and class magazines are releasing every year. It provides ample opportunities for the students to showcase their creative and imaginative ideas across prose, drawings, self-written Malayalam, English, Arabic poetry lines, and local socio-scientific columns.',
-      image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=600'
+      image: mag 
     },
     {
       id: 'english-skills',
       title: 'Special Program for English Communication',
       shortDesc: 'A number of novel and innovative programmes, for enhancing the English speaking skills, are introduced in the school. We are availing service of native speakers...',
       fullDesc: 'A number of novel and innovative programmes, for enhancing the English speaking skills, are introduced across all standards. We are availing curated training systems, group speech activities, communication drills, and specialized native speaker standard interaction setups to foster global fluency from primary batches onwards.',
-      image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80&w=600'
+      image: eng
     },
     {
       id: 'pta-body',
       title: 'PTA (Parent Teacher Association)',
       shortDesc: 'Parents are one of the main stake holders of school system. Our school is maintaining a good rapport with parents. Parents are part of all activities...',
       fullDesc: 'Parents are one of the main stake holders of our entire school structure ecosystem. Our school is maintaining an excellent rapport with parents via periodic transparent bodies. Parents are seamlessly woven as an integral part of academic trackers, fest reviews, moral modules, and school infrastructure reviews.',
-      image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600'
+      image: pta
     },
     {
       id: 'science-club',
       title: 'Science Club in collaboration with Planetarium',
       shortDesc: 'An innovative science lab is set up in the campus in collaboration with Regional Science Centre Kozhikode. It provides opportunities for students...',
       fullDesc: 'An innovative science lab framework is set up inside our campus grounds in direct collaborative tie-ups with Regional Science Centre Kozhikode. It provides highly immersive, rich opportunities for the student groups to perform space trackers, robotech modules, and custom physics engineering innovations.',
-      image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=600'
+      image: sci
     },
     {
       id: 'nature-conservation',
       title: 'Nature Conservations & Eco Protection',
       shortDesc: 'Special programmes are conducting to make the students aware about the importance of conservation of Nature and environment. Our campus is maintained green...',
       fullDesc: 'Special interactive micro-programmes are conducted to instill deep eco-awareness regarding the vital preservation of nature and biodiversity. Our school campus is consciously maintained as an expansive zero-plastic green zone, teaching organic farming habits, waste recycling protocols, and global warming remediation values.',
-      image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=600'
+      image: nat
     }
   ];
 
@@ -77,7 +83,7 @@ const CoCurricular = () => {
       {/* Dynamic Modern Banner */}
       <div className="cc-hero-banner">
         <div className="cc-hero-overlay">
-          <h1>Campus Facilities & Co-Curricular Path</h1>
+          <h1> Facilities & Co-Curricular </h1>
           <div className="cc-accent-line"></div>
           <p>Nurturing multi-dimensional talent structures through world-class labs, strategic environmental focus, and expressive global communication programs.</p>
         </div>

@@ -10,7 +10,7 @@
   position: relative;
   width: 100%;
   height: 400px;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background: linear-gradient(135deg, #9baac7 0%, #682c2c 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,7 +24,7 @@
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-image: url('../assets/07.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.2;
@@ -32,19 +32,19 @@
 }
 
 .facilities-hero-content {
+  margin-top: 80px; /* Offset for navbar */
   position: relative;
   z-index: 1;
   max-width: 800px;
-  background: rgba(255, 255, 255, 0.95);
   padding: 40px 30px;
   border-radius: 12px;
-  color: #333;
+  color: #ffffff;
 }
 
 .facilities-hero-content h1 {
   margin: 0 0 15px 0;
   font-size: 3.5rem;
-  color: #1e3c72;
+  color: #ffffff;
   font-weight: 700;
   text-shadow: none;
 }
@@ -54,7 +54,7 @@
   line-height: 1.6;
   opacity: 1;
   font-weight: 300;
-  color: #555;
+  color: #ffffff;
 }
 
 .facilities-container {

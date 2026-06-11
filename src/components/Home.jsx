@@ -171,11 +171,11 @@ const SchoolAbout = () => {
                 </div>
                 <div className="feature-item">
                   <FaCheckCircle className="check-icon" />
-                  <span>Modern Campus Facilities</span>
+                  <span>Modern  Facilities</span>
                 </div>
                 <div className="feature-item">
                   <FaCheckCircle className="check-icon" />
-                  <span>Expert Academic Faculty</span>
+                  <span>Expert  Faculty</span>
                 </div>
                 <div className="feature-item">
                   <FaCheckCircle className="check-icon" />

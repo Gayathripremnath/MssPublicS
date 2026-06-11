@@ -110,6 +110,9 @@
   background: #ffffff;
   min-height: 450px;
   width: 100%;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .split-view {
@@ -137,6 +140,8 @@
 .text-column {
   flex: 1;
   min-width: 0; /* Core fix: allows flex children to dynamically shrink smaller than content text strings */
+  width: 100%;
+  max-width: 100%;
 }
 
 .text-column h2 {
@@ -181,7 +186,8 @@
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  min-width: 480px; /* Safeguards minimum reading column spacing from dropping out of layout boundaries */
+  min-width: 480px; /* Desktop safeguard */
+  table-layout: fixed; /* Helps prevent accidental text pushing */
 }
 
 .custom-table th {
@@ -349,6 +355,9 @@
   .highlight-callout {
     padding: 16px 18px;
   }
+  .tab-panel1 {
+    padding: 30px 24px;
+  }
 }
 
 /* ── Small Tablets / Large Mobile (max-width: 768px) ───────────────────── */
@@ -394,6 +403,43 @@
   .section-img {
     max-height: 300px;
   }
+  
+  /* Restructure Examination Table to 2 Rows per view */
+  .table-responsive {
+    border: none;
+    overflow: hidden;
+  }
+  .custom-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+  }
+  .custom-table thead, 
+  .custom-table tbody, 
+  .custom-table tr {
+    display: contents;
+  }
+  .custom-table th, 
+  .custom-table td {
+    padding: 12px 14px;
+    text-align: left;
+  }
+  
+  /* Reordering table cells into 2 items per row chunk */
+  .custom-table th:nth-child(1) { order: 1; }
+  .custom-table th:nth-child(2) { order: 2; }
+  .custom-table td:nth-child(1) { order: 3; }
+  .custom-table td:nth-child(2) { order: 4; border-bottom: 1px solid #e2e8f0; }
+  .custom-table td:nth-child(1) { border-bottom: 1px solid #e2e8f0; }
+
+  .custom-table th:nth-child(3) { order: 5; margin-top: 0px; }
+  .custom-table th:nth-child(4) { order: 6; margin-top: 0px; }
+  .custom-table td:nth-child(3) { order: 7; border-bottom: none; }
+  .custom-table td:nth-child(4) { order: 8; border-bottom: none; }
+  
   .schedule-box h3 {
     font-size: 1.15rem;
   }
@@ -410,6 +456,9 @@
   .signature-footer {
     font-size: 0.9rem;
     padding-top: 15px;
+  }
+  .tab-panel1 {
+    padding: 25px 20px;
   }
 }
 
@@ -474,6 +523,7 @@
   }
   .tab-panel1 {
     min-height: auto;
+    padding: 20px 15px;
   }
 }
 
@@ -521,5 +571,8 @@
   }
   .schedule-box h3 {
     font-size: 1rem;
+  }
+  .tab-panel1 {
+    padding: 18px 12px;
   }
 }

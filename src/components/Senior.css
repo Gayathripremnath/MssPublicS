@@ -328,9 +328,22 @@
    Responsive Adaptive Layout Breakpoints
    ========================================================================== */
 
+/* Large Desktop (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .sr-admission-container {
+    max-width: 940px;
+    margin: 140px auto 60px auto;
+  }
+}
+
 @media (max-width: 992px) {
   .sr-stream-showcase-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sr-admission-container {
+    margin: 120px 30px 60px 30px;
+    padding: 30px;
   }
 }
 
@@ -369,4 +382,43 @@
   .sr-submit-btn {
     max-width: 100%;
   }
+
+  .sr-admission-container {
+    margin: 80px 12px 30px 12px;
+    padding: 18px;
+  }
+
+  .sr-form-title {
+    font-size: 18px;
+  }
+
+  .sr-header-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sr-captcha-box {
+    width: 100%;
+    max-width: 302px;
+  }
 }
+
+/* Ultra-small (max-width: 360px) */
+@media (max-width: 360px) {
+  .sr-admission-container {
+    margin: 70px 8px 25px 8px;
+    padding: 14px;
+  }
+
+  .sr-form-title {
+    font-size: 16px;
+  }
+
+  .sr-form-group label {
+    font-size: 13px;
+  }
+
+  .sr-stream-card h3 {
+    font-size: 14px;
+  }
+}

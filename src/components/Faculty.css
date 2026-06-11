@@ -372,6 +372,7 @@ body, html, #root {
   }
   .hero-subtitle {
     font-size: 1.05rem;
+    margin-top: -20px;
   }
   .faculty-content-wrapper {
     padding: 30px 15px;
@@ -383,3 +384,64 @@ body, html, #root {
     text-align: center;
   }
 }
+
+/* Large tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-overlay h1 {
+    font-size: 2.8rem;
+  }
+  .admin-grid-view {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .faculty-tabs {
+    gap: 8px;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .faculty-hero {
+    height: 220px;
+  }
+  .hero-overlay h1 {
+    font-size: 1.8rem;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-top: -15px;
+  }
+  .hero-overlay span {
+    margin-top: 60px;
+    font-size: 0.8rem;
+  }
+  .admin-grid-view {
+    grid-template-columns: 1fr;
+  }
+  .faculty-data-table th,
+  .faculty-data-table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  .payment-method-callout {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Ultra-small (max-width: 360px) */
+@media (max-width: 360px) {
+  .faculty-hero {
+    height: 200px;
+  }
+  .hero-overlay h1 {
+    font-size: 1.5rem;
+  }
+  .tab-btn {
+    font-size: 0.82rem;
+    padding: 8px 12px;
+  }
+  .faculty-content-wrapper {
+    padding: 20px 12px;
+  }
+}

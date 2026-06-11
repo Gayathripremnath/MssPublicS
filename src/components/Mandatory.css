@@ -181,3 +181,43 @@
     background-color: transparent;
   }
 }
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .disclosure-container {
+    margin: 10px auto;
+    padding: 12px;
+  }
+
+  .disclosure-title {
+    font-size: 19px;
+    margin-bottom: 20px;
+  }
+
+  .disclosure-table td {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .disclosure-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+/* Ultra-small (max-width: 360px) */
+@media (max-width: 360px) {
+  .disclosure-title {
+    font-size: 17px;
+  }
+
+  .disclosure-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .sub-label {
+    min-width: 80px;
+  }
+}

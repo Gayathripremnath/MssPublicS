@@ -184,7 +184,7 @@ const SchoolAbout = () => {
               </div>
 
               <div className="about-footer-row">
-                <a href="#" className="btn-modern">More About Us <span className="btn-icon"></span></a>
+                <a href="/about" className="btn-modern">More About Us <span className="btn-icon"></span></a>
                 <div className="years-experience">
                   <div className="exp-icon">
 

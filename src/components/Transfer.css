@@ -473,6 +473,19 @@
 /* ═══════════════════════════════════════════════════════
    Responsive
    ═══════════════════════════════════════════════════════ */
+
+/* Large Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .tc-grid,
+  .tc-skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tc-hero-content h1 {
+    font-size: 2.3rem;
+  }
+}
+
 @media (max-width: 768px) {
   .tc-hero {
     padding: 40px 16px;
@@ -554,7 +567,38 @@
     flex-direction: column;
     gap: 6px;
   }
+
+  .tc-container {
+    padding: 25px 15px 0;
+  }
+
+  .tc-section-header h3 {
+    font-size: 1.15rem;
+  }
 }
+
+/* Ultra-small (max-width: 360px) */
+@media (max-width: 360px) {
+  .tc-hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .tc-card {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .tc-card-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .tc-search-input {
+    font-size: 0.88rem;
+  }
+}
+
 
 /* -- PDF Viewer Modal ------------------------------- */
 .tc-modal-overlay {

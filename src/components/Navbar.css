@@ -624,3 +624,53 @@
     height: 130px;
   }
 }
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .nav-content-fluid {
+    height: 55px;
+    padding: 0 10px;
+  }
+
+  .logo-banner {
+    width: 110px;
+    height: 110px;
+  }
+
+  .drawer-header {
+    padding: 25px 20px;
+  }
+
+  .drawer-content {
+    padding: 25px 20px;
+  }
+
+  .side-drawer {
+    width: 100%;
+    right: -100%;
+  }
+
+  .action-btn-icon {
+    font-size: 16px;
+  }
+}
+
+/* Ultra-small (max-width: 360px) */
+@media (max-width: 360px) {
+  .logo-banner {
+    width: 95px;
+    height: 100px;
+  }
+
+  .logo-text-small {
+    font-size: 16px !important;
+  }
+
+  .logo-text-large {
+    font-size: 7px !important;
+  }
+
+  .drawer-header {
+    padding: 20px 15px;
+  }
+}

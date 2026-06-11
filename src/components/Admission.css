@@ -260,6 +260,27 @@
 /* ==========================================================================
    Media Query Responsive Adapters
    ========================================================================== */
+
+/* Large desktop (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .admission-container {
+    max-width: 940px;
+    margin: 140px auto 60px auto;
+  }
+}
+
+/* Tablet (max-width: 992px) */
+@media (max-width: 992px) {
+  .admission-container {
+    margin: 120px 30px 60px 30px;
+    padding: 30px;
+  }
+
+  .form-grid {
+    gap: 18px;
+  }
+}
+
 @media (max-width: 768px) {
   .admission-container {
     margin: 100px 20px 40px 20px;
@@ -282,7 +303,42 @@
 }
 
 @media (max-width: 480px) {
+  .admission-container {
+    margin: 80px 12px 30px 12px;
+    padding: 18px;
+  }
+
+  .form-title {
+    font-size: 18px;
+  }
+
+  .header-icon {
+    width: 40px;
+    height: 40px;
+  }
+
   .submit-btn {
     max-width: 100%;
   }
+
+  .captcha-box {
+    width: 100%;
+    max-width: 302px;
+  }
 }
+
+/* Ultra-small (max-width: 360px) */
+@media (max-width: 360px) {
+  .admission-container {
+    margin: 70px 8px 25px 8px;
+    padding: 14px;
+  }
+
+  .form-title {
+    font-size: 16px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+}

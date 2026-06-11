@@ -286,6 +286,20 @@
 }
 
 /* Responsive View Breakpoints Handler */
+@media (max-width: 1200px) {
+  .info-cards-container {
+    max-width: 960px;
+  }
+
+  .main-content-split {
+    max-width: 960px;
+  }
+
+  .banner-title {
+    font-size: 2.4rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .info-cards-container {
     grid-template-columns: repeat(2, 1fr);
@@ -309,6 +323,21 @@
   }
 }
 
+@media (max-width: 768px) {
+  .contact-banner {
+    padding: 70px 16px;
+  }
+
+  .banner-title {
+    font-size: 2rem;
+    margin-top: 30px;
+  }
+
+  .banner-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 640px) {
   .info-cards-container {
     grid-template-columns: 1fr;
@@ -328,3 +357,49 @@
     text-align: center;  
   }
 }
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .contact-banner {
+    padding: 50px 14px;
+  }
+
+  .banner-title {
+    font-size: 1.7rem;
+    margin-top: 20px;
+  }
+
+  .info-card {
+    padding: 22px 15px;
+  }
+
+  .form-column-box {
+    padding: 20px 15px;
+  }
+
+  .form-title-area h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Ultra-small (max-width: 360px) */
+@media (max-width: 360px) {
+  .banner-title {
+    font-size: 1.45rem;
+  }
+
+  .info-card h3 {
+    font-size: 1rem;
+  }
+
+  .info-card p {
+    font-size: 0.82rem;
+  }
+
+  .school-contact-form input,
+  .form-custom-select,
+  .school-contact-form textarea {
+    font-size: 0.88rem;
+    padding: 12px 14px;
+  }
+}

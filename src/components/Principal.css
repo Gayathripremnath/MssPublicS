@@ -219,6 +219,30 @@ blockquote {
 /* ==========================================
    Responsive Viewport Adaptations
    ========================================== */
+@media (max-width: 1200px) {
+  .principal-hero {
+    height: 350px;
+  }
+  .hero-overlay h1 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .principal-hero {
+    height: 300px;
+  }
+  .hero-overlay h1 {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.15rem;
+  }
+  .principal-content-wrapper {
+    padding: 50px 20px;
+  }
+}
+
 @media (max-width: 767px) {
   .principal-hero {
     height: 280px;
@@ -234,5 +258,47 @@ blockquote {
   }
   .principal-image {
     height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .principal-hero {
+    height: 230px;
+  }
+  .hero-overlay h1 {
+    font-size: 1.7rem;
+    margin-top: 15px !important;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  .principal-content-wrapper {
+    padding: 30px 12px;
+  }
+  .principal-image {
+    height: 280px;
+  }
+  blockquote {
+    padding: 15px 18px;
+    font-size: 1rem;
+    margin: 25px 0;
+  }
+  .principal-text-section {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-overlay h1 {
+    font-size: 1.4rem;
+  }
+  .hero-subtitle {
+    font-size: 0.88rem;
+  }
+  .principal-image {
+    height: 240px;
+  }
+  .principal-meta h3 {
+    font-size: 1.1rem;
   }
 }

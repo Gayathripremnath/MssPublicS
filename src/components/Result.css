@@ -142,6 +142,17 @@
 }
 
 /* Responsive view collapse for smaller mobile screens */
+@media (max-width: 992px) {
+  .result-two-column-grid {
+    gap: 15px;
+  }
+
+  .result-hero-content h1 {
+    margin-top: 60px !important;
+    font-size: 2.1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .result-two-column-grid {
     grid-template-columns: 1fr; /* Shifts to 1 single column layout on mobile */
@@ -155,4 +166,53 @@
   .batch-label-text {
     font-size: 0.95rem;
   }
+
+  .result-hero {
+    padding: 40px 16px;
+  }
+
+  .result-hero-content h1 {
+    font-size: 1.9rem;
+    margin-top: 40px !important;
+  }
 }
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .result-hero-content h1 {
+    font-size: 1.6rem;
+    margin-top: 30px !important;
+  }
+
+  .result-container {
+    padding: 0 15px;
+    margin: 25px auto 40px auto;
+  }
+
+  .result-card-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .result-download-card {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px;
+  }
+
+  .pdf-trigger-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Ultra-small (max-width: 360px) */
+@media (max-width: 360px) {
+  .result-hero-content h1 {
+    font-size: 1.35rem;
+  }
+
+  .batch-label-text {
+    font-size: 0.88rem;
+  }
+}

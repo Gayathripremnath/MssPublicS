@@ -389,6 +389,13 @@
 }
 
 /* Responsive Handling */
+@media (max-width: 1200px) {
+  .cc-main-wrapper {
+    max-width: 960px;
+    gap: 30px;
+  }
+}
+
 @media (max-width: 992px) {
   .cc-main-wrapper {
     flex-direction: column;
@@ -396,6 +403,20 @@
   }
   .cc-sidebar-nav {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cc-hero-banner {
+    padding: 60px 15px;
+  }
+
+  .cc-hero-overlay h1 {
+    font-size: 2.1rem;
+  }
+
+  .cc-cards-layout {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -419,3 +440,52 @@
     padding: 20px;
   }
 }
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .cc-hero-overlay h1 {
+    font-size: 1.6rem;
+    margin-top: 15px;
+  }
+
+  .cc-hero-overlay p {
+    font-size: 0.92rem;
+  }
+
+  .cc-main-wrapper {
+    margin: 30px auto 50px auto;
+    padding: 0 15px;
+  }
+
+  .card-body-content {
+    padding: 18px;
+  }
+
+  .card-body-content h4 {
+    font-size: 1rem;
+  }
+
+  .cc-modal-window {
+    border-radius: 14px;
+  }
+
+  .modal-banner-img {
+    height: 180px;
+  }
+}
+
+/* Ultra-small (max-width: 360px) */
+@media (max-width: 360px) {
+  .cc-hero-overlay h1 {
+    font-size: 1.4rem;
+  }
+
+  .facility-nav-btn {
+    padding: 13px 15px;
+    font-size: 0.92rem;
+  }
+
+  .grid-header-section h2 {
+    font-size: 1.4rem;
+  }
+}

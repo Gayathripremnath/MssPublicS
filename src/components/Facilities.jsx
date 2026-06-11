@@ -84,13 +84,7 @@ const Facilities = () => {
           >
             Our Facilities
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            The School is situated in a serene and calm area in Mavilikkadavu 8 km away from Calicut city, functioning in a three storied building with 60 rooms. We provide all the basic facilities which a standard school should possess.
-          </motion.p>
+
         </div>
       </div>
 

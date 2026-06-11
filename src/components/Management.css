@@ -332,4 +332,54 @@
   .smc-table-section {
     padding: 20px 15px;
   }
+  
+  .mgmt-hero-banner {
+    padding: 60px 16px;
+  }
 }
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .mgmt-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .mgmt-hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .welfare-card-box {
+    padding: 25px 20px;
+  }
+
+  .smc-custom-table th,
+  .smc-custom-table td {
+    padding: 12px 12px;
+    font-size: 0.85rem;
+  }
+
+  .mgmt-content-wrapper {
+    padding: 0 15px 60px 15px;
+  }
+
+  .section-heading-block h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Ultra-small (max-width: 360px) */
+@media (max-width: 360px) {
+  .mgmt-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .committee-panel-header h3 {
+    font-size: 0.9rem;
+  }
+
+  .smc-custom-table th,
+  .smc-custom-table td {
+    padding: 10px 8px;
+    font-size: 0.8rem;
+  }
+}

@@ -11,6 +11,7 @@ import priya from '../assets/priya.jpg';
 import shahila from '../assets/Shahila.jpg';
 import suhara from '../assets/Suhara.jpg';
 import kavyasree from '../assets/kavyasree.jpg';
+import sindhu from '../assets/sindhu_incharge.jpg';
 
 const Faculty = () => {
   const [activeTab, setActiveTab] = useState('admin');
@@ -18,7 +19,7 @@ const Faculty = () => {
   // 1. Administration & In-Charges Data (With placeholder images)
   // 1. Administration & In-Charges Data (FULLY UPDATED)
   const administration = [
-    { name: "Mrs. Sindhu B. P", designation: "Principal", img: "https://msspublicschool.org/images/sindhu_incharge.jpg" },
+    { name: "Mrs. Sindhu B. P", designation: "Principal", img: sindhu },
     { name: "Mrs. Suja. C", designation: "Vice Principal", img:suja },
     { name: "Mrs. Thara. S", designation: "Academic Co-ordinator", img:thara },
     { name: "Mrs. Shimna K P", designation: "Staff Secretary", img: shimna },
@@ -127,9 +128,7 @@ const Faculty = () => {
         <div className="hero-overlay">
           <span>Academic Year 2025 - 2026</span>
           <h1>Our Faculty & Staff</h1>
-          <p className="hero-subtitle">
-            The dedicated team of administrators, educators, and support staff committed to nurturing holistic development.
-          </p>
+        
         </div>
       </div>
 

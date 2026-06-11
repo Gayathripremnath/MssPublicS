@@ -17,6 +17,22 @@ import './StudyResources.css';
 import './BlogSection.css';
 import './BackgroundDecor.css';
 import './DepartmentSection.css';
+import affairsImg from '../assets/affairs.jpg';
+import cultureImg from '../assets/cultural.jpg';
+import museumImg from '../assets/44001.jpg';
+import chemi from '../assets/chemi.jpg';
+import physics from '../assets/phy.jpg';
+import comp from '../assets/comp.jpg';
+import sports from '../assets/sports.jpeg';
+import other from '../assets/other.jpg';
+import library from '../assets/libr.jpg';
+import bio from '../assets/bio.jpg';
+import labImg from '../assets/lab.jpg';
+import mss from '../assets/mss7.jpg';
+import online from '../assets/online.jpg';
+import future from '../assets/05.jpg';
+
+
 
 // ---------------------------------------------------------
 // 0. BackgroundDecorations Component
@@ -82,7 +98,7 @@ const SchoolAbout = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <img src="https://msspublicschool.org/images/mss.jpg" alt="Students" className="main-about-img" />
+              <img src={museumImg} alt="Students" className="main-about-img" />
               <div className="about-stats-badge">
                 <div className="badge-icon">
                   <FaUserGraduate />
@@ -171,7 +187,7 @@ const SchoolAbout = () => {
                 <a href="#" className="btn-modern">More About Us <span className="btn-icon"></span></a>
                 <div className="years-experience">
                   <div className="exp-icon">
-                   
+
                   </div>
                   <div className="exp-text">
                     <h3>25+</h3>
@@ -280,22 +296,22 @@ const DepartmentSection = () => {
       title: "Student Affairs",
       desc:
         "Begin your academic journey with flexible entry requirements and application.",
-      img:
-        "https://msspublicschool.org/images/co-curricular.jpg",
+      img:affairsImg,
+        
     },
     {
       title: "Cultural Organizations",
       desc:
         "Advance your career with streamlined graduate program admissions with mss school.",
       img:
-        "https://msspublicschool.org/images/seed.jpg",
+        cultureImg,
     },
     {
       title: "Museums",
       desc:
         "Join a diverse campus community through a simple application and visa guidance.",
       img:
-        "https://msspublicschool.org/images/pta.jpg",
+        museumImg,
     },
   ];
 
@@ -352,14 +368,14 @@ const FacilitiesSection = () => {
   const trackRef = useRef(null);
 
   const facilities = [
-    { img: "https://msspublicschool.org/images/01.jpg", icon: <FaBook />, title: "Library", desc: "A vast collection of books, journals, and digital resources to support academic research and reading habits.", color: "#D31E25" },
-    { img: "https://msspublicschool.org/images/02.jpg", icon: <FaBook />, title: "Laboratory", desc: "A vast collection of books, journals, and digital resources to support academic research and reading habits.", color: "#D31E25" },
-    { img: "https://msspublicschool.org/images/phys.jpg", icon: <FaMicroscope />, title: "Physics Lab", desc: "Equipped with modern apparatus for exploring the laws of physics through precision experiments.", color: "#222" },
-    { img: "https://msspublicschool.org/images/09.jpg", icon: <FaMicroscope />, title: "Biology Lab", desc: "Discovery-based learning with advanced microscopes and specimen collections for life sciences.", color: "#D31E25" },
-    { img: "https://msspublicschool.org/images/05.jpg", icon: <FaMicroscope />, title: "Chemistry Lab", desc: "A safe and well-ventilated space for hands-on chemical analysis and experimentation.", color: "#222" },
-    { img: "https://msspublicschool.org/images/06.jpg", icon: <FaLaptopCode />, title: "Computer Lab", desc: "Advanced computing labs with high-speed internet to ensure our students are future-ready.", color: "#D31E25" },
-    { img: "https://msspublicschool.org/images/07.jpg", icon: <FaBasketballBall />, title: "Sports", desc: "Comprehensive sports facilities promoting physical health, discipline, and team spirit.", color: "#222" },
-    { img: "https://msspublicschool.org/images/mss_03.jpg", icon: <FaSchool />, title: "Other Amenities", desc: "Additional facilities including art rooms, music rooms, and safe student living spaces.", color: "#D31E25" }
+    { img: library, icon: <FaBook />, title: "Library", desc: "A vast collection of books, journals, and digital resources to support academic research and reading habits.", color: "#D31E25" },
+    { img: labImg, icon: <FaBook />, title: "Laboratory", desc: "A vast collection of books, journals, and digital resources to support academic research and reading habits.", color: "#D31E25" },
+    { img: physics, icon: <FaMicroscope />, title: "Physics Lab", desc: "Equipped with modern apparatus for exploring the laws of physics through precision experiments.", color: "#222" },
+    { img: bio, icon: <FaMicroscope />, title: "Biology Lab", desc: "Discovery-based learning with advanced microscopes and specimen collections for life sciences.", color: "#D31E25" },
+    { img: chemi, icon: <FaMicroscope />, title: "Chemistry Lab", desc: "A safe and well-ventilated space for hands-on chemical analysis and experimentation.", color: "#222" },
+    { img: comp, icon: <FaLaptopCode />, title: "Computer Lab", desc: "Advanced computing labs with high-speed internet to ensure our students are future-ready.", color: "#D31E25" },
+    { img: sports, icon: <FaBasketballBall />, title: "Sports", desc: "Comprehensive sports facilities promoting physical health, discipline, and team spirit.", color: "#222" },
+    { img: other, icon: <FaSchool />, title: "Other Amenities", desc: "Additional facilities including art rooms, music rooms, and safe student living spaces.", color: "#D31E25" }
   ];
 
   // Oscillating Logic (Ping-Pong 1-2-3-2-1)
@@ -434,10 +450,10 @@ const FacilitiesSection = () => {
 // ---------------------------------------------------------
 const SchoolBlog = () => {
   const newsItems = [
-    { img: "https://msspublicschool.org/images/sliders/00.jpg", date: "December 9, 2025", category: "Educations", title: "Advancing Knowledge Through Student Research", author: "MSS Admin", authorImg: "https://msspublicschool.org/images/sindhu.jpg" },
-    { img: "https://msspublicschool.org/images/sliders/002.jpg", date: "December 9, 2025", category: "Educations", title: "Future-Ready Learning University Innovations", author: "MSS Admin", authorImg: "https://msspublicschool.org/images/sindhu.jpg" },
-    { img: "https://msspublicschool.org/images/mss.jpg", date: "December 9, 2025", category: "Educations", title: "Exploring the Future of Education in the Digital Age", author: "MSS Admin", authorImg: "https://msspublicschool.org/images/sindhu.jpg" },
-    { img: "https://msspublicschool.org/images/sliders/004.jpg", date: "December 9, 2025", category: "Educations", title: "The Power of Online Learning Flexibility Meets Opportunity", author: "MSS Admin", authorImg: "https://msspublicschool.org/images/sindhu.jpg" }
+    { img: mss, date: "December 9, 2025", category: "Educations", title: "Advancing Knowledge Through Student Research", author: "MSS Admin", authorImg: "https://msspublicschool.org/images/sindhu.jpg" },
+    { img: future, date: "December 9, 2025", category: "Educations", title: "Future-Ready Learning University Innovations", author: "MSS Admin", authorImg: "https://msspublicschool.org/images/sindhu.jpg" },
+    { img: comp, date: "December 9, 2025", category: "Educations", title: "Exploring the Future of Education in the Digital Age", author: "MSS Admin", authorImg: "https://msspublicschool.org/images/sindhu.jpg" },
+    { img: online, date: "December 9, 2025", category: "Educations", title: "The Power of Online Learning Flexibility Meets Opportunity", author: "MSS Admin", authorImg: "https://msspublicschool.org/images/sindhu.jpg" }
   ];
 
   return (

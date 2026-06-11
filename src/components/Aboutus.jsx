@@ -1,6 +1,15 @@
 import React from 'react';
 import { Layers } from 'lucide-react';
 import './Aboutus.css';
+import museumImg from '../assets/44001.jpg';
+import libraryImg from '../assets/lib.jpg';
+import labImg from '../assets/lab.jpg';
+import phy from '../assets/phy.jpg';
+import bio from '../assets/bio.jpg';
+import chem from '../assets/chemi.jpg';
+import sports from '../assets/sports.jpeg';
+import amen from '../assets/amenities.jpg';
+import comp from '../assets/comp.jpg';
 
 const AboutUs = () => {
   return (
@@ -27,7 +36,7 @@ const AboutUs = () => {
           <div className="intro-split-image-zone">
             <div className="premium-frame-wrapper">
               <img 
-                src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=1000" 
+                src={museumImg} 
                 alt="M.S.S. Public School Campus Life" 
                 className="premium-split-image"
               />
@@ -72,7 +81,7 @@ const AboutUs = () => {
 
         <div className="editorial-facilities-strip">
           <div className="fac-tall-column">
-            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800" alt="Sports" />
+            <img src={sports} alt="Sports" />
             <div className="column-over-gradient"></div>
             <div className="fac-content-block">
               <div className="fac-num">01</div>
@@ -81,7 +90,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="fac-tall-column">
-            <img src="https://images.unsplash.com/photo-1562774053-401389dbf85b?auto=format&fit=crop&q=80&w=800" alt="Computer Lab" />
+            <img src={comp} alt="Computer Lab" />
             <div className="column-over-gradient"></div>
             <div className="fac-content-block">
               <div className="fac-num">02</div>
@@ -90,7 +99,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="fac-tall-column">
-            <img src="https://images.unsplash.com/photo-1614935151651-0bea6508db6b?auto=format&fit=crop&q=80&w=800" alt="Chemistry Lab" />
+            <img src={chem} alt="Chemistry Lab" />
             <div className="column-over-gradient"></div>
             <div className="fac-content-block">
               <div className="fac-num">03</div>
@@ -99,7 +108,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="fac-tall-column">
-            <img src="https://images.unsplash.com/photo-1532187863486-abf9d39d6618?auto=format&fit=crop&q=80&w=800" alt="Biology Lab" />
+            <img src={bio} alt="Biology Lab" />
             <div className="column-over-gradient"></div>
             <div className="fac-content-block">
               <div className="fac-num">04</div>
@@ -108,7 +117,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="fac-tall-column">
-            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=800" alt="Physics Lab" />
+            <img src={phy} alt="Physics Lab" />
             <div className="column-over-gradient"></div>
             <div className="fac-content-block">
               <div className="fac-num">05</div>
@@ -117,7 +126,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="fac-tall-column">
-            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800" alt="Library" />
+            <img src={libraryImg} alt="Library" />
             <div className="column-over-gradient"></div>
             <div className="fac-content-block">
               <div className="fac-num">06</div>

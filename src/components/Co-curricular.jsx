@@ -84,8 +84,6 @@ const CoCurricular = () => {
       <div className="cc-hero-banner">
         <div className="cc-hero-overlay">
           <h1> Facilities & Co-Curricular </h1>
-          <div className="cc-accent-line"></div>
-          <p>Nurturing multi-dimensional talent structures through world-class labs, strategic environmental focus, and expressive global communication programs.</p>
         </div>
       </div>
 

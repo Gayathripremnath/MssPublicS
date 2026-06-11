@@ -56,7 +56,7 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
                 <li><a href="/document/annual_report/annual.pdf" target="_blank" rel="noopener noreferrer">Annual Report</a></li>
                 <li><a href="/document/Book List/book.pdf" target="_blank" rel="noopener noreferrer">Book List</a></li>
                 <li><a href="/document/Circular/circular.pdf" target="_blank" rel="noopener noreferrer">Circular</a></li>
-                <li><a href="/document/Curriculum/curriculum.pdf" target="_blank" rel="noopener noreferrer">Curriculum</a></li>
+                <li><Link to="/curriculum">Curriculum</Link></li>
                 <li><a href="/document/Fire & Safety Certificate/fscertificate.pdf" target="_blank" rel="noopener noreferrer">Fire &amp; Safety Certificate</a></li>
                 <li><a href="/document/Fitness Certificate/fitness.pdf" target="_blank" rel="noopener noreferrer">Fitness Certificate</a></li>
                 <li><a href="/document/Affiliation Certificate/affiliation.pdf" target="_blank" rel="noopener noreferrer">Affiliation Certificate</a></li>
@@ -136,7 +136,7 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
                 <li><a href="/document/annual_report/annual.pdf" target="_blank" rel="noopener noreferrer">Annual Report</a></li>
                 <li><a href="/document/Book List/book.pdf" target="_blank" rel="noopener noreferrer">Book List</a></li>
                 <li><a href="/document/Circular/circular.pdf" target="_blank" rel="noopener noreferrer">Circular</a></li>
-                <li><a href="/document/Curriculum/curriculum.pdf" target="_blank" rel="noopener noreferrer">Curriculum</a></li>
+                <li><Link to="/curriculum" onClick={toggleMobileMenu}>Curriculum</Link></li>
                 <li><a href="/document/Fire & Safety Certificate/fscertificate.pdf" target="_blank" rel="noopener noreferrer">Fire &amp; Safety Certificate</a></li>
                 <li><a href="/document/Fitness Certificate/fitness.pdf" target="_blank" rel="noopener noreferrer">Fitness Certificate</a></li>
                 <li><a href="/document/Affiliation Certificate/affiliation.pdf" target="_blank" rel="noopener noreferrer">Affiliation Certificate</a></li>

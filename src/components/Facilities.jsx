@@ -4,12 +4,13 @@ import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import './Facilities.css';
 import libraryImg from '../assets/lib.jpg';
-import labImg from '../assets/04.jpg';
-import phy from '../assets/67903.jpg';
+import labImg from '../assets/lab.jpg';
+import phy from '../assets/phy.jpg';
 import bio from '../assets/bio.jpg';
 import chem from '../assets/chem.jpg';
 import sports from '../assets/sports.jpeg';
 import amen from '../assets/amenities.jpg';
+import comp from '../assets/comp.jpg';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const facilitiesData = [
@@ -53,7 +54,7 @@ export const facilitiesData = [
     title: "Computer Lab",
     shortDesc: "A computer lab is a room which contains many networked computers for public use. In our school we have...",
     fullDesc: "A computer lab is a room which contains many networked computers for public use. In our school we have two well furnished computer labs, one for the lower classes with 10 systems and the other with 20 systems for the higher classes. We have all the facilities so that the children can utilize it well. There is a server system which has internet connection and all other systems are shared.\nChildren can utilize lab for their academic purposes. All the necessary softwares are installed in each systems and all the systems are working properly.\nSmart class facility is also available for the better learning. At present we have four smart class rooms which provides interactive learning and the children are very interested to attend smart class.",
-    image: "https://images.unsplash.com/photo-1547082299-de196ea013d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    image: comp
   },
   {
     id: "sports",

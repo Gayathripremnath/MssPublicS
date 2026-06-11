@@ -28,6 +28,7 @@ import Activities from './components/Activities';
 import { Rotate3D } from 'lucide-react';
 import Admission from './components/Admission';
 import SeniorAdmission from './components/SeniorAdmission';
+import Curriculum from './components/Curriculum';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -108,6 +109,7 @@ function App() {
           <Route path="/admission" element={<Admission />} />
           <Route path="/seniorsec" element={<SeniorAdmission />} /> 
           <Route path="/activities" element={<Activities />} />
+          <Route path="/curriculum" element={<Curriculum />} />
          
         </Routes>
 

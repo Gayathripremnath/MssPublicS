@@ -69,8 +69,6 @@ const Students = () => {
       <div className="students-hero">
         <div className="students-hero-content">
           <h1>Student & Campus Portal</h1>
-          <div className="students-divider"></div>
-          <p>Academic details, fee structures, student welfare boards, and council committees for 2025 - 2026.</p>
         </div>
       </div>
 

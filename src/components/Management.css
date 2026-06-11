@@ -19,7 +19,7 @@
 /* Hero Banner */
 .mgmt-hero-banner {
   background: linear-gradient(135deg, rgba(138, 21, 56, 0.288) 0%, rgba(71, 8, 25, 0.584) 100%), 
-              url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1200');
+              url('../assets/management.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   padding: 90px 20px;

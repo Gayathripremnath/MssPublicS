@@ -43,9 +43,7 @@ const Management = () => {
         <div className="mgmt-hero-overlay">
           <h1 className="mgmt-hero-title">Governance & Welfare</h1>
           <div className="mgmt-hero-underline"></div>
-          <p className="mgmt-hero-subtitle">
-            Ensuring academic excellence, student safety, and holistic well-being through responsible leadership and dedicated support frameworks.
-          </p>
+         
         </div>
       </div>
 

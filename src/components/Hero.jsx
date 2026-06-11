@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGraduationCap, FaAngleRight } from 'react-icons/fa';
 import './Hero.css';
+import heroImg1 from '../assets/hero1.jpg';
+import heroImg2 from '../assets/hero2.jpg';
 
 import logo from '../assets/mss_logo.png'
 
 const Hero = ({ innerRef }) => {
   const images = [
-    'https://msspublicschool.org/images/sliders/004.jpg',
-    'https://msspublicschool.org/images/sliders/003.jpg'
+    heroImg1,
+    heroImg2
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -66,9 +66,6 @@ const Hero = ({ innerRef }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <a href="#" className="btn hero-btn">
-              Join Our School <span className="btn-dots">...</span>
-            </a>
           </motion.div>
         </motion.div>
       </div>

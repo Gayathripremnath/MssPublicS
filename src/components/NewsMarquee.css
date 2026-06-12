@@ -8,7 +8,7 @@
 .marquee-label {
   background-color: var(--primary-color);
   color: var(--white);
-  padding: 12px 25px;
+  padding: 8px 25px;
   font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 700;
@@ -25,8 +25,8 @@
   right: -15px;
   top: 0;
   border-left: 15px solid var(--primary-color);
-  border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent;
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
 }
 
 .marquee-icon {
@@ -52,7 +52,8 @@
   font-family: var(--font-text);
   font-weight: 500;
   font-size: 16px;
-  padding-left: 100%; /* Start off-screen */
+  margin: 0;
+  padding: 5px 0 5px 100%; /* Small gap and start off-screen */
 }
 
 .marquee-content a {
@@ -74,10 +75,10 @@
 @media (max-width: 768px) {
   .marquee-label {
     font-size: 14px;
-    padding: 10px 15px;
+    padding: 6px 15px;
   }
   .marquee-label::after {
-    border-top-width: 20px;
-    border-bottom-width: 20px;
+    border-top-width: 15px;
+    border-bottom-width: 15px;
   }
 }

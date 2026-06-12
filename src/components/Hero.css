@@ -30,7 +30,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */ /* Kept disabled to prevent background jump glitches during state updates */
 }
 
 .hero-overlay {

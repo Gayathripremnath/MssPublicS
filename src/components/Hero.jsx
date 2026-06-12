@@ -2,17 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGraduationCap, FaAngleRight } from 'react-icons/fa';
 import './Hero.css';
-import heroImg1 from '../assets/hero1.jpg';
-import heroImg2 from '../assets/hero2.jpg';
-
-import logo from '../assets/mss_logo.png'
+import heroImg1 from '../assets/heroimg.jpg';
+import heroImg2 from '../assets/heroimg1.jpg';
+import heroImg3 from '../assets/heroimg2.jpg';
+import logo from '../assets/mss_logo.png';
 
 const Hero = ({ innerRef }) => {
-  const images = [
-    heroImg1,
-    heroImg2
-  ];
-
+  const images = [heroImg1, heroImg2, heroImg3];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -25,7 +21,7 @@ const Hero = ({ innerRef }) => {
   return (
     <section id="home" className="hero" ref={innerRef}>
       <div className="hero-bg-wrapper">
-        <AnimatePresence>
+        <AnimatePresence mode="popLayout">
           <motion.div
             key={currentIndex}
             className="hero-bg"
@@ -33,12 +29,11 @@ const Hero = ({ innerRef }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 2, ease: "linear" }}
-          ></motion.div>
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+          />
         </AnimatePresence>
         <div className="hero-overlay"></div>
       </div>
-
 
       <div className="container hero-content">
         <motion.div
@@ -47,17 +42,14 @@ const Hero = ({ innerRef }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="hero-text-content"
         >
-
           <motion.div
             className="hero-title-wrapper"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h1 className="hero-title1"> MSS Public School
-  </h1>
-            <div className="hero-title-row">
-            </div>
+            <h1 className="hero-title1">MSS Public School</h1>
+            <div className="hero-title-row"></div>
           </motion.div>
 
           <motion.div
@@ -65,8 +57,7 @@ const Hero = ({ innerRef }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-          >
-          </motion.div>
+          ></motion.div>
         </motion.div>
       </div>
     </section>

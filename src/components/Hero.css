@@ -9,6 +9,7 @@
   overflow: hidden;
 }
 
+/* FIXED: Added overflow hidden to cleanly contain the fading layers */
 .hero-bg-wrapper {
   position: absolute;
   top: 0;
@@ -16,8 +17,10 @@
   width: 100%;
   height: 110vh !important;
   z-index: 1;
+  overflow: hidden; 
 }
 
+/* FIXED: Standardized absolute layout mechanics for Framer Motion */
 .hero-bg {
   position: absolute;
   top: 0;
@@ -27,33 +30,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  /* Parallax effect */
-}
-
-@media (max-width: 992px) {
-
-  .hero,
-  .hero-bg-wrapper,
-  .hero-bg {
-    height: 100vh !important;
-    min-height: 100vh !important;
-  }
-
-  .hero-content {
-    top: 0 !important;
-    padding: 0 !important;
-  }
-}
-
-@keyframes bgZoom {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(1.15);
-  }
+  /* background-attachment: fixed; */ /* Kept disabled to prevent background jump glitches during state updates */
 }
 
 .hero-overlay {
@@ -62,7 +39,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgb(3, 46, 70) 0%, rgba(9, 69, 122, 0.7) 40%, rgba(8, 14, 27, 0.1) 100%);
+  background: #0000006b !important;
+  z-index: 2; /* Ensures overlay stays above the shifting background images */
 }
 
 .hero-content {
@@ -151,8 +129,19 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* --- Responsive Adjustments --- */
+
 @media (max-width: 992px) {
+  .hero,
+  .hero-bg-wrapper,
+  .hero-bg {
+    height: 100vh !important;
+    min-height: 100vh !important;
+  }
+
   .hero-content {
+    top: 0 !important;
+    padding: 0 !important;
     padding-left: 15px;
   }
 

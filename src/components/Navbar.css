@@ -411,7 +411,7 @@
 
 .drawer-header {
   padding: 40px;
-  background-color: var(--secondary-color);
+  background-color:#9e1124;
   color: var(--white);
   display: flex;
   justify-content: space-between;
@@ -427,7 +427,6 @@
 .drawer-logo img {
   width: 40px;
   height: auto;
-  filter: brightness(0) invert(1);
 }
 
 .drawer-logo h3 {

@@ -41,16 +41,6 @@ const News = () => {
             </Link>
           </div>
           
-          <div className="news-item">
-            <span className="new-badge-wrapper">
-              <span className="fallback-new-text" style={{color: 'red', fontStyle: 'italic', fontWeight: 'bold', marginRight: '10px'}}>
-                New 
-              </span>
-            </span>
-            <Link to="/result" className="news-link">
-              Result for Term 1 announced | Click here to View
-            </Link>
-          </div>
         </div>
       </div>
     </div>

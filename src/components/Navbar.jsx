@@ -97,7 +97,7 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
         <div className="drawer-header">
           <div className="drawer-logo">
             <img src={logo} alt="MSS Logo" />
-            <h3>MSS School</h3>
+            <h3>MSS Public School</h3>
           </div>
           <button className="drawer-close-btn" onClick={toggleMobileMenu}><FaTimes size={20} /></button>
         </div>

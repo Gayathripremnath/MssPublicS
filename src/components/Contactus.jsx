@@ -56,7 +56,6 @@ const ContactUs = () => {
           </div>
           <h3>Support Email</h3>
           <p><a href="mailto:msspublicschool@gmail.com">msspublicschool@gmail.com</a></p>
-          <p><a href="mailto:info@msspublicschool.org">info@msspublicschool.org</a></p>
         </div>
 
         <div className="info-card">
@@ -64,8 +63,8 @@ const ContactUs = () => {
             <Phone className="card-icon" />
           </div>
           <h3>Phone Number</h3>
-          <p>+91 495 - 2374584</p>
-          <p>+91 9072993855</p>
+          <p><a href="tel:+914952374584" style={{ color: 'inherit', textDecoration: 'none' }}>+91 495 - 2374584</a></p>
+          <p><a href="tel:+919072993855" style={{ color: 'inherit', textDecoration: 'none' }}>+91 9072993855</a></p>
         </div>
 
         <div className="info-card">
@@ -86,7 +85,7 @@ const ContactUs = () => {
           </div>
           <h3>Admission</h3>
           <p><a href="mailto:msspublicschool@gmail.com">msspublicschool@gmail.com</a></p>
-          <p>+91 495 - 2374585</p>
+          <p><a href="tel:+914952374585" style={{ color: 'inherit', textDecoration: 'none' }}>+91 495 - 2374585</a></p>
         </div>
       </div>
 

@@ -45,7 +45,7 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
                 <li><Link to="/mandatory">Mandatory Disclosure</Link></li>
                 <li><Link to="/principal">Principal's Message</Link></li>
                 <li><Link to="/faculty">Faculty</Link></li>
-                <li><Link to="/news-events">News &amp; Events</Link></li>
+                <li><Link to="/news">News &amp; Events</Link></li>
                 <li><Link to="/activities">Activities</Link></li>
               </ul>
             </li>
@@ -88,9 +88,6 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
           <button className="action-btn-icon search-trigger"><FaSearch /></button>
           <span className="action-separator">|</span>
           <button className="action-btn-icon menu-trigger" onClick={toggleMobileMenu}><FaThLarge /></button>
-          <Link to="/apply" className="btn action-btn-apply">
-            Apply Now <FaSignInAlt style={{ marginLeft: '8px' }} />
-          </Link>
         </div>
       </div>
 

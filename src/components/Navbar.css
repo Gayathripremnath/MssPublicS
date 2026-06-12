@@ -152,19 +152,19 @@
 
 /* Nav Links Wrapper pushed left */
 .nav-links-wrapper {
-  margin-left: 200px;
+  margin-left: 250px;
   /* Aligned with the 200px fixed banner */
   flex-grow: 1;
 }
 
 .navbar.banner-hidden .nav-links-wrapper {
-  margin-left: 110px;
+  margin-left: 310px;
 }
 
 .main-nav {
   display:flex;
   font-family: 'Inter', sans-serif;
-  gap: 29px;
+  gap: 40px;
   /* increase gap for premium feel */
   align-items: center;
 }
@@ -693,4 +693,4 @@
   .drawer-header {
     padding: 20px 15px;
   }
-}
+}

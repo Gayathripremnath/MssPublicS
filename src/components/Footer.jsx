@@ -15,7 +15,7 @@ const Footer = () => {
               <ul>
                 <li>
                   <FaPhoneAlt className="footer-icon" /> 
-                  <span>Phone: +91 496-2374584, 2374585</span>
+                  <span>Phone: <a href="tel:+914962374584" style={{ color: 'inherit', textDecoration: 'none' }}>+91 496-2374584</a>, <a href="tel:+914952374585" style={{ color: 'inherit', textDecoration: 'none' }}>2374585</a></span>
                 </li>
                 <li>
                   <FaEnvelope className="footer-icon" /> 

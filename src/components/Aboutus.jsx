@@ -18,7 +18,6 @@ const AboutUs = () => {
       {/* ROW 0: HERO LANDING BANNER */}
       <div className="landing-banner">
         <div className="banner-overlay-gradient">
-          <span className="banner-context-tag">SINCE 2000</span>
           <h1 className="banner-main-title">About Our Institution</h1>
           <div className="banner-gold-line"></div>
           <p className="banner-subtext">

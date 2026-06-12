@@ -26,7 +26,7 @@ const Mandatory = () => {
             </tr>
             <tr>
               <td className="field-label">Phone</td>
-              <td className="field-value">+91 495 - 2374584, 2374585, 9072993855</td>
+              <td className="field-value"><a href="tel:+914952374584" style={{ color: 'inherit', textDecoration: 'none' }}>+91 495 - 2374584</a>, <a href="tel:+914952374585" style={{ color: 'inherit', textDecoration: 'none' }}>2374585</a>, <a href="tel:+919072993855" style={{ color: 'inherit', textDecoration: 'none' }}>9072993855</a></td>
             </tr>
             <tr>
               <td className="field-label">Fax</td>

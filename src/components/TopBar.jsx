@@ -17,7 +17,7 @@ const TopBar = () => {
           </span>
           <span className="info-item-separator">|</span>
           <span className="info-item">
-            <FaPhoneAlt className="icon white-icon" /> +91 495 - 2374584, 2374585
+            <FaPhoneAlt className="icon white-icon" /> <a href="tel:+914952374584" style={{ color: 'inherit', textDecoration: 'none' }}>+91 495 - 2374584</a>, <a href="tel:+914952374585" style={{ color: 'inherit', textDecoration: 'none' }}>2374585</a>
           </span>
           <span className="info-item-separator">|</span>
           <span className="info-item">

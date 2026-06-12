@@ -591,10 +591,21 @@
     display: none;
   }
 
+  .nav-actions {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .action-btn-icon.menu-trigger {
+    font-size: 36px;
+  }
+
   /* Hidden on mobile */
   .nav-content-fluid {
     padding: 0 15px;
-    height: 70px;
+    height: 89px;
   }
 
   /* Slimmer Navbar */
@@ -604,6 +615,7 @@
     position: static;
     /* Switch to static on mobile for better flow with logo */
     transform: translateY(0);
+    height: auto;
   }
 
   .logo-banner {
@@ -616,7 +628,7 @@
 
 @media (max-width: 768px) {
   .nav-content-fluid {
-    height: 60px;
+    height: 89px;
   }
 
   .logo-banner {
@@ -628,8 +640,12 @@
 /* Mobile (max-width: 480px) */
 @media (max-width: 480px) {
   .nav-content-fluid {
-    height: 55px;
+    height: 89px;
     padding: 0 10px;
+  }
+
+  .nav-actions {
+    right: 10px;
   }
 
   .logo-banner {
@@ -652,6 +668,10 @@
 
   .action-btn-icon {
     font-size: 16px;
+  }
+
+  .action-btn-icon.menu-trigger {
+    font-size: 32px;
   }
 }
 

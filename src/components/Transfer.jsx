@@ -3,8 +3,7 @@ import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 import ImageModal from './ImageModal';
 
-const API_BASE = 'https://mssd.onrender.com';
-
+const API_BASE = import.meta.env.VITE_API_BASE;
 const Transfer = () => {
   const navigate = useNavigate();
 
@@ -17,11 +16,9 @@ const Transfer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`${API_BASE}/api/tc/`, {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-          mode: 'cors',
-        });
+        const res = await fetch(`${API_BASE}/api/tc/`, 
+
+        );
         
         if (!res.ok) {
           throw new Error(`HTTP ${res.status}: Failed to fetch Transfer Certificates`);

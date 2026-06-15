@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 
-const API_BASE = 'https://mssd.onrender.com';
+const API_BASE = 'https://mssd-production.up.railway.app';
 
 const Gallery = () => {
   const navigate = useNavigate();
@@ -19,16 +19,10 @@ const Gallery = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-
+        const API_BASE = import.meta.env.VITE_API_BASE;
+        
         const res = await fetch(
           `${API_BASE}/api/gallery/?page=${page}`,
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            mode: 'cors',
-          }
         );
 
         if (!res.ok) {

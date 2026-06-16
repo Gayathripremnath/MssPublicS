@@ -18,8 +18,8 @@ const Gallery = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
-        const API_BASE = import.meta.env.VITE_API_BASE;
+       
+       
         
         const res = await fetch(
           `${API_BASE}/api/gallery/?page=${page}`,

@@ -16,35 +16,45 @@ const Gallery = () => {
   const [prevPage, setPrevPage] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-       
-       
-        
-        const res = await fetch(
-          `${API_BASE}/api/gallery/?page=${page}`,
-        );
+  const controller = new AbortController();
 
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}: Failed to fetch gallery`);
-        }
+  const fetchData = async () => {
+    setLoading(true);
 
-        const data = await res.json();
+    try {
+      const timeout = setTimeout(() => controller.abort(), 10000);
 
-        setGalleryData(data.results || []);
-        setNextPage(data.next);
-        setPrevPage(data.previous);
-        setError(null);
-      } catch (err) {
-        console.error('Fetch error:', err);
-        setError(err.message || 'Failed to load gallery images');
-      } finally {
-        setLoading(false);
+      const res = await fetch(
+        `${API_BASE}/api/gallery/?page=${page}`,
+        { signal: controller.signal }
+      );
+
+      clearTimeout(timeout);
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
       }
-    };
 
-    fetchData();
-  }, [page]);
+      const data = await res.json();
+
+      setGalleryData(data.results || []);
+      setNextPage(data.next);
+      setPrevPage(data.previous);
+      setError(null);
+    } catch (err) {
+      setError(err.name === 'AbortError'
+        ? 'Request timeout'
+        : err.message
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchData();
+
+  return () => controller.abort();
+}, [page]);
 
   const uniqueAlbums = [];
   const titles = new Set();

@@ -15,30 +15,35 @@ const Transfer = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        
-        const res = await fetch(`${API_BASE}/api/tc/`, 
+  let ignore = false;
 
-        );
-        
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}: Failed to fetch Transfer Certificates`);
-        }
-        
-        const data = await res.json();
+  const fetchData = async () => {
+    setLoading(true);
+
+    try {
+      const res = await fetch(`${API_BASE}/api/tc/`);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const data = await res.json();
+
+      if (!ignore) {
         setTcData(data);
         setError(null);
-      } catch (err) {
-        console.error('Fetch error:', err);
-        setError(err.message || 'Failed to fetch Transfer Certificates. Please check your connection.');
-      } finally {
-        setLoading(false);
       }
-    };
+    } catch (err) {
+      if (!ignore) setError(err.message);
+    } finally {
+      if (!ignore) setLoading(false);
+    }
+  };
 
-    fetchData();
-  }, []);
+  fetchData();
+
+  return () => {
+    ignore = true;
+  };
+}, []);
 
   const openImageModal = (imageUrl, title, e) => {
     e.stopPropagation();

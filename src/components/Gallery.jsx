@@ -1,224 +1,81 @@
-import React, { useState, useEffect } from 'react';
+// 
+
+import React from 'react';
 import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
-
-const API_BASE = 'https://mssd-production.up.railway.app';
+import img1 from '../assets/1769590456434056448.jpeg';
+import img2 from '../assets/17555006451074509921.jpeg' ;
+import img3 from '../assets/17684589041595917490.jpeg';
+import img4 from '../assets/17706091411581800385.jpeg';
+import img5 from '../assets/17778757861646504189.jpeg';
 
 const Gallery = () => {
   const navigate = useNavigate();
 
-  const [galleryData, setGalleryData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const [page, setPage] = useState(1);
-  const [nextPage, setNextPage] = useState(null);
-  const [prevPage, setPrevPage] = useState(null);
-
-  useEffect(() => {
-  const controller = new AbortController();
-
-  const fetchData = async () => {
-    setLoading(true);
-
-    try {
-      const timeout = setTimeout(() => controller.abort(), 10000);
-
-      const res = await fetch(
-        `${API_BASE}/api/gallery/?page=${page}`,
-        { signal: controller.signal }
-      );
-
-      clearTimeout(timeout);
-
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-      }
-
-      const data = await res.json();
-
-      setGalleryData(data.results || []);
-      setNextPage(data.next);
-      setPrevPage(data.previous);
-      setError(null);
-    } catch (err) {
-      setError(err.name === 'AbortError'
-        ? 'Request timeout'
-        : err.message
-      );
-    } finally {
-      setLoading(false);
+  // 👉 6 static images (frontend only)
+  const galleryData = [
+    {
+      id: 1,
+      title: "Independence Day",
+      image: img1
+    },
+    {
+      id: 2,
+      title: "Republic Day",
+      image: img2
+    },
+    {
+      id: 3,
+      title: "MSS Celebration",
+      image: img3
+    },
+    {
+      id: 4,
+      title: "School Building",
+      image: img4
+    },
+    {
+      id: 5,
+      title: "Lab Activities",
+      image: img5
+    },
+    {
+      id: 6,
+      title: "PTA",
+      image: img4
     }
-  };
-
-  fetchData();
-
-  return () => controller.abort();
-}, [page]);
-
-  const uniqueAlbums = [];
-  const titles = new Set();
-
-  galleryData.forEach((item) => {
-    if (!titles.has(item.title)) {
-      uniqueAlbums.push(item);
-      titles.add(item.title);
-    }
-  });
-  
-  if (loading) {
-    return (
-      <div className="gallery-page">
-        <div className="gallery-hero">
-          <div className="gallery-hero-content">
-            <h1>Our School Gallery</h1>
-            <div className="gallery-divider"></div>
-          </div>
-        </div>
-
-        <div className="gallery-container">
-          <h2 style={{ textAlign: 'center', color: '#666' }}>
-            Loading gallery...
-          </h2>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="gallery-page">
-        <div className="gallery-hero">
-          <div className="gallery-hero-content">
-            <h1>Our School Gallery</h1>
-            <div className="gallery-divider"></div>
-          </div>
-        </div>
-
-        <div className="gallery-container">
-          <div
-            style={{
-              textAlign: 'center',
-              padding: '60px 20px',
-              background: '#fff5f5',
-              borderRadius: '12px',
-              border: '1px solid #fecaca',
-            }}
-          >
-            <h2
-              style={{
-                color: '#b91c1c',
-                marginBottom: '10px',
-              }}
-            >
-              Unable to Load Gallery
-            </h2>
-
-            <p
-              style={{
-                color: '#dc2626',
-                marginBottom: '20px',
-              }}
-            >
-              {error}
-            </p>
-
-            <button
-              onClick={() => window.location.reload()}
-              style={{
-                padding: '10px 28px',
-                background: '#8a1538',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '8px',
-                fontWeight: '600',
-                cursor: 'pointer',
-              }}
-            >
-              Try Again
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (galleryData.length === 0) {
-    return (
-      <div className="gallery-page">
-        <div className="gallery-hero">
-          <div className="gallery-hero-content">
-            <h1>Our School Gallery</h1>
-            <div className="gallery-divider"></div>
-          </div>
-        </div>
-
-        <div className="gallery-container">
-          <h2 style={{ textAlign: 'center', color: '#666' }}>
-            No gallery images available
-          </h2>
-        </div>
-      </div>
-    );
-  }
+  ];
 
   return (
     <div className="gallery-page">
-      <div className="gallery-hero">
-        <div className="gallery-hero-content">
-          <h1>Our School Gallery</h1>
-          <div className="gallery-divider"></div>
 
-          <p>
-            Visual glimpses of M.S.S. Public School infrastructure,
-            labs, achievements, and student activities.
-          </p>
-        </div>
+      <div className="gallery-hero">
+        <h1>Our School Gallery</h1>
+        <p>M.S.S Public School Activities</p>
       </div>
 
       <div className="gallery-container">
         <div className="gallery-grid">
-          {uniqueAlbums.map((item) => (
+
+          {galleryData.map((item) => (
             <div
               key={item.id}
               className="gallery-card"
               onClick={() => navigate(`/gallery/${item.id}`)}
-              style={{ cursor: 'pointer' }}
             >
-              <div className="gallery-img-wrapper">
-                <img
-                  src={item.image_url}
-                  alt={item.title}
-                  className="gallery-img"
-                  loading="lazy"
-                />
-              </div>
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+              />
 
-              <p className="gallery-title">
-                {item.title}
-              </p>
+              <p>{item.title}</p>
             </div>
           ))}
-        </div>
 
-        <div className="gallery-pagination">
-          <button
-            onClick={() => setPage(page - 1)}
-            disabled={!prevPage}
-          >
-            Previous
-          </button>
-
-          <span>Page {page}</span>
-
-          <button
-            onClick={() => setPage(page + 1)}
-            disabled={!nextPage}
-          >
-            Next
-          </button>
         </div>
       </div>
+
     </div>
   );
 };

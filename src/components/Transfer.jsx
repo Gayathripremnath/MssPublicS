@@ -15,33 +15,48 @@ const Transfer = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-  let ignore = false;
+  let isMounted = true;
 
   const fetchData = async () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API_BASE}/api/tc/`);
+      const controller = new AbortController();
+
+      const timeout = setTimeout(() => {
+        controller.abort();
+      }, 10000);
+
+      const res = await fetch(`${API_BASE}/api/tc/`, {
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeout);
 
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       const data = await res.json();
 
-      if (!ignore) {
+      if (isMounted) {
         setTcData(data);
         setError(null);
       }
     } catch (err) {
-      if (!ignore) setError(err.message);
+      if (isMounted) {
+        setError(err.name === "AbortError"
+          ? "Request timeout (slow server)"
+          : err.message
+        );
+      }
     } finally {
-      if (!ignore) setLoading(false);
+      if (isMounted) setLoading(false);
     }
   };
 
   fetchData();
 
   return () => {
-    ignore = true;
+    isMounted = false;
   };
 }, []);
 

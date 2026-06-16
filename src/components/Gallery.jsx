@@ -65,7 +65,7 @@ const Gallery = () => {
       titles.add(item.title);
     }
   });
-
+  
   if (loading) {
     return (
       <div className="gallery-page">

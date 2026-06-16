@@ -40,31 +40,29 @@ function App() {
   const heroRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      setIsScrolled(currentY > 50);
+  const handleScroll = () => {
+    const currentY = window.scrollY;
+    const isDesktop = window.innerWidth > 992;
+    
+    // Set scrolled state for background changes
+    setIsScrolled(currentY > 50);
 
-      const scrollingDown = currentY > lastScrollY.current;
-      const hasLeftHeroArea = currentY > 120;
-      const isDesktop = window.innerWidth > 992;
+    // Sync BOTH states to hide links and banner at the exact same threshold
+    if (isDesktop && currentY > 50) {
+      setIsNavHidden(true);
+      setIsBannerHidden(true);
+    } else {
+      setIsNavHidden(false);
+      setIsBannerHidden(false);
+    }
 
-      if (isDesktop && scrollingDown && hasLeftHeroArea) {
-        setIsNavHidden(true);
-      } else {
-        setIsNavHidden(false);
-      }
+    lastScrollY.current = currentY;
+  };
 
-      // Hide the large banner after the user starts scrolling
-      const hideThreshold = 80;
-      setIsBannerHidden(currentY > hideThreshold);
-
-      lastScrollY.current = currentY;
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // initialize on mount
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // initialize on mount
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
   return (
     <Router>

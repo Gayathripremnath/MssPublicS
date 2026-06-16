@@ -3,7 +3,8 @@ import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 import ImageModal from './ImageModal';
 
-const API_BASE = import.meta.env.VITE_API_BASE;
+const API_BASE = 'https://mssd-production.up.railway.app';
+
 const Transfer = () => {
   const navigate = useNavigate();
 
@@ -16,6 +17,9 @@ const Transfer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+        const API_BASE = import.meta.env.VITE_API_BASE;
+        
         const res = await fetch(`${API_BASE}/api/tc/`, 
 
         );
@@ -114,10 +118,12 @@ const Transfer = () => {
                 onClick={(e) => openImageModal(item.tc_image_url, item.tc_no, e)}
               >
                 <img
-                  src={item.tc_image_url}
-                  alt={item.tc_no}
-                  className="gallery-img"
-                />
+  src={item.tc_image_url}
+  alt={item.tc_no}
+  className="gallery-img"
+  onLoad={() => console.log("Loaded:", item.tc_image_url)}
+  onError={() => console.log("Failed:", item.tc_image_url)}
+/>
               </div>
               <p
                 className="gallery-title"

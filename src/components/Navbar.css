@@ -19,11 +19,16 @@
 }
 
 .navbar.nav-hidden {
-  transform: translateY(-130%);
-  pointer-events: none;
-  box-shadow: none;
+  transform: translateY(0); /* Keep the main bar visible at the top */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  height: 80px; /* Make it a sleek, compact bar height */
 }
-
+.navbar.nav-hidden .nav-links-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
 /* Compact logo appears when scrolled */
 .logo-compact {
@@ -41,9 +46,6 @@
   object-fit: contain;
 }
 
-.navbar.banner-hidden .logo-compact {
-  display: flex;
-}
 
 @media (max-width: 992px) {
   .navbar.nav-hidden {
@@ -109,6 +111,7 @@
 
 .navbar.scrolled .logo-text-large {
   font-size: 13px;
+  
   font-weight: 600 !important;
 }
 
@@ -150,17 +153,72 @@
   line-height: 1.1;
 }
 
-/* Nav Links Wrapper pushed left */
 .nav-links-wrapper {
   margin-left: 250px;
-  /* Aligned with the 200px fixed banner */
   flex-grow: 1;
+  transition: all 0.4s ease;
 }
 
 .navbar.banner-hidden .nav-links-wrapper {
   margin-left: 310px;
 }
+/* Make sure the compact logo matches the new scrolled bar height */
+.navbar.banner-hidden .logo-compact {
+  display: flex;
+  align-items: center;
+}
+/* 1. Base style for the container holding everything */
+.nav-content-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes logo left and actions right */
+  height: 90px;
+  position: relative;
+  padding: 0 40px;
+  width: 100%;
+}
 
+/* 2. Style for the desktop nav links container */
+.nav-links-wrapper {
+  margin-left: 250px; /* Space for the large banner logo */
+  flex-grow: 1;
+  transition: all 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 3. When navbar is scrolled/hidden: completely vanish the links */
+.navbar.nav-hidden .nav-links-wrapper {
+  margin-left: 0; /* Remove the banner spacing offset */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  max-width: 0; /* Prevents hidden links from occupying layout space */
+  overflow: hidden;
+}
+
+/* 4. Ensure the main bar stays visible at the top */
+.navbar.nav-hidden {
+  transform: translateY(0); 
+  height: 80px; /* Slimmer layout for the compact bar */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* 5. Make sure the compact logo triggers smoothly */
+.logo-compact {
+  display: none;
+  align-items: center;
+  height: 70px;
+}
+
+.navbar.banner-hidden .logo-compact {
+  display: flex;
+}
+/* Maintain proper vertical centering for actions right-side */
+.navbar.nav-hidden .nav-actions {
+  display: flex;
+  align-items: center;
+}
 .main-nav {
   display:flex;
   font-family: 'Inter', sans-serif;

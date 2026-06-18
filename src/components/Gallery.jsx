@@ -12,7 +12,6 @@ import img5 from '../assets/17778757861646504189.jpeg';
 const Gallery = () => {
   const navigate = useNavigate();
 
-  // 👉 6 static images (frontend only)
   const galleryData = [
     {
       id: 1,

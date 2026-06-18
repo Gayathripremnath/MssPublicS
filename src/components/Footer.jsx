@@ -38,12 +38,12 @@ const Footer = () => {
             <h3>Quick Links</h3>
             <div className="footer-widget-content">
               <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Admissions</a></li>
-                <li><a href="#">Academics</a></li>
-                <li><a href="#">Facilities</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/admission">Admissions</a></li>
+                <li><a href="/activities">Academics</a></li>
+                <li><a href="/facilities">Facilities</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/contact">Contact</a></li>
               </ul>
             </div>
           </div>

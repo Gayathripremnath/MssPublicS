@@ -93,7 +93,7 @@ const Admission = () => {
         {/* SECTION 1: Personal Details */}
         <div className="form-grid">
           <div className="form-group">
-            <label>Name of Pupil* <span className="sub-label">( In BBlock Letters )</span></label>
+            <label>Name of Pupil* <span className="sub-label">( In Block Letters )</span></label>
             <input type="text" name="nameOfPupil" placeholder="Name of Pupil" required onChange={handleInputChange} />
           </div>
 

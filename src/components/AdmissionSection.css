@@ -92,7 +92,7 @@
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(140, 17, 39, 0.3);
+  box-shadow: 0 4px 10px rgba(140, 17, 39, 0.305);
   z-index: 3;
 }
 

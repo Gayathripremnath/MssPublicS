@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence ,useTransform,useScroll} from 'framer-motion';
 import {
   FaCheckCircle, FaUserGraduate, FaCalendarAlt, FaTag,
@@ -447,8 +447,7 @@ const SchoolBlog = () => {
     { img: mss,  title: "Advancing Knowledge Through Student Research", author: "MSS Admin" },
     { img: future,   title: "Future-Ready Learning University Innovations", author: "MSS Admin" },
     { img: comp,   title: "Exploring the Future of Education in the Digital Age", author: "MSS Admin" },
-    { img: online, title: "The Power of Online Learning Flexibility Meets Opportunity", author: "MSS Admin" }
-  ];
+    { img: library, title: "Discover New Knowledge and Skills", author: "MSS Admin" }  ];
 
   return (
     <section id="news" className="blog-section">

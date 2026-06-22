@@ -258,7 +258,7 @@
 /* Counter Badges Row */
 .edi-stats-row {
   display: flex;
-  gap: 16px;
+  gap: 13px;
   flex-wrap: wrap;
 }
 

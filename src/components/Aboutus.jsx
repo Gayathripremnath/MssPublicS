@@ -61,9 +61,9 @@ const AboutUs = () => {
 
             {/* Minimal counter badges positioned cleanly under core copy */}
             <div className="edi-stats-row">
-              <div className="edi-stat-pill"><strong>1100</strong> <span>Active Students</span></div>
-              <div className="edi-stat-pill"><strong>59</strong> <span>Teaching Staff</span></div>
-              <div className="edi-stat-pill"><strong>24</strong> <span>Non-Teaching Staff</span></div>
+              <div className="edi-stat-pill"><strong>1100</strong><span>Active Students</span></div>
+              <div className="edi-stat-pill"><strong>59</strong><span>Teaching Staff</span></div>
+              <div className="edi-stat-pill"><strong>24</strong><span>Non-Teaching Staff</span></div>
             </div>
           </div>
           

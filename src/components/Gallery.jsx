@@ -1,53 +1,71 @@
-// 
+import React, { useEffect, useState } from "react";
+import "./Gallery.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-import React from 'react';
-import './Gallery.css';
-import { useNavigate } from 'react-router-dom';
-import img1 from '../assets/1769590456434056448.jpeg';
-import img2 from '../assets/17555006451074509921.jpeg' ;
-import img3 from '../assets/17684589041595917490.jpeg';
-import img4 from '../assets/17706091411581800385.jpeg';
-import img5 from '../assets/17778757861646504189.jpeg';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://mssd-production.up.railway.app';
+
+// Django pagination returns absolute next/prev URLs using the request host.
+// When the backend is behind a proxy, that host may be wrong (http:// or
+// 127.0.0.1). This helper swaps it out for our known API base so
+// Load More always works correctly.
+const sanitizeUrl = (url) => {
+  if (!url) return url;
+  try {
+    const parsed = new URL(url);
+    const base = new URL(API_BASE);
+    parsed.protocol = base.protocol;
+    parsed.host = base.host;
+    return parsed.toString();
+  } catch {
+    return url;
+  }
+};
 
 const Gallery = () => {
   const navigate = useNavigate();
 
-  const galleryData = [
-    {
-      id: 1,
-      title: "Independence Day",
-      image: img1
-    },
-    {
-      id: 2,
-      title: "Republic Day",
-      image: img2
-    },
-    {
-      id: 3,
-      title: "MSS Celebration",
-      image: img3
-    },
-    {
-      id: 4,
-      title: "School Building",
-      image: img4
-    },
-    {
-      id: 5,
-      title: "Lab Activities",
-      image: img5
-    },
-    {
-      id: 6,
-      title: "PTA",
-      image: img4
+  const [galleryData, setGalleryData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [nextPage, setNextPage] = useState(null);
+
+  useEffect(() => {
+    fetchGallery();
+  }, []);
+
+  const fetchGallery = async (url = null) => {
+    try {
+      const response = await axios.get(
+        url || `${API_BASE}/api/gallery/`
+      );
+
+      if (url) {
+        setGalleryData((prev) => [
+          ...prev,
+          ...response.data.results,
+        ]);
+      } else {
+        setGalleryData(response.data.results);
+      }
+
+      setNextPage(sanitizeUrl(response.data.next));
+    } catch (error) {
+      console.error("Gallery fetch error:", error);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  if (loading) {
+    return (
+      <div className="gallery-page">
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
 
   return (
     <div className="gallery-page">
-
       <div className="gallery-hero">
         <h1>Our School Gallery</h1>
         <p>M.S.S Public School Activities</p>
@@ -55,7 +73,6 @@ const Gallery = () => {
 
       <div className="gallery-container">
         <div className="gallery-grid">
-
           {galleryData.map((item) => (
             <div
               key={item.id}
@@ -63,18 +80,30 @@ const Gallery = () => {
               onClick={() => navigate(`/gallery/${item.id}`)}
             >
               <img
-                src={item.image}
-                alt={item.title}
-                loading="lazy"
-              />
+  src={item.image_url}
+  alt={item.title}
+  loading="lazy"
+  onError={() => {
+    console.log("FAILED IMAGE:", item.image_url);
+  }}
+/>
 
               <p>{item.title}</p>
             </div>
           ))}
-
         </div>
-      </div>
 
+        {nextPage && (
+          <div className="load-more-wrapper">
+            <button
+              className="load-more-btn"
+              onClick={() => fetchGallery(nextPage)}
+            >
+              Load More
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

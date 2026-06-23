@@ -1,289 +1,165 @@
-// import React, { useState, useEffect } from 'react';
-// import './Gallery.css';
-// import { useNavigate } from 'react-router-dom';
-// import ImageModal from './ImageModal';
-
-// const API_BASE = 'https://mssd-production.up.railway.app';
-
-// const Transfer = () => {
-//   const navigate = useNavigate();
-
-//   const [tcData, setTcData] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-//   const [modalOpen, setModalOpen] = useState(false);
-//   const [selectedImage, setSelectedImage] = useState(null);
-
-//   useEffect(() => {
-//   let isMounted = true;
-
-//   const fetchData = async () => {
-//     setLoading(true);
-
-//     try {
-//       const controller = new AbortController();
-
-//       const timeout = setTimeout(() => {
-//         controller.abort();
-//       }, 10000);
-
-//       const res = await fetch(`${API_BASE}/api/tc/`, {
-//         signal: controller.signal,
-//       });
-
-//       clearTimeout(timeout);
-
-//       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-//       const data = await res.json();
-
-//       if (isMounted) {
-//         setTcData(data);
-//         setError(null);
-//       }
-//     } catch (err) {
-//       if (isMounted) {
-//         setError(err.name === "AbortError"
-//           ? "Request timeout (slow server)"
-//           : err.message
-//         );
-//       }
-//     } finally {
-//       if (isMounted) setLoading(false);
-//     }
-//   };
-
-//   fetchData();
-
-//   return () => {
-//     isMounted = false;
-//   };
-// }, []);
-
-//   const openImageModal = (imageUrl, title, e) => {
-//     e.stopPropagation();
-//     setSelectedImage({ url: imageUrl, title });
-//     setModalOpen(true);
-//   };
-
-//   const handleTitleClick = (id, e) => {
-//     e.stopPropagation();
-//     if (modalOpen) return;
-//     navigate(`/transfer/${id}`);
-//   };
-
-//   if (loading) {
-//     return <div className="gallery-page"><h2 style={{ textAlign: 'center', paddingTop: '100px' }}>Loading...</h2></div>;
-//   }
-
-//   if (error) {
-//     return (
-//       <div className="gallery-page">
-//         <div className="gallery-hero">
-//           <div className="gallery-hero-content">
-//             <h1>Transfer Certificates</h1>
-//             <div className="gallery-divider"></div>
-//           </div>
-//         </div>
-//         <div className="gallery-container">
-//           <div style={{
-//             textAlign: 'center',
-//             padding: '60px 20px',
-//             background: '#fff5f5',
-//             borderRadius: '12px',
-//             border: '1px solid #fecaca'
-//           }}>
-//             <h2 style={{ color: '#b91c1c', marginBottom: '10px' }}>Unable to Load</h2>
-//             <p style={{ color: '#dc2626', marginBottom: '20px' }}>{error}</p>
-//             <button
-//               onClick={() => window.location.reload()}
-//               style={{
-//                 padding: '10px 28px',
-//                 background: '#8a1538',
-//                 color: '#fff',
-//                 border: 'none',
-//                 borderRadius: '8px',
-//                 fontWeight: '600',
-//                 cursor: 'pointer',
-//               }}
-//             >
-//               Try Again
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="gallery-page">
-//       <div className="gallery-hero">
-//         <div className="gallery-hero-content">
-//           <h1>Transfer Certificates</h1>
-//           <div className="gallery-divider"></div>
-//           <p>
-//             Official Transfer Certificate (TC) documents issued by M.S.S. Public School.
-//           </p>
-//         </div>
-//       </div>
-
-//       <div className="gallery-container">
-//         <div className="gallery-grid">
-//           {tcData.map((item) => (
-//             <div key={item.id} className="gallery-card" style={{ cursor: 'pointer' }} onClick={(e) => e.stopPropagation()}>
-//               <div
-//                 className="gallery-img-wrapper"
-//                 onClick={(e) => openImageModal(item.tc_image_url, item.tc_no, e)}
-//               >
-//                 <img
-//   src={item.tc_image_url}
-//   alt={item.tc_no}
-//   className="gallery-img"
-//   onLoad={() => console.log("Loaded:", item.tc_image_url)}
-//   onError={() => console.log("Failed:", item.tc_image_url)}
-// />
-//               </div>
-//               <p
-//                 className="gallery-title"
-//                 onClick={(e) => handleTitleClick(item.id, e)}
-//               >
-//                 {item.student_name} — {item.tc_no}
-//               </p>
-//             </div>
-//           ))}
-//         </div>
-
-//         {tcData.length === 0 && (
-//           <div style={{ textAlign: 'center', marginTop: '40px' }}>
-//             <h2>No Transfer Certificates found.</h2>
-//           </div>
-//         )}
-//       </div>
-
-//       <ImageModal
-//         isOpen={modalOpen}
-//         imageUrl={selectedImage?.url}
-//         title={selectedImage?.title}
-//         onClose={() => setModalOpen(false)}
-//         onBackgroundClick={() => setModalOpen(false)}
-//       />
-//     </div>
-//   );
-// };
-
-// export default Transfer;
-
-
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 import ImageModal from './ImageModal';
 
-import tc1 from '../assets/tc1.jpg';
-import tc2 from '../assets/tc2.jpg';
-import tc3 from '../assets/tc3.jpg';
-import tc4 from '../assets/tc4.jpg';
-import tc5 from '../assets/tc5.jpg';
-import tc6 from '../assets/tc6.jpg';
+const API_BASE = 'https://mssd-production.up.railway.app';
 
 const Transfer = () => {
   const navigate = useNavigate();
 
+  const [tcData, setTcData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // 👉 6 static TC images
-  const tcData = [
-    {
-      id: 1,
-      student_name: "HAYA FATHIMA",
-      tc_no: "836/2019",
-      image: tc1
-    },
-    {
-      id: 2,
-      student_name: "RAHUL RAJ",
-      tc_no: "TC-002",
-      image: tc2
-    },
-    {
-      id: 3,
-      student_name: "THEERTHA",
-      tc_no: "TC-003",
-      image: tc3
-    },
-    {
-      id: 4,
-      student_name: "NANDANA MP",
-      tc_no: "TC-004",
-      image: tc4
-    },
-    {
-      id: 5,
-      student_name: "RASHA FATHIMA",
-      tc_no: "TC-005",
-      image: tc5
-    },  
-    {
-      id: 6,
-      student_name: "DIYA K",
-      tc_no: "TC-006",
-      image: tc6
-    }
-  ];
+  useEffect(() => {
+  let isMounted = true;
 
-  const openImageModal = (item) => {
-    setSelectedImage({
-      url: item.image,
-      title: item.tc_no
-    });
+  const fetchData = async () => {
+    setLoading(true);
+
+    try {
+      const controller = new AbortController();
+
+      const timeout = setTimeout(() => {
+        controller.abort();
+      }, 10000);
+
+      const res = await fetch(`${API_BASE}/api/tc/`, {
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeout);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const data = await res.json();
+
+      if (isMounted) {
+        setTcData(data);
+        setError(null);
+      }
+    } catch (err) {
+      if (isMounted) {
+        setError(err.name === "AbortError"
+          ? "Request timeout (slow server)"
+          : err.message
+        );
+      }
+    } finally {
+      if (isMounted) setLoading(false);
+    }
+  };
+
+  fetchData();
+
+  return () => {
+    isMounted = false;
+  };
+}, []);
+
+  const openImageModal = (imageUrl, title, e) => {
+    e.stopPropagation();
+    setSelectedImage({ url: imageUrl, title });
     setModalOpen(true);
   };
 
+  const handleTitleClick = (id, e) => {
+    e.stopPropagation();
+    if (modalOpen) return;
+    navigate(`/transfer/${id}`);
+  };
+
+  if (loading) {
+    return <div className="gallery-page"><h2 style={{ textAlign: 'center', paddingTop: '100px' }}>Loading...</h2></div>;
+  }
+
+  if (error) {
+    return (
+      <div className="gallery-page">
+        <div className="gallery-hero">
+          <div className="gallery-hero-content">
+            <h1>Transfer Certificates</h1>
+            <div className="gallery-divider"></div>
+          </div>
+        </div>
+        <div className="gallery-container">
+          <div style={{
+            textAlign: 'center',
+            padding: '60px 20px',
+            background: '#fff5f5',
+            borderRadius: '12px',
+            border: '1px solid #fecaca'
+          }}>
+            <h2 style={{ color: '#b91c1c', marginBottom: '10px' }}>Unable to Load</h2>
+            <p style={{ color: '#dc2626', marginBottom: '20px' }}>{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              style={{
+                padding: '10px 28px',
+                background: '#8a1538',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '8px',
+                fontWeight: '600',
+                cursor: 'pointer',
+              }}
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="gallery-page">
-
       <div className="gallery-hero">
         <div className="gallery-hero-content">
           <h1>Transfer Certificates</h1>
           <div className="gallery-divider"></div>
-          <p>Official TC documents</p>
+          <p>
+            Official Transfer Certificate (TC) documents issued by M.S.S. Public School.
+          </p>
         </div>
       </div>
 
       <div className="gallery-container">
-
         <div className="gallery-grid">
-
           {tcData.map((item) => (
-            <div key={item.id} className="gallery-card">
-
+            <div key={item.id} className="gallery-card" style={{ cursor: 'pointer' }} onClick={(e) => e.stopPropagation()}>
               <div
                 className="gallery-img-wrapper"
-                onClick={() => openImageModal(item)}
-                style={{ cursor: "pointer" }}
+                onClick={(e) => openImageModal(item.tc_image_url, item.tc_no, e)}
               >
                 <img
-                  src={item.image}
-                  alt={item.tc_no}
-                  className="gallery-img"
-                  loading="lazy"
-                />
+  src={item.tc_image_url}
+  alt={item.tc_no}
+  className="gallery-img"
+  onLoad={() => console.log("Loaded:", item.tc_image_url)}
+  onError={() => console.log("Failed:", item.tc_image_url)}
+/>
               </div>
-
-              <p className="gallery-title">
+              <p
+                className="gallery-title"
+                onClick={(e) => handleTitleClick(item.id, e)}
+              >
                 {item.student_name} — {item.tc_no}
               </p>
-
             </div>
           ))}
-
         </div>
 
+        {tcData.length === 0 && (
+          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+            <h2>No Transfer Certificates found.</h2>
+          </div>
+        )}
       </div>
 
-      {/* Modal */}
       <ImageModal
         isOpen={modalOpen}
         imageUrl={selectedImage?.url}
@@ -291,9 +167,9 @@ const Transfer = () => {
         onClose={() => setModalOpen(false)}
         onBackgroundClick={() => setModalOpen(false)}
       />
-
     </div>
   );
 };
 
 export default Transfer;
+

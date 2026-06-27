@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./GalleryDetails.css"; // Reuse GalleryDetails styles
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://mssd-production.up.railway.app';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://demo.msspublicschool.org/mss_school_admin9895/api';
 
 const TransferDetails = () => {
     const { id } = useParams();
@@ -14,7 +14,7 @@ const TransferDetails = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const res = await fetch(`${API_BASE}/api/tc/${id}/`, {
+          const res = await fetch(`${API_BASE}/tc/${id}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors',
@@ -36,10 +36,10 @@ const TransferDetails = () => {
       fetchData();
     }, [id]);
 
-    const getImageUrl = (imagePath) => {
-        if (!imagePath) return '';
-        if (imagePath.startsWith('http')) return imagePath;
-        return `${API_BASE}${imagePath}`;
+    const getImageUrl = (imageName) => {
+        if (!imageName) return '';
+        const UPLOADS_BASE = 'https://demo.msspublicschool.org/mss_school_admin9895/uploads/tc';
+        return `${UPLOADS_BASE}/${imageName}`;
     };
 
     if (loading) {
@@ -60,28 +60,21 @@ const TransferDetails = () => {
     return (
         <div className="gallery-details">
             <button onClick={() => navigate('/transfer')} className="view-btn back-btn" style={{ margin: '0 auto 20px', display: 'block' }}>&larr; Back to Certificates</button>
-            <h1>{currentItem.title}</h1>
-            {currentItem.description && <p>{currentItem.description}</p>}
-            <p>{tcImages.length + 1} {(tcImages.length + 1) === 1 ? 'Image' : 'Images'}</p>
+            <h1>{currentItem.student_name} — {currentItem.tc_no}</h1>
+            <p>1 Image</p>
 
             <div className="details-grid">
                 {/* Main cover image */}
                 <div className="details-card">
                     <div className="gallery-img-wrapper">
-                        <img src={getImageUrl(currentItem.image)} alt={currentItem.title} />
+                        <img 
+                          src={getImageUrl(currentItem.tc_image)} 
+                          alt={currentItem.tc_no} 
+                          onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200?text=No+TC+Image'; }}
+                        />
                     </div>
-                    <p className="gallery-title">Cover Image</p>
+                    <p className="gallery-title">Certificate Image</p>
                 </div>
-
-                {/* Additional TC images */}
-                {tcImages.map((imageItem) => (
-                    <div className="details-card" key={imageItem.id}>
-                        <div className="gallery-img-wrapper">
-                            <img src={getImageUrl(imageItem.image)} alt="Certificate Page" />
-                        </div>
-                        <p className="gallery-title">Page {tcImages.indexOf(imageItem) + 1}</p>
-                    </div>
-                ))}
             </div>
         </div>
     );

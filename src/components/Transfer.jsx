@@ -3,7 +3,8 @@ import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 import ImageModal from './ImageModal';
 
-const API_BASE = 'https://mssd-production.up.railway.app';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://demo.msspublicschool.org/mss_school_admin9895/api';
+const UPLOADS_BASE = 'https://demo.msspublicschool.org/mss_school_admin9895/uploads/tc';
 
 const Transfer = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const Transfer = () => {
         controller.abort();
       }, 10000);
 
-      const res = await fetch(`${API_BASE}/api/tc/`, {
+      const res = await fetch(`${API_BASE}/tc`, {
         signal: controller.signal,
       });
 
@@ -133,15 +134,17 @@ const Transfer = () => {
             <div key={item.id} className="gallery-card" style={{ cursor: 'pointer' }} onClick={(e) => e.stopPropagation()}>
               <div
                 className="gallery-img-wrapper"
-                onClick={(e) => openImageModal(item.tc_image_url, item.tc_no, e)}
+                onClick={(e) => openImageModal(`${UPLOADS_BASE}/${item.tc_image}`, item.tc_no, e)}
               >
                 <img
-  src={item.tc_image_url}
-  alt={item.tc_no}
-  className="gallery-img"
-  onLoad={() => console.log("Loaded:", item.tc_image_url)}
-  onError={() => console.log("Failed:", item.tc_image_url)}
-/>
+                  src={`${UPLOADS_BASE}/${item.tc_image}`}
+                  alt={item.tc_no}
+                  className="gallery-img"
+                  onLoad={() => console.log("Loaded:", item.tc_image)}
+                  onError={(e) => {
+                    e.target.src = 'https://via.placeholder.com/300x200?text=No+TC+Image';
+                  }}
+                />
               </div>
               <p
                 className="gallery-title"

@@ -3,52 +3,26 @@ import "./Gallery.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://mssd-production.up.railway.app';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://demo.msspublicschool.org/mss_school_admin9895/api';
 
-// Django pagination returns absolute next/prev URLs using the request host.
-// When the backend is behind a proxy, that host may be wrong (http:// or
-// 127.0.0.1). This helper swaps it out for our known API base so
-// Load More always works correctly.
-const sanitizeUrl = (url) => {
-  if (!url) return url;
-  try {
-    const parsed = new URL(url);
-    const base = new URL(API_BASE);
-    parsed.protocol = base.protocol;
-    parsed.host = base.host;
-    return parsed.toString();
-  } catch {
-    return url;
-  }
-};
+const UPLOADS_BASE = 'https://demo.msspublicschool.org/mss_school_admin9895/uploads/gallery';
 
 const Gallery = () => {
   const navigate = useNavigate();
 
   const [galleryData, setGalleryData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [nextPage, setNextPage] = useState(null);
 
   useEffect(() => {
     fetchGallery();
   }, []);
 
-  const fetchGallery = async (url = null) => {
+  const fetchGallery = async () => {
     try {
-      const response = await axios.get(
-        url || `${API_BASE}/api/gallery/`
-      );
-
-      if (url) {
-        setGalleryData((prev) => [
-          ...prev,
-          ...response.data.results,
-        ]);
-      } else {
-        setGalleryData(response.data.results);
-      }
-
-      setNextPage(sanitizeUrl(response.data.next));
+      // Fetch from CodeIgniter Api::gallery()
+      const response = await axios.get(`${API_BASE}/gallery`);
+      // CodeIgniter API returns a direct array, not { results: [] }
+      setGalleryData(response.data || []);
     } catch (error) {
       console.error("Gallery fetch error:", error);
     } finally {
@@ -75,34 +49,22 @@ const Gallery = () => {
         <div className="gallery-grid">
           {galleryData.map((item) => (
             <div
-              key={item.id}
+              key={item.gid}
               className="gallery-card"
-              onClick={() => navigate(`/gallery/${item.id}`)}
+              onClick={() => navigate(`/gallery/${item.gid}`)}
             >
               <img
-  src={item.image_url}
-  alt={item.title}
-  loading="lazy"
-  onError={() => {
-    console.log("FAILED IMAGE:", item.image_url);
-  }}
-/>
-
-              <p>{item.title}</p>
+                src={`${UPLOADS_BASE}/${item.g_photo}`}
+                alt={item.g_title}
+                loading="lazy"
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/300x200?text=No+Image';
+                }}
+              />
+              <p>{item.g_title}</p>
             </div>
           ))}
         </div>
-
-        {nextPage && (
-          <div className="load-more-wrapper">
-            <button
-              className="load-more-btn"
-              onClick={() => fetchGallery(nextPage)}
-            >
-              Load More
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

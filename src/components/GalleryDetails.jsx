@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./GalleryDetails.css";
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://mssd-production.up.railway.app';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://demo.msspublicschool.org/mss_school_admin9895/api';
+const UPLOADS_BASE = 'https://demo.msspublicschool.org/mss_school_admin9895/uploads/gallery';
 
 const GalleryDetails = () => {
     const { id } = useParams();
@@ -15,7 +16,8 @@ const GalleryDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`${API_BASE}/api/gallery/${id}/`, {
+                // Fetch the specific gallery album photos from CodeIgniter
+                const res = await fetch(`${API_BASE}/gallery_photos/${id}`, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' },
                     mode: 'cors',
@@ -26,7 +28,7 @@ const GalleryDetails = () => {
                 }
 
                 const data = await res.json();
-                setCurrentItem(data);
+                setCurrentItem({ album_images: data });
                 setError(null);
             } catch (err) {
                 console.error('Fetch error:', err);
@@ -101,19 +103,16 @@ const GalleryDetails = () => {
             <p>{totalImages} {totalImages === 1 ? 'Image' : 'Images'}</p>
 
             <div className="details-grid">
-                {/* Main gallery image */}
-                <div className="details-card">
-                    <div className="gallery-img-wrapper">
-                        <img src={currentItem.image_url} alt={currentItem.title} loading="lazy" />
-                    </div>
-                    <p className="gallery-title">{currentItem.title}</p>
-                </div>
-
-                {/* Album images - already included in API response */}
+                {/* Album images */}
                 {albumImages.map((imageItem) => (
                     <div className="details-card" key={imageItem.id}>
                         <div className="gallery-img-wrapper">
-                            <img src={imageItem.image_url} alt="Album Image" loading="lazy" />
+                            <img 
+                                src={`${UPLOADS_BASE}/${imageItem.photo}`} 
+                                alt="Album Image" 
+                                loading="lazy" 
+                                onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200?text=No+Image'; }} 
+                            />
                         </div>
                         <p className="gallery-title">Album Photo</p>
                     </div>

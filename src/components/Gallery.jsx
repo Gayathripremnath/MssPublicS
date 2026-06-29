@@ -42,11 +42,10 @@ const Gallery = () => {
     <div className="gallery-page">
       <div className="gallery-hero">
         <h1>Our School Gallery</h1>
-        <p>M.S.S Public School Activities</p>
       </div>
 
-      <div className="gallery-container">
-        <div className="gallery-grid">
+      <div className="gallery-page gallery-list-page">
+        <div className="gallery-page transfer-page">
           {galleryData.map((item) => (
             <div
               key={item.gid}

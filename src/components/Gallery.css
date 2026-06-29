@@ -45,7 +45,10 @@
   font-weight: 700;
   color: #ffffff;
 }
-
+.gallery-hero h1{
+  color: white;
+  font-size: 25px;
+}
 .gallery-divider {
   width: 60px;
   height: 3px;
@@ -74,7 +77,14 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
+.gallery-list-page .gallery-card {
+  height: auto;
+}
 
+.gallery-list-page .gallery-img-wrapper {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
 .gallery-card {
   height: 500px;
   border-radius: 12px;

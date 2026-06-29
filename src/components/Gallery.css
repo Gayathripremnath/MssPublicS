@@ -86,7 +86,7 @@
   overflow: hidden;
 }
 .gallery-card {
-  height: 500px;
+  height: auto;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--shadow-md);

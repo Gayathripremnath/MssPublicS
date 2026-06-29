@@ -137,14 +137,15 @@ const Transfer = () => {
                 onClick={(e) => openImageModal(`${UPLOADS_BASE}/${item.tc_image}`, item.tc_no, e)}
               >
                 <img
-                  src={`${UPLOADS_BASE}/${item.tc_image}`}
-                  alt={item.tc_no}
-                  className="gallery-img"
-                  onLoad={() => console.log("Loaded:", item.tc_image)}
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/300x200?text=No+TC+Image';
-                  }}
-                />
+  src={`${UPLOADS_BASE}/${item.tc_image}`}
+  alt={item.tc_no}
+  className="gallery-img"
+  loading="lazy"
+  decoding="async"
+  onError={(e) => {
+    e.target.src = "https://via.placeholder.com/300x200?text=No+TC+Image";
+  }}
+/>
               </div>
               <p
                 className="gallery-title"

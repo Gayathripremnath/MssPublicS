@@ -16,23 +16,13 @@ const GalleryDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Fetch the specific gallery album photos from CodeIgniter
-                const res = await fetch(`${API_BASE}/gallery_photos/${id}`, {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' },
-                    mode: 'cors',
-                });
-
-                if (!res.ok) {
-                    throw new Error(`HTTP ${res.status}: Gallery item not found`);
-                }
+                const res = await fetch(`${API_BASE}/gallery_photos/${id}`);
+                if (!res.ok) throw new Error("Failed to load gallery");
 
                 const data = await res.json();
                 setCurrentItem({ album_images: data });
-                setError(null);
             } catch (err) {
-                console.error('Fetch error:', err);
-                setError(err.message || 'Failed to load gallery item');
+                setError(err.message);
             } finally {
                 setLoading(false);
             }
@@ -41,80 +31,29 @@ const GalleryDetails = () => {
         fetchData();
     }, [id]);
 
-    if (loading) {
-        return (
-            <div className="gallery-details">
-                <h2 style={{ textAlign: 'center', paddingTop: '100px' }}>Loading...</h2>
-            </div>
-        );
-    }
+    if (loading) return <div className="loader">Loading...</div>;
 
-    if (error) {
-        return (
-            <div className="gallery-details">
-                <div style={{
-                    textAlign: 'center',
-                    padding: '60px 20px',
-                    background: '#fff5f5',
-                    borderRadius: '12px',
-                    border: '1px solid #fecaca',
-                    margin: '40px'
-                }}>
-                    <h2 style={{ color: '#b91c1c', marginBottom: '10px' }}>Error Loading Gallery</h2>
-                    <p style={{ color: '#dc2626', marginBottom: '20px' }}>{error}</p>
-                    <button
-                        onClick={() => window.location.reload()}
-                        className="view-btn"
-                        style={{
-                            padding: '10px 28px',
-                            background: '#8a1538',
-                            color: '#fff',
-                            border: 'none',
-                            borderRadius: '8px',
-                            fontWeight: '600',
-                            cursor: 'pointer',
-                        }}
-                    >
-                        Try Again
-                    </button>
-                </div>
-            </div>
-        );
-    }
+    if (error) return <div className="error">{error}</div>;
 
-    if (!currentItem) {
-        return (
-            <div className="gallery-details">
-                <h2>Gallery item not found.</h2>
-                <button onClick={() => navigate(-1)} className="view-btn">Go Back</button>
-            </div>
-        );
-    }
-
-    const albumImages = currentItem.album_images || [];
-    const totalImages = albumImages.length + 1;
+    const albumImages = currentItem?.album_images || [];
 
     return (
         <div className="gallery-details">
-            <button onClick={() => navigate(-1)} className="view-btn back-btn" style={{ margin: '0 auto 20px', display: 'block' }}>
-                &larr; Back to Gallery
+            <button className="back-btn" onClick={() => navigate(-1)}>
+                ← Back
             </button>
-            <h1>{currentItem.title}</h1>
-            <p>{totalImages} {totalImages === 1 ? 'Image' : 'Images'}</p>
 
-            <div className="details-grid">
-                {/* Album images */}
-                {albumImages.map((imageItem) => (
-                    <div className="details-card" key={imageItem.id}>
-                        <div className="gallery-img-wrapper">
-                            <img 
-                                src={`${UPLOADS_BASE}/${imageItem.photo}`} 
-                                alt="Album Image" 
-                                loading="lazy" 
-                                onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200?text=No+Image'; }} 
-                            />
-                        </div>
-                        <p className="gallery-title">Album Photo</p>
+            <h1>{currentItem?.title}</h1>
+            <p>{albumImages.length} Images</p>
+
+            <div className="masonry">
+                {albumImages.map((img) => (
+                    <div className="card" key={img.id}>
+                        <img
+                            src={`${UPLOADS_BASE}/${img.photo}`}
+                            alt="gallery"
+                            loading="lazy"
+                        />
                     </div>
                 ))}
             </div>

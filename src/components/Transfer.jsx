@@ -3,8 +3,8 @@ import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 import ImageModal from './ImageModal';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://demo.msspublicschool.org/mss_school_admin9895/api';
-const UPLOADS_BASE = 'https://demo.msspublicschool.org/mss_school_admin9895/uploads/tc';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://msspublicschool.org/mss_school_admin9895/api';
+const UPLOADS_BASE = 'https://msspublicschool.org/mss_school_admin9895/uploads/tc';
 
 const Transfer = () => {
   const navigate = useNavigate();

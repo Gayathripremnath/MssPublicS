@@ -3,9 +3,9 @@ import "./Gallery.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://demo.msspublicschool.org/mss_school_admin9895/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://msspublicschool.org/mss_school_admin9895/api';
 
-const UPLOADS_BASE = 'https://demo.msspublicschool.org/mss_school_admin9895/uploads/gallery';
+const UPLOADS_BASE = 'https://msspublicschool.org/mss_school_admin9895/uploads/gallery';
 
 const Gallery = () => {
   const navigate = useNavigate();
@@ -44,8 +44,8 @@ const Gallery = () => {
         <h1>Our School Gallery</h1>
       </div>
 
-      <div className="gallery-page gallery-list-page">
-        <div className="gallery-page transfer-page">
+      <div className="gallery-container">
+        <div className="gallery-grid">
           {galleryData.map((item) => (
             <div
               key={item.gid}

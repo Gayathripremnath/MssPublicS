@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./GalleryDetails.css"; // Reuse GalleryDetails styles
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://demo.msspublicschool.org/mss_school_admin9895/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://msspublicschool.org/mss_school_admin9895/api';
 
 const TransferDetails = () => {
     const { id } = useParams();
@@ -38,7 +38,7 @@ const TransferDetails = () => {
 
     const getImageUrl = (imageName) => {
         if (!imageName) return '';
-        const UPLOADS_BASE = 'https://demo.msspublicschool.org/mss_school_admin9895/uploads/tc';
+        const UPLOADS_BASE = 'https://msspublicschool.org/mss_school_admin9895/uploads/tc';
         return `${UPLOADS_BASE}/${imageName}`;
     };
 

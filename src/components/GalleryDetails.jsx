@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./GalleryDetails.css";
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://demo.msspublicschool.org/mss_school_admin9895/api';
-const UPLOADS_BASE = 'https://demo.msspublicschool.org/mss_school_admin9895/uploads/gallery';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://msspublicschool.org/mss_school_admin9895/api';
+const UPLOADS_BASE = 'https://msspublicschool.org/mss_school_admin9895/uploads/gallery';
 
 const GalleryDetails = () => {
     const { id } = useParams();

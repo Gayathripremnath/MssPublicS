@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom'; 
 import { FaChevronDown, FaAddressCard, FaUserGraduate } from 'react-icons/fa';
 import './HomePage.css';
 
@@ -12,7 +11,7 @@ const HomePage = () => {
         {/* Admission Banners */}
         <div id="admission" className="hp-admission-banners">
 
-          {/* Card 1: KG to IX -> Links to /admission */}
+          {/* Card 1 */}
           <motion.div
             className="hp-admission-card-wrapper"
             initial={{ opacity: 0, y: 30 }}
@@ -20,7 +19,12 @@ const HomePage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Link to="/admission" className="hp-admission-card">
+            <a
+              href="https://msspublicschool.sactin.com/online"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hp-admission-card"
+            >
               <div className="hp-admission-card-content">
                 <div className="hp-admission-icon-wrapper">
                   <FaAddressCard className="hp-admission-icon" />
@@ -37,10 +41,10 @@ const HomePage = () => {
                   <FaChevronDown />
                 </span>
               </div>
-            </Link>
+            </a>
           </motion.div>
 
-          {/* Card 2: XI & XII -> Links to /senior-admission */}
+          {/* Card 2 */}
           <motion.div
             className="hp-admission-card-wrapper"
             initial={{ opacity: 0, y: 30 }}
@@ -48,7 +52,12 @@ const HomePage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <Link to="/seniorsec" className="hp-admission-card">
+            <a
+              href="https://msspublicschool.sactin.com/online"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hp-admission-card"
+            >
               <div className="hp-admission-card-content">
                 <div className="hp-admission-icon-wrapper">
                   <FaUserGraduate className="hp-admission-icon" />
@@ -65,7 +74,7 @@ const HomePage = () => {
                   <FaChevronDown />
                 </span>
               </div>
-            </Link>
+            </a>
           </motion.div>
 
         </div>

@@ -215,8 +215,8 @@ const Students = () => {
                       <li><strong>Bimal Raj</strong> (Member)</li>
                     </ul>
                     <ul>
-                      <li><strong>Sharij V Shaji</strong> (School Head Boy)</li>
-                      <li><strong>Nazra Nisamudheen</strong> (School Head Girl)</li>
+                      <li><strong>Nidal abdul shukoor</strong> (School Head Boy)</li>
+                      <li><strong>Devananda Harish</strong> (School Head Girl)</li>
                       <li><strong>Sandhya. K</strong> (Office Superintendent)</li>
                     </ul>
                   </div>

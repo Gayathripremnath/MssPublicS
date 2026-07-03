@@ -18,17 +18,20 @@ const Gallery = () => {
   }, []);
 
   const fetchGallery = async () => {
-    try {
-      // Fetch from CodeIgniter Api::gallery()
-      const response = await axios.get(`${API_BASE}/gallery`);
-      // CodeIgniter API returns a direct array, not { results: [] }
-      setGalleryData(response.data || []);
-    } catch (error) {
-      console.error("Gallery fetch error:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    const response = await axios.get(`${API_BASE}/gallery`);
+
+    const sortedData = [...(response.data || [])].sort(
+      (a, b) => b.gid - a.gid
+    );
+
+    setGalleryData(sortedData);
+  } catch (error) {
+    console.error("Gallery fetch error:", error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   if (loading) {
     return (
@@ -46,22 +49,25 @@ const Gallery = () => {
 
       <div className="gallery-container">
         <div className="gallery-grid">
-          {galleryData.map((item) => (
-            <div
-              key={item.gid}
-              className="gallery-card"
-              onClick={() => navigate(`/gallery/${item.gid}`)}
-            >
-              <img
-                src={`${UPLOADS_BASE}/${item.g_photo}`}
-                alt={item.g_title}
-                loading="lazy"
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/300x200?text=No+Image';
-                }}
-              />
-              <p>{item.g_title}</p>
-            </div>
+          {[...galleryData]
+  .sort((a, b) => b.gid - a.gid)
+  .map((item) => (
+    <div
+      key={item.gid}
+      className="gallery-card"
+      onClick={() => navigate(`/gallery/${item.gid}`)}
+    >
+      <img
+        src={`${UPLOADS_BASE}/${item.g_photo}`}
+        alt={item.g_title}
+        loading="lazy"
+        onError={(e) => {
+          e.target.src =
+            "https://via.placeholder.com/300x200?text=No+Image";
+        }}
+      />
+      <p>{item.g_title}</p>
+    </div>
           ))}
         </div>
       </div>

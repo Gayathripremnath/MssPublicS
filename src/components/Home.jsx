@@ -70,7 +70,7 @@ const NewsMarquee = () => {
           direction="left"
           style={{ width: '100%', paddingTop: '5px', paddingBottom: '5px' }}
         >
-          <a style={{ color: '#F00', fontSize: '16px', fontWeight: 'bold', textDecoration: 'none' }} href="online_admission_form.php">
+          <a style={{ color: '#F00', fontSize: '16px', fontWeight: 'bold', textDecoration: 'none' }} href="/admission">
             Registration for Admission Classes From KG to IX &gt;&gt; Click here to Apply
           </a>
         </marquee>

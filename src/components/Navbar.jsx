@@ -73,7 +73,7 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
             <li><Link to="/cocurricular">Co-Curricular</Link></li>
             <li><Link to="/students">Students</Link></li>
             <li>
-              <a href="https://msspublicschool.sactin.com/online" target="_blank" rel="noopener noreferrer">
+              <a href="/admission" target="_blank" rel="noopener noreferrer">
                 Online Admission
               </a>
             </li>

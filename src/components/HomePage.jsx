@@ -20,7 +20,7 @@ const HomePage = () => {
             transition={{ duration: 0.6 }}
           >
             <a
-              href="https://msspublicschool.sactin.com/online"
+              href="/admission"
               target="_blank"
               rel="noopener noreferrer"
               className="hp-admission-card"
@@ -53,7 +53,7 @@ const HomePage = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
           >
             <a
-              href="https://msspublicschool.sactin.com/online"
+              href="/admission"
               target="_blank"
               rel="noopener noreferrer"
               className="hp-admission-card"

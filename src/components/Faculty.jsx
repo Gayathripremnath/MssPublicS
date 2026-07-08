@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import './Faculty.css';
 import suja from '../assets/suja.jpg';
 import thara from '../assets/thara.jpg';
-import shimna from '../assets/shimna.jpg';
+import shirin from '../assets/shirin.png';
 import nameer from '../assets/nameer.jpg';
 import pragitha from '../assets/pragitha.jpg';
-import haseena from '../assets/Haseena.jpg';
+import babitha from '../assets/Babitha.png';
 import rinsha from '../assets/rinsha.jpg';
-import priya from '../assets/priya.jpg';
+import dhurga from '../assets/Dhurga.png';
 import shahila from '../assets/Shahila.jpg';
 import suhara from '../assets/Suhara.jpg';
 import kavyasree from '../assets/kavyasree.jpg';
 import sindhu from '../assets/sindhu_incharge.jpg';
+import sini from '../assets/sini.png';
 
 const Faculty = () => {
   const [activeTab, setActiveTab] = useState('admin');
@@ -22,15 +23,15 @@ const Faculty = () => {
     { name: "Mrs. Sindhu B. P", designation: "Principal", img: sindhu },
     { name: "Mrs. Suja. C", designation: "Vice Principal", img:suja },
     { name: "Mrs. Thara. S", designation: "Academic Co-ordinator", img:thara },
-    { name: "Mrs. Shimna K P", designation: "Staff Secretary", img: shimna },
+    { name: "Mrs. Fathima Shirin", designation: "Staff Secretary", img: shirin},
     { name: "Mr. Nameer N V", designation: "Event Co-ordinator", img: nameer },
     { name: "Mrs. Pragitha P", designation: "Programme Co-Ordinator", img: pragitha },
     { name: "Mrs. Rinsa C P", designation: "H.S.S Section Incharge", img: rinsha },
-    { name: "Mrs. Haseena P", designation: "H.S. Section Incharge", img: haseena },
-    { name: "Mrs. Priya P", designation: "U.P. Section Incharge", img: priya },
-    { name: "Mrs. Shahila K T", designation: "L.P Junior Section Incharge", img: shahila },
+    { name: "Mrs. Babitha K V", designation: "H.S. Section Incharge", img: babitha },
+    { name: "Mrs. Dhurga P", designation: "U.P. Section Incharge", img: dhurga },
+    { name: "Mrs. Sini c v", designation: "L.P Junior Section Incharge", img: sini },
     { name: "Mrs. Suhara K T", designation: "L.P Senior Section Incharge", img: suhara },
-    { name: "Mrs. Kavyasree V V", designation: "K.G Section Incharge", img: kavyasree }
+    { name: "Mrs. Shahila K T", designation: "K.G Section Incharge", img: shahila },
   ];
 
   // 2. Full Teaching Staff List

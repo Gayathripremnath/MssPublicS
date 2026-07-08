@@ -12,7 +12,7 @@ import shahila from '../assets/Shahila.jpg';
 import suhara from '../assets/Suhara.jpg';
 import kavyasree from '../assets/kavyasree.jpg';
 import sindhu from '../assets/sindhu_incharge.jpg';
-import sini from '../assets/sini.png';
+import sini from '../assets/Sini.png';
 
 const Faculty = () => {
   const [activeTab, setActiveTab] = useState('admin');

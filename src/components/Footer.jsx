@@ -18,19 +18,21 @@ const Footer = () => {
                   <span>Phone: <a href="tel:+914962374584" style={{ color: 'inherit', textDecoration: 'none' }}>+91 496-2374584</a>, <a href="tel:+914952374585" style={{ color: 'inherit', textDecoration: 'none' }}>2374585</a></span>
                 </li>
                 <li>
-                  <FaEnvelope className="footer-icon" /> 
-<a href="mailto:msspublicschool@gmail.com">
-  Email: msspublicschool@gmail.com
-</a>                </li>
+                                    <FaEnvelope className="footer-icon" /> 
+                  <a href="mailto:msspublicschool@gmail.com">
+                    Email: msspublicschool@gmail.com
+                  </a>         
+                </li>
                 <li>
                   <FaGlobe className="footer-icon" /> 
-<a
-  href="https://msspublicschool.org"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Web: www.msspublicschool.org
-</a>                </li>
+                  <a
+                    href="https://msspublicschool.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Web: www.msspublicschool.org
+                  </a>
+                </li>
                 <li>
                   <FaMapMarkerAlt className="footer-icon" /> 
                   <span>Mavilikkadavu, Kozhikode - 673 010</span>
@@ -71,14 +73,15 @@ const Footer = () => {
             <div className="footer-widget-content">
               <p>Stay connected with us on social media for latest updates and events.</p>
               <div className="social-links">
-<a
-  href="https://www.facebook.com/p/M-S-S-Public-School-100068983972724/"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="social-icon facebook"
->
-  <FaFacebookF />
-</a>              </div>
+              <a
+                href="https://www.facebook.com/p/M-S-S-Public-School-100068983972724/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon facebook"
+              >
+                <FaFacebookF />
+              </a>        
+      </div>
             </div>
           </div>
 

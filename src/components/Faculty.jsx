@@ -17,8 +17,6 @@ import sini from '../assets/sini.png';
 const Faculty = () => {
   const [activeTab, setActiveTab] = useState('admin');
 
-  // 1. Administration & In-Charges Data (With placeholder images)
-  // 1. Administration & In-Charges Data (FULLY UPDATED)
   const administration = [
     { name: "Mrs. Sindhu B. P", designation: "Principal", img: sindhu },
     { name: "Mrs. Suja. C", designation: "Vice Principal", img:suja },
@@ -124,7 +122,6 @@ const Faculty = () => {
 
   return (
     <div className="faculty-container">
-      {/* Edge-to-Edge Premium Institutional Banner */}
       <div className="faculty-hero">
         <div className="hero-overlay">
           <span>Academic Year 2025 - 2026</span>

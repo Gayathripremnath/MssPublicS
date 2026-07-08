@@ -19,8 +19,9 @@ const Footer = () => {
                 </li>
                 <li>
                   <FaEnvelope className="footer-icon" /> 
-                  <span>Email: msspublicschool@gmail.com</span>
-                </li>
+<a href="mailto:msspublicschool@gmail.com">
+  Email: msspublicschool@gmail.com
+</a>                </li>
                 <li>
                   <FaGlobe className="footer-icon" /> 
 <a

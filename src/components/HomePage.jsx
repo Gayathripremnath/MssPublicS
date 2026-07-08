@@ -21,8 +21,7 @@ const HomePage = () => {
           >
             <a
               href="/admission"
-              target="_blank"
-              rel="noopener noreferrer"
+              
               className="hp-admission-card"
             >
               <div className="hp-admission-card-content">
@@ -54,8 +53,7 @@ const HomePage = () => {
           >
             <a
               href="/admission"
-              target="_blank"
-              rel="noopener noreferrer"
+              
               className="hp-admission-card"
             >
               <div className="hp-admission-card-content">

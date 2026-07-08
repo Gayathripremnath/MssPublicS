@@ -23,8 +23,13 @@ const Footer = () => {
                 </li>
                 <li>
                   <FaGlobe className="footer-icon" /> 
-                  <span>Web: www.msspublicschool.com</span>
-                </li>
+<a
+  href="https://msspublicschool.org"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Web: www.msspublicschool.org
+</a>                </li>
                 <li>
                   <FaMapMarkerAlt className="footer-icon" /> 
                   <span>Mavilikkadavu, Kozhikode - 673 010</span>
@@ -52,7 +57,7 @@ const Footer = () => {
             <h3>Latest News</h3>
             <div className="footer-widget-content">
               <ul className="news-list">
-                <li><a href="#">Registration for Admission Classes From KG to IX</a></li>
+                <li><a href="/admission">Registration for Admission Classes From KG to IX</a></li>
                 <li><a href="#">Result for Term 1 announced</a></li>
                 <li><a href="#">Annual Sports Day 2026</a></li>
               </ul>
@@ -65,11 +70,14 @@ const Footer = () => {
             <div className="footer-widget-content">
               <p>Stay connected with us on social media for latest updates and events.</p>
               <div className="social-links">
-                <a href="#" className="social-icon facebook"><FaFacebookF /></a>
-                <a href="#" className="social-icon twitter"><FaTwitter /></a>
-                <a href="#" className="social-icon instagram"><FaInstagram /></a>
-                <a href="#" className="social-icon youtube"><FaYoutube /></a>
-              </div>
+<a
+  href="https://www.facebook.com/p/M-S-S-Public-School-100068983972724/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="social-icon facebook"
+>
+  <FaFacebookF />
+</a>              </div>
             </div>
           </div>
 
@@ -81,13 +89,7 @@ const Footer = () => {
         <div className="container">
           <div className="footer-bottom-content">
             <p>&copy; 2026 | Designed by Genova Technologies Pvt Ltd</p>
-            <ul className="footer-bottom-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Activities</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
+            
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ const AboutUs = () => {
       {/* ROW 0: HERO LANDING BANNER */}
       <div className="landing-banner">
         <div className="banner-overlay-gradient">
-          <h1 className="banner-main-title">About Our Institution</h1>
+          <h1 className="banner-main-title">About Our School</h1>
           <div className="banner-gold-line"></div>
           <p className="banner-subtext">
             Education goes beyond textbooks and classrooms. We believe in empowering students to explore their passions and challenge conventions.

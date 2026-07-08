@@ -85,7 +85,7 @@ const Navbar = ({ isScrolled, isNavHidden, isBannerHidden, isMobileMenuOpen, set
         </div>
 
         <div className="nav-actions">
-          <button className="action-btn-icon search-trigger"><FaSearch /></button>
+          {/* <button className="action-btn-icon search-trigger"><FaSearch /></button> */}
           <span className="action-separator">|</span>
           <button className="action-btn-icon menu-trigger" onClick={toggleMobileMenu}><FaThLarge /></button>
         </div>

@@ -5,18 +5,19 @@ const Result = () => {
   // Academic PDF records list tracking the layout shown in the reference image
   const resultRecords = [
     { id: 1, label: "2025 - 2026", fileName: "results.pdf" },
-
-    // { id: 2, label: "2024 - 2025 ( 10th Std )", fileName: "Result_2024_25_10th.pdf" },
-    // { id: 3, label: "2023 - 2024 ( 12th Std )", fileName: "Result_2023_24_12th.pdf" },
-    // { id: 4, label: "2023 - 2024 ( 10th Std )", fileName: "Result_2023_24_10th.pdf" },
-    // { id: 5, label: "2022 - 2023 ( 12th Std )", fileName: "Result_2022_23_12th.pdf" },
-    // { id: 6, label: "2022 - 2023 ( 10th Std )", fileName: "Result_2022_23_10th.pdf" },
-    // { id: 7, label: "2021 - 2022 ( 12th Std )", fileName: "Result_2021_22_12th.pdf" },
-    // { id: 8, label: "2021 - 2022 ( 10th Std )", fileName: "Result_2021_22_10th.pdf" },
-    // { id: 9, label: "2021", fileName: "Result_2021.pdf" },
-    // { id: 10, label: "2020", fileName: "Result_2020_v2.pdf" },
-    // { id: 11, label: "2020", fileName: "Result_2020.pdf" },
-    // { id: 12, label: "2019", fileName: "Result_2019.pdf" },
+    { id: 2, label: "2024 - 2025 ( 12th Std )", fileName: "XIITH_RESULT_2024-25_20250612_0001.pdf" },
+    { id: 3, label: "2024 - 2025 ( 10th Std )", fileName: "XTH_RESULT_2024-25_20250612_0001.pdf" },
+    { id: 4, label: "2023 - 2024 ( 12th Std )", fileName: "XII_RESULT_2023-24_20250612_0001.pdf" },
+    { id: 5, label: "2023 - 2024 ( 10th Std )", fileName: "XTH_2023-24_RESULT_20250612_0001.pdf" },
+    { id: 6, label: "2022 - 2023 ( 12th Std )", fileName: "2022-2023(12thstd).pdf" },
+    { id: 7, label: "2022 - 2023 ( 10th Std )", fileName: "2022-2023(10thstd).pdf" },
+    { id: 8, label: "2021 - 2022 ( 12th Std )", fileName: "2021-22(12thStd).pdf" },
+    { id: 9, label: "2021 - 2022 ( 10th Std )", fileName: "2021-2022(10thstd).pdf" },
+    { id: 10, label: "2021", fileName: "2021 -.pdf" },
+    {id: 11, label: "2021", fileName:"2021.pdf"},
+    { id: 12, label: "2020", fileName: "2020 1.pdf" },
+    { id: 13, label: "2020", fileName: "2020 1.pdf" },
+    { id: 14, label: "2019", fileName: "2019.pdf" },
   ];
 
   return (
@@ -44,9 +45,9 @@ const Result = () => {
               <span className="batch-label-text">{record.label}</span>
               
              
-  <a
-  href="/document/Result/results.pdf"
-  download
+<a
+  href={`/document/Result/${record.fileName}`}
+  download={record.fileName}
   className="pdf-trigger-btn"
   title={`Download ${record.label} PDF`}
 >
